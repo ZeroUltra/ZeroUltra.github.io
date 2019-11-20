@@ -14,7 +14,7 @@
     
     
     
-    <title>Hello World | ZeroUltra | hello</title>
+    <title>Hello World | ZeroUltra | 菜是原罪</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -215,7 +215,7 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/11/19/hello-world/" target="_blank" rel="external">http://yoursite.com/2019/11/19/hello-world/</a>
+        转载请注明作者和出处。<a href="/2019/11/19/hello-world/" target="_blank" rel="external">http://yoursite.com/2019/11/19/hello-world/</a>
         
     </div>
     
@@ -481,10 +481,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

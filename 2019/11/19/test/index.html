@@ -14,22 +14,22 @@
     
     
     
-    <title>test | ZeroUltra | hello</title>
+    <title>test | ZeroUltra | 菜是原罪</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="测试">
-    <meta name="description" content="测试 测试测试测试测试测试测试测试测试测试测试测试">
+    <meta name="description" content="这是测试">
 <meta name="keywords" content="测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;test&#x2F;index.html">
 <meta property="og:site_name" content="ZeroUltra">
-<meta property="og:description" content="测试 测试测试测试测试测试测试测试测试测试测试测试">
+<meta property="og:description" content="这是测试">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T14:31:15.559Z">
+<meta property="og:updated_time" content="2019-11-20T15:15:10.500Z">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -191,6 +191,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><hr>
 <p>测试测试测试测试测试测试测试测试测试测试测试</p>
+<p>copyright: 测试<a href="<%- url_for(page.path) %>" target="_blank" rel="external">&lt;%- url %&gt;</a><br>postMessage: 我是谁</p>
 
         </div>
 
@@ -199,12 +200,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-11-19T14:31:15.559Z" itemprop="dateUpdated">2019-11-19 22:31:15</time>
+    最后更新时间：<time datetime="2019-11-20T15:15:10.500Z" itemprop="dateUpdated">2019-11-20 23:15:10</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/11/19/test/" target="_blank" rel="external">http://yoursite.com/2019/11/19/test/</a>
+        转载请注明作者和出处。<a href="/2019/11/19/test/" target="_blank" rel="external">http://yoursite.com/2019/11/19/test/</a>
         
     </div>
     
@@ -477,10 +478,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GitHub+Hexo 搭建博客--我的第一篇博客 | ZeroUltra | 菜是原罪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo">
+    <meta name="description" content="首先恭喜我…终于搭建好博客了​        我来记录一下搭建的过程 工善其事 利先其器 首先下载node.js 安装  下载 node.js&amp;#39;之后,执行命令  npm install hexo-cli -g  安装hexo,  hexo官网  然后执行命令npm install hexo-deployer-git    --save  安装部署到github的插件  选择一款你喜欢的主题">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub+Hexo 搭建博客--我的第一篇博客">
+<meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;20191123zero&#x2F;index.html">
+<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:description" content="首先恭喜我…终于搭建好博客了​        我来记录一下搭建的过程 工善其事 利先其器 首先下载node.js 安装  下载 node.js&amp;#39;之后,执行命令  npm install hexo-cli -g  安装hexo,  hexo官网  然后执行命令npm install hexo-deployer-git    --save  安装部署到github的插件  选择一款你喜欢的主题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;images&#x2F;1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;_posts&#x2F;2019&#x2F;20191123zero&#x2F;1.jpg">
+<meta property="og:updated_time" content="2019-11-22T16:39:23.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;images&#x2F;1.jpg">
+    
+    <link rel="shortcut icon" href="/_posts/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/_posts/img/brand.jpg)">
+      <div class="brand">
+        <a href="/_posts/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/_posts/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname"></h5>
+          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/_posts/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/_posts/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/_posts/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/_posts/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZeroUltra" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/_posts/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GitHub+Hexo 搭建博客--我的第一篇博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GitHub+Hexo 搭建博客--我的第一篇博客</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-22T14:17:30.000Z" itemprop="datePublished" class="page-time">
+  2019-11-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/_posts/categories/hexo/">hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#首先恭喜我…终于搭建好博客了"><span class="post-toc-number">1.</span> <span class="post-toc-text">首先恭喜我…终于搭建好博客了</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工善其事-利先其器"><span class="post-toc-number">2.</span> <span class="post-toc-text">工善其事 利先其器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令走一走-博客马上有"><span class="post-toc-number">3.</span> <span class="post-toc-text">命令走一走 博客马上有</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建后花园"><span class="post-toc-number">4.</span> <span class="post-toc-text">搭建后花园</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-20191123zero"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GitHub+Hexo 搭建博客--我的第一篇博客</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-22 22:17:30" datetime="2019-11-22T14:17:30.000Z"  itemprop="datePublished">2019-11-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/_posts/categories/hexo/">hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="首先恭喜我…终于搭建好博客了"><a href="#首先恭喜我…终于搭建好博客了" class="headerlink" title="首先恭喜我…终于搭建好博客了"></a>首先恭喜我…终于搭建好博客了</h2><p>​        我来记录一下搭建的过程</p>
+<h2 id="工善其事-利先其器"><a href="#工善其事-利先其器" class="headerlink" title="工善其事 利先其器"></a>工善其事 利先其器</h2><ol>
+<li><p>首先下载<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a> 安装</p>
+</li>
+<li><p>下载 <code>node.js&#39;</code>之后,执行命令  <code>npm install hexo-cli -g</code>  安装<code>hexo</code>,  <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a></p>
+</li>
+<li><p>然后执行命令<code>npm install hexo-deployer-git    --save</code>  安装部署到github的插件</p>
+</li>
+<li><p>选择一款你喜欢的主题 官方主题网址 <a href="https://hexo.io/themes/" target="_blank" rel="noopener"> https://hexo.io/themes/ </a>  官方wiki网址<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener"> https://github.com/hexojs/hexo/wiki/Themes </a>  然后使用git下载, 本网站使用了<a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a></p>
+</li>
+</ol>
+<h2 id="命令走一走-博客马上有"><a href="#命令走一走-博客马上有" class="headerlink" title="命令走一走 博客马上有"></a>命令走一走 博客马上有</h2><p>​    搭配hexo官方文档使用</p>
+<ol>
+<li><p>打开cmd 使用如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;网站文件夹&gt;</span><br><span class="line">cd &lt;网站文件夹&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>网站文件夹必须是空文件夹</p>
+<p>hexo init 有可能clone 失败,也可能中途一些其他问题,请多次尝试,下载成功界面</p>
+<p><img src="/images/1.jpg" alt></p>
+<p>下载完成之后完整目录结构</p>
+<p><img src="/_posts/2019/20191123zero/1.jpg" alt></p>
+</li>
+<li><p>hexo 常用的几个命令</p>
+<ul>
+<li><p>清除缓存 <code>hexo clear</code></p>
+</li>
+<li><p>生成静态文件：<code>hexo generate</code>，简写<code>hexo g</code></p>
+</li>
+<li><p>启动服务器：<code>hexo server</code>，简写<code>hexo s</code></p>
+</li>
+<li><p>部署到远程站点： <code>hexo deploy</code>，简写<code>hexo d</code></p>
+</li>
+<li><p>写新文章: <code>hexo n &lt;title&gt;</code> 新文章在 source/_posts文件夹下面</p>
+<blockquote>
+<p>更多指令：<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands</a> </p>
+</blockquote>
+</li>
+</ul>
+<p>现在使用命令 <code>hexo s</code> 就可以 打开 <code>http://localhost:4000/</code>地址就可以查看了</p>
+</li>
+</ol>
+<h2 id="搭建后花园"><a href="#搭建后花园" class="headerlink" title="搭建后花园"></a>搭建后花园</h2><p>   Everything`s ok<del>~</del></p>
+<ol>
+<li>两个重要的内容</li>
+</ol>
+<ul>
+<li><p>切换主题</p>
+<p>在你的网站文件夹下面有个<code>themes</code> 文件夹,然后把你下载的主题文件全部拷贝.</p>
+<p>然后修改<code>_config.yml</code>配置</p>
+<p>找到<code>theme: landscape</code>  然后将landscape替换成你的主题文件夹名字</p>
+<p>然后运行<code>hexo clear</code>  <code>hexo s</code>重启,再打开网址查看</p>
+</li>
+<li><p>部署到github</p>
+<p>还是打开<code>_config.yml</code>(注意<strong>不是</strong>主题的_config.yml)</p>
+<p>然后修改<code>deploy</code>部分,例如我的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/ZeroUltra/ZeroUltra.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>  <strong><em>——————-以上就是搭建博客步骤,下面的内容是对我当前主题的一些设置——————–</em></strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-22T16:39:23.652Z" itemprop="dateUpdated">2019-11-23 00:39:23</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处。<a href="/_posts/2019/20191123zero/" target="_blank" rel="external">http://zeroultra.github.io/2019/20191123zero/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://zeroultra.github.io">
+            <img src="/_posts/img/avatar.jpg" alt="">
+            
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/_posts/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/20191123zero/&title=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/20191123zero/&title=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&source=这是我的网站" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2019/20191123zero/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&url=http://zeroultra.github.io/2019/20191123zero/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2019/20191123zero/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/_posts/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/_posts/img/wechat.jpg" data-alipay="/_posts/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span> &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/20191123zero/&title=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/20191123zero/&title=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&source=这是我的网站" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2019/20191123zero/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GitHub+Hexo 搭建博客--我的第一篇博客》 — ZeroUltra&url=http://zeroultra.github.io/2019/20191123zero/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2019/20191123zero/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2019/20191123zero/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/_posts/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

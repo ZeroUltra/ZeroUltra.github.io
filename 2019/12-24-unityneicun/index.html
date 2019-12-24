@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>unity中的内存分配以及卸载 | ZeroUltra | 菜是原罪</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="内存">
+    <meta name="description" content="前言​    遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)  Profiler深挖-Memory面板(5)  Profiler深挖-托管堆(9)  Profiler深挖-图解内存管理(10)   堆内存与垃圾回收 托管内存  .NE">
+<meta name="keywords" content="内存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity中的内存分配以及卸载">
+<meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;index.html">
+<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:description" content="前言​    遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)  Profiler深挖-Memory面板(5)  Profiler深挖-托管堆(9)  Profiler深挖-图解内存管理(10)   堆内存与垃圾回收 托管内存  .NE">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;5.png">
+<meta property="og:updated_time" content="2019-12-24T15:28:14.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;1.jpg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname"></h5>
+          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZeroUltra" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">unity中的内存分配以及卸载</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">unity中的内存分配以及卸载</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-24T13:00:42.000Z" itemprop="datePublished" class="page-time">
+  2019-12-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%86%85%E5%AD%98/">内存</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆内存与垃圾回收"><span class="post-toc-number">2.</span> <span class="post-toc-text">堆内存与垃圾回收</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-unityneicun"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">unity中的内存分配以及卸载</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-24 21:00:42" datetime="2019-12-24T13:00:42.000Z"  itemprop="datePublished">2019-12-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%86%85%E5%AD%98/">内存</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)</p>
+<ul>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-memorymian-ban-5" target="_blank" rel="noopener">Profiler深挖-Memory面板(5)</a></p>
+</li>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-tuo-guan-dui-9" target="_blank" rel="noopener">Profiler深挖-托管堆(9)</a></p>
+</li>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-tu-jie-nei-cun-guan-li-10" target="_blank" rel="noopener">Profiler深挖-图解内存管理(10)</a></p>
+</li>
+</ul>
+<h2 id="堆内存与垃圾回收"><a href="#堆内存与垃圾回收" class="headerlink" title="堆内存与垃圾回收"></a>堆内存与垃圾回收</h2><ul>
+<li>托管内存</li>
+</ul>
+<p>.NET 有自己的垃圾回收,会帮我们回收堆内存,回收时间是不确定的,当我们new一个对象的时候就会产生<code>托管堆内存</code></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class A : System.Object</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> A();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为new了一个新的对象 所以产生了堆内存</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12-24-unityneicun/1.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<ul>
+<li><p>非托管内存</p>
+<p>不是被.NET分配出来的内存，比如Unity里的贴图、网格、模型、材质Shader等等一些文件内存 ,如下代码所示，分别创建一个10X10和1024X1024的贴图资源。（Resources.Load或者AssetBundle.Load也一样） </p>
+</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        Profiler.BeginSample(<span class="string">"10 x 10"</span>);</span><br><span class="line">        <span class="keyword">new</span> Texture2D(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">        Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">        Profiler.BeginSample(<span class="string">"1024 x 1024"</span>);</span><br><span class="line">        <span class="keyword">new</span> Texture2D(<span class="number">1024</span>, <span class="number">1024</span>);</span><br><span class="line">        Profiler.EndSample();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 如下图所示，无论是10X10还是1024X1024的图所<strong>占用的堆内存都是一样的</strong>，换句话说堆内存中只是记录了一个文件内存的指针，实际文件则保存在非托管堆中了 </p>
+<p><img src="/2019/12-24-unityneicun/2.png" alt></p>
+<p>如下图所示，用Profiler查看一下非托管堆内存，可以看到1024X1024和10X10所占的内存是完全不同的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12-24-unityneicun/3.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>那么托管堆内存和非托管堆内存如何进行释放呢？很抱歉托管堆内存我们是无法释放的，必须等到垃圾回收的时候释放，但是非托管堆内存我们是可以释放的，Unity就提供了两个API来释放。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Resources.UnloadAsset(obj);</span><br><span class="line">Resources.UnloadUnusedAssets();</span><br></pre></td></tr></table></figure>
+
+<p>Resources.UnloadAsset需要传入一个<code>资源文件</code>，也就是主动指定释放内存，比如texture、mesh、shader等，不能是GameObject、Component、AssetBundle文件。</p>
+<p> Resources.UnloadUnusedAssets就是卸载无用资源，这个<strong>函数是比较慢</strong>。请大家想象一下在连续的内存中怎么才能确定那些是有引用的内存那些是无引用（垃圾）内存呢？得一个个的循环遍历才能找到垃圾内存吧，可想而知它会有多慢 </p>
+<p>除了Unity的资源，还有<code>文件、数据库</code>，这些都属于非托管堆内存，我们来做一个试验，如下代码所示。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FileStream fileStream;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, 	              				  FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fileStream = <span class="literal">null</span>;</span><br><span class="line">    fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>,                                	   FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就会收到下面这个IO错误，代码中虽然让fileStream的指针指向了null，但是由于fileStream所占的非托管内存并没有被delete掉，所以后面再去请求这个fileStream就报错了。</p>
+<blockquote>
+<p>IOException: Sharing violation on path /Users/momo/New Unity Project (2019.1.4f1)/Assets/StreamingAssets/1.txt</p>
+</blockquote>
+<p>如下代码所示，我们来改造一下，只需要进行一下GC，这样就不会再报错了。注意代码中的System.GC.WaitForPendingFinalizers();表示等析构函数执行完毕。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fileStream = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    System.GC.Collect();</span><br><span class="line">    System.GC.WaitForPendingFinalizers();</span><br><span class="line"></span><br><span class="line">    fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fileStream = null;以后自身变成了垃圾，但是堆内存中还没有进行释放。System.GC.Collect();以后就会执行FileStream的析构函数，System.GC.WaitForPendingFinalizers();就是等析构函数执行完毕。FileStream最终在析构函数中将文件句柄Dispose掉，然后就不影响后面再去用它了。</p>
+<p>.NET 中推内存 我们可以不管 但是非托管内存必须要管理,C#提供了一个主动释放托管堆内存的接口</p>
+<blockquote>
+<p>System.IDisposable</p>
+</blockquote>
+<p> 它的目的就是让我们主动释放非托管堆内存的，如下代码所示，只要通过using()包起来就会自动调用类的Dispose方法，从而实现释放。 </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class A : System.IDisposable</span><br><span class="line">&#123;</span><br><span class="line">    FileStream fileStream;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream.Dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> a = <span class="keyword">new</span> A())</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> a = <span class="keyword">new</span> A())</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>并不是所有人都会用using()，万一有个新手程序员不知道这么用，那System.IDisposable岂不是形同虚设了么？所以这时候就要引入一个新概念那就是析构函数。</p>
+<p>析构函数的执行时机，并不是fileStream=null的时候执行。而是托管堆被真正GC垃圾回收后执行的，所以我们可以在析构函数中只进行非托管堆内存的释放工作。如下代码所示(<code>简单来说 析构函数 就是用来让我们自己释放非托管堆内存</code>)</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class A : System.IDisposable</span><br><span class="line">&#123;</span><br><span class="line">    FileStream fileStream;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream.Dispose();</span><br><span class="line">    &#125;</span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        fileStream.Dispose();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样析构函数也能正确的释放资源了，但是又出现一个新问题，如果是代码主动调用Dispose那岂不是还要多进行一次GC？所以我们在代码中要区分主动释放资源和析构函数自动释放资源的时机。如下代码所示，这样就完整了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class A : System.IDisposable</span><br><span class="line">&#123;</span><br><span class="line">    FileStream fileStream;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Dispose(<span class="literal">true</span>);</span><br><span class="line">        GC.SuppressFinalize(<span class="keyword">this</span>);<span class="comment">//告诉.NET我不需要GC了，别再遍历我了</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        Dispose(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"><span class="keyword">bool</span> disposing</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (disposing)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//释放托管堆内存</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//释放非托管堆内存</span></span><br><span class="line">        fileStream.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>强行解释一下这里为什么在方法一个传入true 一个传入false,在我们手动调用Dispose()方法的时候其实就是释放这个类的托管资源和非托管资源,在析构函数中 析构函数表示这个类就准备给GC了 他的托管资源.NET帮我们回收 我们只要负责回收非托管资源就可以了 这里有一篇分析很好的关于IDisposeable接口的<a href="https://www.cnblogs.com/wyt007/p/9304564.html" target="_blank" rel="noopener">文章</a></p>
+<p>我们在回头说一下堆栈，.NET规定值类型数据保存在栈上，class类型数据保存在堆上。栈内存由系统自行管理，不需要垃圾回收。其实就是值类型数据系统方便复用，而class类型数据系统也没法搞，你们还是GC吧。成</p>
+<p>员内存分配，由于A是一个class类对象，它本真就会占堆内存，那么A对象里即使是值类型数据，那么它也会跟A类一样占在堆内存中。所以请大家记住，<code>值类型数据不一定不占堆内存，但是class数据一定会占堆内存</code>。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">NewBehaviourScript</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> B &#123;&#125;</span><br><span class="line">    <span class="keyword">class</span>  <span class="title">A</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        B b = <span class="keyword">default</span>(B);</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        <span class="comment">//A a = new A();</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//栈</span></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">    <span class="comment">//栈</span></span><br><span class="line">    B b = <span class="keyword">default</span>(B);</span><br><span class="line">    <span class="comment">//堆</span></span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">new</span> A();<span class="comment">//分配内存</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可是为什么NewBehaviourScript类中的值类型成员对象并没有占堆内存呢？原因是NewBehaviourScript并不是new出来的，Unity内部用的是反射。</p>
+<p>大家可以回想一下unity中常用的Vector3，这就是一个标准的struct对象。unity之所以这么用就是因为想减少堆内存。</p>
+<p>再来说说值类型和class类型的区别，值类型可以说是个体，而 class类型可以说是引用。个体永远不会被别人改，而引用就很可能被别人改。如下代码所示，b虽然等于a，然是a在后面改了，b的值并没有跟着改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a = 100;</span><br><span class="line">int b = a;</span><br><span class="line">a = 200;</span><br><span class="line">Debug.Log(a); //200</span><br><span class="line">Debug.Log(b); //100</span><br></pre></td></tr></table></figure>
+
+<p>如下代码所示，如果是class那么一个改了就会影响到另一个，我想这些大家应该都很很好理解。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span>  <span class="title">A</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    A b = a;</span><br><span class="line">    a.a = <span class="number">100</span>;</span><br><span class="line">    b.a = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">    Debug.Log(a.a); <span class="comment">//200</span></span><br><span class="line">    Debug.Log(b.a); <span class="comment">//200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过上面代码我们还可以看出class的赋值是非常廉价的，代码中的 A b = a; 就是添加了一个新指针指向了一块相同的地址而已。</p>
+<p>但是值类型就不一样了。如下代码所示，因为结构体是数值类型，所以A b = a;的时候需要将结构体里的每一个数据都进行一次完全拷贝，如果结构体比较大那么拷贝势必就会慢，但是优点就是没有GC。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> A</span><br><span class="line"> &#123;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">int</span> b;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">int</span> c;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     A a = <span class="keyword">new</span> A();</span><br><span class="line">     A b = a;</span><br><span class="line">     a.a = <span class="number">100</span>;</span><br><span class="line">     b.a = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">     Debug.Log(a.a); <span class="comment">//100</span></span><br><span class="line">     Debug.Log(b.a); <span class="comment">//200</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们在来看看参数传递，值类型参数传递其实就是在栈上拷贝了一份新的，此时栈上有两个int 值都是100。方法体内改了参数并不会影响外面的，结果肯定还是100。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    Test(a);</span><br><span class="line">    Debug.Log(a); <span class="comment">//100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"><span class="keyword">int</span> a</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再来看看类对象，这时候你可能会有疑问，传入的类对象是否也进行了拷贝，答案是肯定的。此时堆上只有1个A对象，但是有两个指针指向它。Test方法体内接收的就已经是拷贝出来的指针，但是由于两个指针指向了同一块内存，所以改了方法体里的外面的也就跟着变了，结果就是99了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">A</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A a = <span class="keyword">new</span> A() &#123; a = <span class="number">100</span> &#125;;</span><br><span class="line">    Test(a);</span><br><span class="line">    Debug.Log(a.a); <span class="comment">//99</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params">A a</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a.a--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总的来说数值类型传递慢，但是没GC ，class类型传递快，但有GC，还有一个ref out的用法，就是把真正的引用传进去，而不是拷贝，如下代码所示，因为是引用所以值类型数据传进去也会跟着改了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    Test(<span class="keyword">ref</span> a);</span><br><span class="line">    Debug.Log(a); <span class="comment">//99</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"><span class="keyword">ref</span> <span class="keyword">int</span> a</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再来说一下装箱和拆箱，装箱就是将int值类型数据转成object类对象，拆箱就是将object类对象转回值类型数据，写法上是可以进行隐式转换的。如下代码所示，我们来看个经典的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">private void Awake()</span><br><span class="line">&#123;</span><br><span class="line">    Test(A.TestA);</span><br><span class="line">    Test(B.TestB);</span><br><span class="line">&#125;</span><br><span class="line">void Test(object o)  //传进来就隐式被装箱了</span><br><span class="line">&#123;</span><br><span class="line">    if(o is A)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log((A)o);//这里又显示拆箱了</span><br><span class="line">    &#125;</span><br><span class="line">    if (o is B)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log((B)o);//这里又显示拆箱了</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">enum A</span><br><span class="line">&#123; </span><br><span class="line">    TestA =0</span><br><span class="line">&#125;</span><br><span class="line">enum B &#123;</span><br><span class="line">    TestB =0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>C#讲究个万物皆对象， 任何东西都可以通过参数传到object对象来接受，但是这一步就被隐式转换成堆内存了。。再来看个例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i = 100;</span><br><span class="line">var a = string.Format(&quot;&#123;0&#125;&quot;, i); //完了这里又被隐式装箱了</span><br></pre></td></tr></table></figure>
+
+<p>正确的写法应该是先转成字符串，这样就不需要装箱了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">string</span>.Format(<span class="string">"&#123;0&#125;"</span>, i.ToString());</span><br></pre></td></tr></table></figure>
+
+<p>凭啥int就是值类型？int就是System.int32对象，对应的还有float、double、等等，但是他们都继承了struct，所以统统都是值类型了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">struct</span> Int32 : IComparable, IFormattable, IConvertible</span><br><span class="line">        , IComparable&lt;Int32&gt;, IEquatable&lt;Int32&gt;</span><br><span class="line"><span class="comment"><span class="doctag">///</span>     , IArithmetic<span class="doctag">&lt;Int32&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>装箱的效率是不如拆箱要高的，比如把一个 int装箱成object，那么此时需要在堆中开辟一块内存，并且赋值给它。而拆箱并不需要在栈上分开辟新的内存，只需要值重新赋到栈上就行了。赋值完后，堆上的这块内存就变成了垃圾等待下次垃圾回收掉。</p>
+<p>注意一下，struct和enum对象，如果放在 Dictionary&lt;T,T&gt; List<T>数据结构里，用法不当就会产生大量的堆内存，就是上面说的隐式装箱，我们来看看代码。</T></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> S </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//list</span></span><br><span class="line">    S s = <span class="keyword">new</span> S() &#123; a = <span class="number">10</span> &#125;;</span><br><span class="line">    List&lt;S&gt; list = <span class="keyword">new</span> List&lt;S&gt;() &#123; s &#125;;</span><br><span class="line">    Dictionary&lt;S, S&gt; dict = <span class="keyword">new</span> Dictionary&lt;S, S&gt;() &#123; &#123; s, s &#125; &#125;;</span><br><span class="line"></span><br><span class="line">    Profiler.BeginSample(<span class="string">"struct list contains"</span>);</span><br><span class="line">    list.Contains(s);  <span class="comment">//装箱40b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">    Profiler.BeginSample(<span class="string">"struct dictionary ContainsKey"</span>);</span><br><span class="line">    dict.ContainsKey(s);<span class="comment">//装箱60b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">    Profiler.BeginSample(<span class="string">"struct dictionary ContainsValue"</span>);</span><br><span class="line">    dict.ContainsValue(s); <span class="comment">//装箱40b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">    Profiler.BeginSample(<span class="string">"struct dictionary [a]"</span>);</span><br><span class="line">    <span class="keyword">var</span> n  = dict[s]; <span class="comment">//装箱60b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">    Profiler.BeginSample(<span class="string">"struct dictionary out"</span>);</span><br><span class="line">    S o;</span><br><span class="line">    dict.TryGetValue(s, <span class="keyword">out</span> o); <span class="comment">//装箱60b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>List和Dictionary在调用以上API时C#都会转成object类型，然后就产生堆内存了。以上代码换成enum也有同样效果。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12-24-unityneicun/4.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>感谢下面留言的朋友，其实之前我这里是想写enum类型的。因为之前向项目里遇到了这个坑，之前想把枚举放入Dictionary中，结果在取值的时候就产生了大量的GC，后来就规定了enum不写在Dictionary和List中。如下代码所示。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> E </span><br><span class="line">&#123;</span><br><span class="line">    Name=<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    Dictionary&lt;E,E&gt; dict = <span class="keyword">new</span> Dictionary&lt;E, E&gt;() &#123; &#123; E.Name , E.Name &#125; &#125;;</span><br><span class="line">    Profiler.BeginSample(<span class="string">"enum dict1 []"</span>);</span><br><span class="line">    <span class="keyword">var</span> e = dict[E.Name];  <span class="comment">//装箱60b</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line"></span><br><span class="line">    Dictionary&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; dict1 = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;() &#123; &#123; <span class="number">1</span>, <span class="number">1</span> &#125; &#125;;</span><br><span class="line">    Profiler.BeginSample(<span class="string">"int dict2 []"</span>);</span><br><span class="line">    <span class="keyword">var</span> e1 = dict1[<span class="number">1</span>];  <span class="comment">//无gc</span></span><br><span class="line">    Profiler.EndSample();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/12-24-unityneicun/5.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<p>说了这么多最后我们在聊聊C#的垃圾回收，如果内存中有50M左右的堆内存，每个都遍历一遍判断是否垃圾其实是非常慢的，C#引入了一个代的概念，C#认为新分配的内存最容易是垃圾，比如方法体内的临时变量，每新的 一帧都会来回调用其实全都是需要垃圾回收的。</p>
+<p>首次垃圾回收前所有的内存只是第0代，扫描垃圾后会将不是垃圾的内存标记到第1代。这样下次在进行垃圾回收就不再扫描第1代了，而只扫描第0代（除非内存实在不够了才会继续向上扫描）。这样将大大减少垃圾扫描的时间。整个流程依次类推C#会总共会保留 0 1 2  一共有3代垃圾标志，直到你的程序太猛把所有内存都吃满了，C#不得不来个内存溢出。</p>
+<p>垃圾回收其实是不建议主动调用的，因为系统会自动调用。C#会在new 的时候进行检查是否需要触发垃圾回收。本身这套机制是没问题的，但是放到Unity里就有问题了，因为Unity的资源texture、mesh、shader等都被放到了托管堆中无法及时释放。为啥释放不了其实还是写法有问题，太依赖Resources.UnloadUnusedAssets。有些不常用的资源用过以后要及时主动Resources.UnloadAsset(obj); 从非托管堆中干掉。</p>
+<p>时刻要注意的是非托管内存，.NET在厉害也只能回收自己的内存，非托管内存它是毫无办法的。前面我们已经举了一些实际例子，这里我在补充一下，非托管内存还有一些第三方SDK可能占的内存，或者用 lua开发可能很多人都见过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.IntPtr</span><br></pre></td></tr></table></figure>
+
+<p>它可以指向一个非托管的内存地址，比如文件句柄。一定要注意非托管内存的回收。</p>
+<p>最后在说一下IL2CPP，可能会有人有疑问不是都转成c++代码？C++哪里有垃圾回收啊。C++确实没有垃圾回收，但是IL2CPP模拟了一套垃圾回收。在怎么IL2CPP它也无法知道何时准确的delete掉你的内存，所以IL2CPP和真正的C++效率还是不一样的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-12-24T15:28:14.101Z" itemprop="dateUpdated">2019-12-24 23:28:14</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处。<a href="/2019/12-24-unityneicun/" target="_blank" rel="external">http://zeroultra.github.io/2019/12-24-unityneicun/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://zeroultra.github.io">
+            <img src="/img/avatar.jpg" alt="">
+            
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%AD%98/" rel="tag">内存</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&source=这是我的网站" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2019/12-24-unityneicun/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — ZeroUltra&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2019/12-24-unityneicun/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11-22-myblog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GitHub+Hexo 搭建博客--我的第一篇博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span> &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&source=这是我的网站" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2019/12-24-unityneicun/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — ZeroUltra&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2019/12-24-unityneicun/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2019/12-24-unityneicun/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

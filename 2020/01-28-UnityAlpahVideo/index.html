@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Unity,透明视频">
-    <meta name="description" content="在unity中呈现透明视频播放主要有一下几种方式:  利用Unity自带的VideoPlayer 播放透明视频 利用AVpro插件播放格式为Hap alpha或者Hap Q alpha 的.mov或.avi 利用Avpro播放通道分离的.MP4 视频 利用shader 分离进行透明分离(暂不讨论)  本文最后会介绍一个自己做的小工具用于转换透明视频 1. 利用Unity自带的VideoPlayer">
+    <meta name="description" content="在unity中呈现透明视频播放主要有一下几种方式:  利用Unity自带的VideoPlayer 播放透明视频 利用AVpro插件播放格式为Hap alpha或者Hap Q alpha 的.mov或.avi 利用Avpro播放通道分离的.MP4 视频 利用shader 分离进行透明分离(暂不讨论)  本文最后会介绍一个自己做的小工具用于转换透明视频 利用Unity自带的VideoPlayer组件播">
 <meta name="keywords" content="Unity,透明视频">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity播放透明视频的几种方式">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;index.html">
 <meta property="og:site_name" content="ZeroUltra">
-<meta property="og:description" content="在unity中呈现透明视频播放主要有一下几种方式:  利用Unity自带的VideoPlayer 播放透明视频 利用AVpro插件播放格式为Hap alpha或者Hap Q alpha 的.mov或.avi 利用Avpro播放通道分离的.MP4 视频 利用shader 分离进行透明分离(暂不讨论)  本文最后会介绍一个自己做的小工具用于转换透明视频 1. 利用Unity自带的VideoPlayer">
+<meta property="og:description" content="在unity中呈现透明视频播放主要有一下几种方式:  利用Unity自带的VideoPlayer 播放透明视频 利用AVpro插件播放格式为Hap alpha或者Hap Q alpha 的.mov或.avi 利用Avpro播放通道分离的.MP4 视频 利用shader 分离进行透明分离(暂不讨论)  本文最后会介绍一个自己做的小工具用于转换透明视频 利用Unity自带的VideoPlayer组件播">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;1.gif">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;6.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;5.jpg">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;11.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;12.jpg">
-<meta property="og:updated_time" content="2020-01-28T10:42:14.745Z">
+<meta property="og:updated_time" content="2020-02-03T06:41:09.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;1.gif">
     
@@ -83,9 +83,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
               </a>
             </li>
         
@@ -97,9 +97,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
               </a>
             </li>
         
@@ -175,7 +175,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-利用Unity自带的VideoPlayer组件播放透明视频"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 利用Unity自带的VideoPlayer组件播放透明视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#制作webm视频"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">制作webm视频</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导出mov文件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">导出mov文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Quick-time-Hap"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Quick time Hap</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接在PR或者Media-Encoder中导出"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">直接在PR或者Media Encoder中导出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#利用ffmpeg-转换"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">利用ffmpeg 转换</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用AVpro-播放通道分离的mp4视频"><span class="post-toc-number">3.</span> <span class="post-toc-text">利用AVpro 播放通道分离的mp4视频</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#透明视频工具"><span class="post-toc-number">4.</span> <span class="post-toc-text">透明视频工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用Unity自带的VideoPlayer组件播放透明视频"><span class="post-toc-number">1.</span> <span class="post-toc-text">利用Unity自带的VideoPlayer组件播放透明视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#制作webm视频"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">制作webm视频</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi"><span class="post-toc-number">2.</span> <span class="post-toc-text">利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导出mov文件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">导出mov文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Quick-time-Hap"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Quick time Hap</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接在PR或者Media-Encoder中导出"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">直接在PR或者Media Encoder中导出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#利用ffmpeg-转换"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">利用ffmpeg 转换</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用AVpro-播放通道分离的mp4视频"><span class="post-toc-number">3.</span> <span class="post-toc-text">利用AVpro 播放通道分离的mp4视频</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#透明视频工具"><span class="post-toc-number">4.</span> <span class="post-toc-text">透明视频工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题外话"><span class="post-toc-number">6.</span> <span class="post-toc-text">题外话</span></a></li></ol>
         </nav>
     </aside>
 
@@ -209,7 +209,7 @@
 <li>利用shader 分离进行透明分离(暂不讨论)</li>
 </ol>
 <p>本文最后会介绍一个自己做的小工具用于转换透明视频</p>
-<h2 id="1-利用Unity自带的VideoPlayer组件播放透明视频"><a href="#1-利用Unity自带的VideoPlayer组件播放透明视频" class="headerlink" title="1. 利用Unity自带的VideoPlayer组件播放透明视频"></a>1. 利用Unity自带的VideoPlayer组件播放透明视频</h2><p>​    unity在5.6版本增加了播放视频的的功能,对应的就是VideoPlayer组件. 在Unity中暂时支持两种透明格式的视频,<a href="https://docs.unity3d.com/Manual/VideoTransparency.html" target="_blank" rel="noopener">链接说明</a></p>
+<h2 id="利用Unity自带的VideoPlayer组件播放透明视频"><a href="#利用Unity自带的VideoPlayer组件播放透明视频" class="headerlink" title="利用Unity自带的VideoPlayer组件播放透明视频"></a>利用Unity自带的VideoPlayer组件播放透明视频</h2><p>​    unity在5.6版本增加了播放视频的的功能,对应的就是VideoPlayer组件. 在Unity中暂时支持两种透明格式的视频,<a href="https://docs.unity3d.com/Manual/VideoTransparency.html" target="_blank" rel="noopener">链接说明</a></p>
 <ol>
 <li><code>.webm</code> 是Google基于 以 Matroska（就是我们熟知的 <a href="https://baike.baidu.com/item/MKV" target="_blank" rel="noopener">MKV</a>）容器格式为基础开发的新容器格式，里面包括了 VP8 视频和 Ogg Vorbis 音轨 .</li>
 <li><code>apple prores 4444</code> 视频格式,此格式不太熟,具体看官方说明 ,附上一个apple prores 4444 <a href="https://support.apple.com/en-gb/HT202410" target="_blank" rel="noopener">视频说明</a></li>
@@ -290,7 +290,7 @@
 
 
 
-<h2 id="2-利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi"><a href="#2-利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi" class="headerlink" title="2. 利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi"></a>2. 利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi</h2><p><code>hap codec</code>格式支持Windows和mac os x平台 ,并且有以下几处优点:</p>
+<h2 id="利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi"><a href="#利用Avpro-播放编码格式为Hap-alpha或者Hap-Q-alpha-的-mov或-avi" class="headerlink" title="利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi"></a>利用Avpro 播放编码格式为Hap alpha或者Hap Q alpha 的.mov或.avi</h2><p><code>hap codec</code>格式支持Windows和mac os x平台 ,并且有以下几处优点:</p>
 <ul>
 <li>CPU使用率极低</li>
 <li>GPU解压缩</li>
@@ -350,6 +350,8 @@
 <h2 id="透明视频工具"><a href="#透明视频工具" class="headerlink" title="透明视频工具"></a>透明视频工具</h2><p>这是基于FFmpeg 写的视频转换工具 主要就是调用ffmpeg命令</p>
 <p>工具我上传到了<a href="https://github.com/ZeroUltra/UnityAlphaVideo" target="_blank" rel="noopener">GitHub</a>  </p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a href="https://blog.csdn.net/lvcoc/article/details/86303249" target="_blank" rel="noopener">https://blog.csdn.net/lvcoc/article/details/86303249</a> </p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>2020年的春节注定是难忘的,新型冠状病毒从武汉爆发衍生到全国各地 ,为了隔离病毒,防止蔓延,大多数地方封城,封村.希望全国上下齐心协力战胜这次灾难!!!</p>
+<p>​                                                                            ————— 在家躺尸n天的我</p>
 
         </div>
 
@@ -358,7 +360,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-01-28T10:42:14.745Z" itemprop="dateUpdated">2020-01-28 18:42:14</time>
+    最后更新时间：<time datetime="2020-02-03T06:41:09.387Z" itemprop="dateUpdated">2020-02-03 14:41:09</time>
 </span><br>
 
 
@@ -439,7 +441,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02-04-UIOptimization/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">UIOptimization</h4>
+      </a>
+    </div>
   
 
   
@@ -465,6 +474,30 @@
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "s1tU09u71SORzEXhzkOUv8Sj-gzGzoHsz",
+            appKey: "3tEBA5yTAbHngderFMTaV0Gx",
+            avatar: "wavatar",
+            placeholder: "来评论一下吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 
@@ -629,10 +662,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '';
+            document.title = '离开了😩';
             clearTimeout(titleTime);
         } else {
-            document.title = '';
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
@@ -643,5 +676,5 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

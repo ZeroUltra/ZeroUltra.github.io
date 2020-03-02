@@ -540,4 +540,5 @@
     } else {
         console.error('Waves loading failed.')
     }
+	
 })(window, document);

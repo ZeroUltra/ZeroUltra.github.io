@@ -247,7 +247,7 @@
 <li>重点是 Unity堆出众多的UI视图工具都是针对UGUI的,例如Frame Debugger,Profiler中的UI模块</li>
 </ul>
 <p>虽然不久之后应该会被其他的UI方案替代,但是现阶段最实用,最流行的UI方案还是Ugui.UI使用不当会造成各种问题,现在对Ugui进行下优化总结.</p>
-<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/" target="_blank" rel="noopener">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
+<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
 <h1 id="针对Ugui优化的四个方向"><a href="#针对Ugui优化的四个方向" class="headerlink" title="针对Ugui优化的四个方向"></a>针对Ugui优化的四个方向</h1><ul>
 <li>过多的GPU片段着色器使用率（如屏幕填充率过高）   </li>
 <li>过多的CPU时间开销在重建一个画布上 (画布划分)</li>
@@ -271,9 +271,9 @@
 </li>
 </ul>
 <blockquote>
-<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914" target="_blank" rel="noopener">链接</a></p>
+<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914">链接</a></p>
 </blockquote>
-<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
+<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
 <p>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty``SetMaterialDirty</code>等等</p>
 <ol>
 <li><p>避免使用UI的Active/DisActive,因为基类Graphic 的在调用OnEable的时候 会执行 SetAllDirty 导致网格重建.</p>
@@ -651,7 +651,7 @@
                 <div class="image-caption"></div>
             </figure></p>
 <p>如果想要的文字一个个输入有些麻烦 这里有个帮助类.可以快速添加需要的文字</p>
-<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612" target="_blank" rel="noopener">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
+<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
 <h2 id="一些tips"><a href="#一些tips" class="headerlink" title="一些tips"></a>一些tips</h2><ul>
 <li>推荐使用TextMeshPro!!!</li>
 <li>使用UGUI Text RichText会让面数倍增   </li>
@@ -659,7 +659,7 @@
 <h1 id="其他的一些Tips"><a href="#其他的一些Tips" class="headerlink" title="其他的一些Tips"></a>其他的一些Tips</h1><ol>
 <li><p>少使用或者避免使用layout group组件</p>
 </li>
-<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect" target="_blank" rel="noopener">UIEffect</a>   </p>
+<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect">UIEffect</a>   </p>
 </li>
 <li><p>Image为null或者alpha为0不能降低开销，Image为null还会会打断合批  </p>
 </li>

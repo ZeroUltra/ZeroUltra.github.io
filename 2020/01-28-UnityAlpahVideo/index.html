@@ -14,7 +14,7 @@
     
     
     
-    <title>Unity播放透明视频的几种方式 | ZeroUltra | 天下风云出我辈，一入江湖岁月催</title>
+    <title>Unity播放透明视频的几种方式 | Last Reunion | 天下风云出我辈，一入江湖岁月催</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,7 +26,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity播放透明视频的几种方式">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;index.html">
-<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:site_name" content="Last Reunion">
 <meta property="og:description" content="在unity中呈现透明视频播放主要有一下几种方式:  利用Unity自带的VideoPlayer 播放透明视频 利用AVpro插件播放格式为Hap alpha或者Hap Q alpha 的.mov或.avi 利用Avpro播放通道分离的.MP4 视频 利用shader 分离进行透明分离(暂不讨论)  本文最后会介绍一个自己做的小工具用于转换透明视频 利用Unity自带的VideoPlayer组件播">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;01-28-UnityAlpahVideo&#x2F;1.gif">
@@ -58,7 +58,7 @@
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" >     
@@ -68,7 +68,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Roger</h5>
-          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -125,23 +125,23 @@
     <main id="main">
         <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">Unity播放透明视频的几种方式</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
 		
@@ -215,10 +215,10 @@
 <li>利用shader 分离进行透明分离(暂不讨论)</li>
 </ol>
 <p>本文最后会介绍一个自己做的小工具用于转换透明视频</p>
-<h2 id="利用Unity自带的VideoPlayer组件播放透明视频"><a href="#利用Unity自带的VideoPlayer组件播放透明视频" class="headerlink" title="利用Unity自带的VideoPlayer组件播放透明视频"></a>利用Unity自带的VideoPlayer组件播放透明视频</h2><p>​    unity在5.6版本增加了播放视频的的功能,对应的就是VideoPlayer组件. 在Unity中暂时支持两种透明格式的视频,<a href="https://docs.unity3d.com/Manual/VideoTransparency.html">链接说明</a></p>
+<h2 id="利用Unity自带的VideoPlayer组件播放透明视频"><a href="#利用Unity自带的VideoPlayer组件播放透明视频" class="headerlink" title="利用Unity自带的VideoPlayer组件播放透明视频"></a>利用Unity自带的VideoPlayer组件播放透明视频</h2><p>​    unity在5.6版本增加了播放视频的的功能,对应的就是VideoPlayer组件. 在Unity中暂时支持两种透明格式的视频,<a href="https://docs.unity3d.com/Manual/VideoTransparency.html" target="_blank" rel="noopener">链接说明</a></p>
 <ol>
-<li><code>.webm</code> 是Google基于 以 Matroska（就是我们熟知的 <a href="https://baike.baidu.com/item/MKV">MKV</a>）容器格式为基础开发的新容器格式，里面包括了 VP8 视频和 Ogg Vorbis 音轨 .</li>
-<li><code>apple prores 4444</code> 视频格式,此格式不太熟,具体看官方说明 ,附上一个apple prores 4444 <a href="https://support.apple.com/en-gb/HT202410">视频说明</a></li>
+<li><code>.webm</code> 是Google基于 以 Matroska（就是我们熟知的 <a href="https://baike.baidu.com/item/MKV" target="_blank" rel="noopener">MKV</a>）容器格式为基础开发的新容器格式，里面包括了 VP8 视频和 Ogg Vorbis 音轨 .</li>
+<li><code>apple prores 4444</code> 视频格式,此格式不太熟,具体看官方说明 ,附上一个apple prores 4444 <a href="https://support.apple.com/en-gb/HT202410" target="_blank" rel="noopener">视频说明</a></li>
 </ol>
 <p>将导入的.webm视频放入unity中查看</p>
 <figure class="image-bubble">
@@ -230,7 +230,7 @@
             </figure>
 
 <p>如上,那么这个视频就是支持透明通道了 接着只要按照寻常的方法用VideoPlayer组件对其进行播放即可</p>
-<h3 id="制作webm视频"><a href="#制作webm视频" class="headerlink" title="制作webm视频"></a>制作webm视频</h3><p>一般在pr或者 Media Encoder 中制作视频导出的时候 没有是webm格式,这个时候就需要下载插件,<a href="https://www.fnordware.com/WebM/">插件链接</a></p>
+<h3 id="制作webm视频"><a href="#制作webm视频" class="headerlink" title="制作webm视频"></a>制作webm视频</h3><p>一般在pr或者 Media Encoder 中制作视频导出的时候 没有是webm格式,这个时候就需要下载插件,<a href="https://www.fnordware.com/WebM/" target="_blank" rel="noopener">插件链接</a></p>
 <p>导出的时候(搬图)</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -319,7 +319,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<h3 id="导出mov文件"><a href="#导出mov文件" class="headerlink" title="导出mov文件"></a>导出mov文件</h3><h4 id="Quick-time-Hap"><a href="#Quick-time-Hap" class="headerlink" title="Quick time Hap"></a>Quick time Hap</h4><p>导出hap alpha 格式的mov视频可以下载quick time  然后下载编码格式<a href="https://github.com/disguise-one/hap-encoder-adobe-cc/releases">插件</a></p>
+<h3 id="导出mov文件"><a href="#导出mov文件" class="headerlink" title="导出mov文件"></a>导出mov文件</h3><h4 id="Quick-time-Hap"><a href="#Quick-time-Hap" class="headerlink" title="Quick time Hap"></a>Quick time Hap</h4><p>导出hap alpha 格式的mov视频可以下载quick time  然后下载编码格式<a href="https://github.com/disguise-one/hap-encoder-adobe-cc/releases" target="_blank" rel="noopener">插件</a></p>
 <p>导出的时候设置:</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -329,7 +329,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<h4 id="直接在PR或者Media-Encoder中导出"><a href="#直接在PR或者Media-Encoder中导出" class="headerlink" title="直接在PR或者Media Encoder中导出"></a>直接在PR或者Media Encoder中导出</h4><p>如果觉得麻烦,可以直接在pr中导出hap alpha 编码格式,插件<a href="https://github.com/disguise-one/hap-encoder-adobe-cc">下载链接</a></p>
+<h4 id="直接在PR或者Media-Encoder中导出"><a href="#直接在PR或者Media-Encoder中导出" class="headerlink" title="直接在PR或者Media Encoder中导出"></a>直接在PR或者Media Encoder中导出</h4><p>如果觉得麻烦,可以直接在pr中导出hap alpha 编码格式,插件<a href="https://github.com/disguise-one/hap-encoder-adobe-cc" target="_blank" rel="noopener">下载链接</a></p>
 <p>然后在pr 或者media encoder 中导出选择hap 编码格式为<code>hap alpha</code> 或者 <code>hap q alpha</code></p>
 <h4 id="利用ffmpeg-转换"><a href="#利用ffmpeg-转换" class="headerlink" title="利用ffmpeg 转换"></a>利用ffmpeg 转换</h4><ul>
 <li>ffmpeg -i input.mov -vcodec hap -format hap output-hap.mov</li>
@@ -354,8 +354,8 @@
 <p>可以在AE软件中直接制作 也可以直接 用ffmpeg 转换</p>
 <p>在用ffmpeg转换中 导出的mov编码要是 rgb+a</p>
 <h2 id="透明视频工具"><a href="#透明视频工具" class="headerlink" title="透明视频工具"></a>透明视频工具</h2><p>这是基于FFmpeg 写的视频转换工具 主要就是调用ffmpeg命令</p>
-<p>工具我上传到了<a href="https://github.com/ZeroUltra/UnityAlphaVideo">GitHub</a>  </p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a href="https://blog.csdn.net/lvcoc/article/details/86303249">https://blog.csdn.net/lvcoc/article/details/86303249</a> </p>
+<p>工具我上传到了<a href="https://github.com/ZeroUltra/UnityAlphaVideo" target="_blank" rel="noopener">GitHub</a>  </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a href="https://blog.csdn.net/lvcoc/article/details/86303249" target="_blank" rel="noopener">https://blog.csdn.net/lvcoc/article/details/86303249</a> </p>
 <h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>2020年的春节注定是难忘的,新型冠状病毒从武汉爆发衍生到全国各地 ,为了隔离病毒,防止蔓延,大多数地方封城,封村.希望全国上下齐心协力战胜这次灾难!!!</p>
 <p>​                                                                            ————— 在家躺尸n天的我</p>
 
@@ -385,7 +385,7 @@
 
         
 <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
@@ -402,17 +402,17 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -422,7 +422,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity播放透明视频的几种方式》 — ZeroUltra&url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity播放透明视频的几种方式》 — Last Reunion&url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -436,7 +436,7 @@
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>
@@ -517,7 +517,7 @@
 </article>
 
 <div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
         谢谢大爷~
@@ -561,7 +561,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -576,24 +576,24 @@
 
     </main>
     <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" target="" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&title=《Unity播放透明视频的几种方式》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -603,7 +603,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity播放透明视频的几种方式》 — ZeroUltra&url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity播放透明视频的几种方式》 — Last Reunion&url=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -617,7 +617,7 @@
 
 
 <div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2020/01-28-UnityAlpahVideo/" alt="微信分享二维码">
 </div>
@@ -694,11 +694,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
   <script type="text/javascript" src="/js/clicklove.js"></script>
 
 
-
-	<!-- 依赖jquery库，我这里用了min库，减小空间 -->
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<!-- 雪花特效1 -->
-	<script type="text/javascript" src="/js/snow1.js"></script> 
 
 
 

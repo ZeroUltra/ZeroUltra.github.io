@@ -14,7 +14,7 @@
     
     
     
-    <title>UIOptimization | ZeroUltra | 天下风云出我辈，一入江湖岁月催</title>
+    <title>UIOptimization | Last Reunion | 天下风云出我辈，一入江湖岁月催</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,7 +26,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIOptimization">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;index.html">
-<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:site_name" content="Last Reunion">
 <meta property="og:description" content="前言从Unity4.6版本加入UGUI以来,使用案例越多越多,相比NGUI,UGUI的效率要高的多  Ugui的网格合并实在C++代码中执行的,Ngui是在C#中执行 Ugui网格合并是多线程,Ngui是在主线程 Ngui维护图片的Depth比较困难,而Ugui渲染顺序是依据Hierarchy中的顺序 重点是 Unity堆出众多的UI视图工具都是针对UGUI的,例如Frame Debugger,P">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
@@ -72,7 +72,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image12.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image10.png">
-<meta property="og:updated_time" content="2020-02-19T07:40:42.452Z">
+<meta property="og:updated_time" content="2020-03-12T13:05:54.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
@@ -90,7 +90,7 @@
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" >     
@@ -100,7 +100,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Roger</h5>
-          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -157,23 +157,23 @@
     <main id="main">
         <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">UIOptimization</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
 		
@@ -247,7 +247,7 @@
 <li>重点是 Unity堆出众多的UI视图工具都是针对UGUI的,例如Frame Debugger,Profiler中的UI模块</li>
 </ul>
 <p>虽然不久之后应该会被其他的UI方案替代,但是现阶段最实用,最流行的UI方案还是Ugui.UI使用不当会造成各种问题,现在对Ugui进行下优化总结.</p>
-<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
+<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/" target="_blank" rel="noopener">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
 <h1 id="针对Ugui优化的四个方向"><a href="#针对Ugui优化的四个方向" class="headerlink" title="针对Ugui优化的四个方向"></a>针对Ugui优化的四个方向</h1><ul>
 <li>过多的GPU片段着色器使用率（如屏幕填充率过高）   </li>
 <li>过多的CPU时间开销在重建一个画布上 (画布划分)</li>
@@ -271,9 +271,9 @@
 </li>
 </ul>
 <blockquote>
-<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914">链接</a></p>
+<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914" target="_blank" rel="noopener">链接</a></p>
 </blockquote>
-<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
+<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
 <p>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty``SetMaterialDirty</code>等等</p>
 <ol>
 <li><p>避免使用UI的Active/DisActive,因为基类Graphic 的在调用OnEable的时候 会执行 SetAllDirty 导致网格重建.</p>
@@ -282,18 +282,21 @@
 </li>
 <li><p>对于一个plane,可以添加Canvas-Group控制alpha来显隐</p>
 </li>
-<li><p>对于单个UIitem 可以通过控制scale=0,或者在Canvas添加2dMask,然后将单个UI移除canvas之外.这两个操作应该都会Rebatch(带证实)，发现一个比较好的就是设置CanvasRenderer的alpha</p>
-<p>​    <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200217200135521.png" alt="image-20200217200135521" title>
-                </div>
-                <div class="image-caption">image-20200217200135521</div>
-            </figure></p>
-<p><strong>如果UI开启了Raycast target,要设置为false，避免UI事件还会相应</strong></p>
+<li><p>对于单个UIitem 可以通过控制scale=0,或者在Canvas添加2dMask,然后将单个UI移除canvas之外.这两个操作应该都会Rebatch(带证实)，发现一个比较好的就是设置CanvasRenderer的alpha(设置CanvasRenderer的alpha=0的时候同同时还要设置UI的raycast target=fase)</p>
 </li>
 </ul>
 </li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/02-04-UIOptimization/image-20200217200135521.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<ol start="2">
 <li><p>避免使用layout组件</p>
 </li>
 <li><p>修改UI元素可以修改材质TintColor</p>
@@ -310,13 +313,14 @@
 <li><p>谨慎使用Canvas的Pixel Perfect选项：该选项的开启会导致UI元素在发生位移时，其长宽会被进行微调（为了对齐像素），从而造成layout Rebuild。（比如ScrollRect滚动时，会使得Canvas.SendWillRenderCanvas消耗较高）</p>
 </li>
 </ol>
-<p>​    <figure class="image-bubble">
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/img.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>持续更新….</p>
 <h1 id="UI的批处理"><a href="#UI的批处理" class="headerlink" title="UI的批处理"></a>UI的批处理</h1><p>UI好的批处理可以明显降低DC,有利于界面流畅的切换,我们可以使用工具Frame Debug 来查看,也可以在proliler的UI模块中查看.</p>
 <h2 id="UGUI批处理原则"><a href="#UGUI批处理原则" class="headerlink" title="UGUI批处理原则"></a>UGUI批处理原则</h2><p>UI渲染是从后向前渲染的,也就是在Hierarchy视图中从上往下</p>
@@ -360,13 +364,15 @@
 <p>很奇快同样的两个UI元素却又不同的DC,这里面就是UI的批处理原因</p>
 <p>​    先看button,底下无，深度=0，再看text，text和button img<code>贴图不同</code>不能合批，所以text1=1</p>
 <p>​    然后button1,底下有个text1,text1=1,button1和text不能合批，所以button1=2，最后button1下面的text2和button1也不能合批，text2=3，所以都不能合批一共四个dc</p>
-<p><strong>再来看看另一种</strong><br>​    <figure class="image-bubble">
+<p><strong>再来看看另一种</strong></p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200216210042229.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>这种情况只有两个dc</p>
 <p>直观上看,button和button1虽然有重叠,但是他们的材质纹理都相同,所以他们可以合并,然后两个text合并,所以只有两个dc</p>
 <p>再看个例子:<code>UI批处理只看网格重叠</code></p>
@@ -379,15 +385,17 @@
             </figure>
 
 <p>计算过程:先看绿图下面有红图材质贴图都一样可以合并,红图下面有蓝图也可以合并,三个归为一个层级,我们记为0,这时候看text,虽然text的矩形框有覆盖关系,但是网格并没有,<code>UI批处理只看网格重叠</code></p>
-<p>​    <img src="/2020/02-04-UIOptimization/image-20200216212740041.png" style="zoom:80%;">  <img src="/2020/02-04-UIOptimization/image-20200216212800453.png" style="zoom:80%;"></p>
+<p><img src="/2020/02-04-UIOptimization/image-20200216212740041.png" style="zoom:80%;">  <img src="/2020/02-04-UIOptimization/image-20200216212800453.png" style="zoom:80%;"></p>
 <p>所以这里Dc=2</p>
-<p>然后我们改变一下:<br>​    <figure class="image-bubble">
+<p>然后我们改变一下:</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200216212914756.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>这个text就打断了批处理,所以蓝图无法和红绿图合批,所以蓝图一个dc,text一个dc,红绿一个dc一共三个DC</p>
 <p>我们也可以在Profiler中查看原因</p>
 <figure class="image-bubble">
@@ -400,87 +408,106 @@
 
 
 
-<h3 id="一个特殊的例子"><a href="#一个特殊的例子" class="headerlink" title="一个特殊的例子"></a>一个特殊的例子</h3><p>如果image=null，那么他的渲染顺序是大于text的，所以这就导致了一些问题，如下<br>​    <figure class="image-bubble">
+<h3 id="一个特殊的例子"><a href="#一个特殊的例子" class="headerlink" title="一个特殊的例子"></a>一个特殊的例子</h3><p>如果image=null，那么他的渲染顺序是大于text的，所以这就导致了一些问题，如下</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217170536625.png" alt="image srouce为空的情况" title>
                 </div>
                 <div class="image-caption">image srouce为空的情况</div>
-            </figure></p>
+            </figure>
+
 <p>在实际渲染队列中，blue=0，text=1，green=2，贴图都是null，首先渲染blue=0，然后是green,可是green下面有个text，所以比text大1，text无法和blue合批所以是1，那么green=2</p>
-<p>但是我们想得到的是text单独渲染，green和blue合批。那么这时候只要给两个图片指认相同的贴图即可<br>​    <figure class="image-bubble">
+<p>但是我们想得到的是text单独渲染，green和blue合批。那么这时候只要给两个图片指认相同的贴图即可</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217171702078.png" alt="image-20200217171702078" title>
                 </div>
                 <div class="image-caption">image-20200217171702078</div>
-            </figure></p>
+            </figure>
+
 <p>由于image有贴图所以先渲染text=0，然后是green=1，blue应该也是0但是无法和text合批，所以+1，这时候blue和green深度都为1且其他都相同，所以可以合批，但是这给我们一个提示：<code>图片组件最好不要保持为null</code></p>
-<h2 id="Mask组件"><a href="#Mask组件" class="headerlink" title="Mask组件"></a>Mask组件</h2><p><code>mask组件会打断合批，原因是材质不同</code><br>​    <figure class="image-bubble">
+<h2 id="Mask组件"><a href="#Mask组件" class="headerlink" title="Mask组件"></a>Mask组件</h2><p><code>mask组件会打断合批，原因是材质不同</code></p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217173541538.png" alt="这是可以合批的" title>
                 </div>
                 <div class="image-caption">这是可以合批的</div>
-            </figure><br>​    <figure class="image-bubble">
+            </figure>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217173621957.png" alt="mask打断合批" title>
                 </div>
                 <div class="image-caption">mask打断合批</div>
-            </figure></p>
+            </figure>
+
 <p>mask使用的是模板缓存，还会增加2个dc（自身一个，依赖image组件又一个）</p>
 <hr>
 <ol>
-<li><strong>mask之间有重叠会增加dc</strong><br> ​    <figure class="image-bubble">
+<li><strong>mask之间有重叠会增加dc</strong> <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217175219199.png" alt="mask不叠加可以批处理" title>
                 </div>
                 <div class="image-caption">mask不叠加可以批处理</div>
-            </figure><br> ​    <figure class="image-bubble">
+            </figure>
+ <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217175300776.png" alt="叠加不能合批" title>
                 </div>
                 <div class="image-caption">叠加不能合批</div>
-            </figure></li>
+            </figure>
+
+
+
+</li>
 </ol>
 <ol start="2">
 <li><p><strong>mask内部图片可以合批,但无法和外面图片合批</strong></p>
 <p>这个很好理解,内部图片与外部图片材质不同,无法合批.但是内部图片都是用的用同一个材质,他们可以合批</p>
 </li>
 </ol>
-<p>​    <figure class="image-bubble">
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217175554770.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>​    <figure class="image-bubble">
+            </figure>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217181833768.png" alt="image-20200217181833768" title>
                 </div>
                 <div class="image-caption">image-20200217181833768</div>
-            </figure></p>
+            </figure>
+
 <p>   …这里有个奇怪的现象,一开始运行发现有四个dc,然后把两个image隐藏又显示发现又只有3个dc了😪😪😪</p>
-<p>​    <figure class="image-bubble">
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217183211859.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>   可能是另外两个mask没有裁剪什么吧,然后我让另外两个mask剪裁,发现可以了,很疑惑🤐🤐🤐🤐</p>
 <ol start="3">
-<li><strong>重叠mask看不到的地方也会影响到深度计算,从而打断合批</strong><br> ​    <figure class="image-bubble">
+<li><strong>重叠mask看不到的地方也会影响到深度计算,从而打断合批</strong> <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217175811735.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></li>
+            </figure>
+
+
+
+</li>
 </ol>
 <h2 id="RectMask2D组件"><a href="#RectMask2D组件" class="headerlink" title="RectMask2D组件"></a>RectMask2D组件</h2><p>RectMask2D组件相对于mask组件的好处</p>
 <ul>
@@ -499,13 +526,15 @@
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
-<p>mask2d和mask2d上面的元素是可以合并的<br>​    <figure class="image-bubble">
+<p>mask2d和mask2d上面的元素是可以合并的</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217192703908.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>原本是4个dc,增加了一个image,变成了5个dc,虽然mask2d上面的UI元素和内部UI元素材质贴图都一致,但是因为mask2d的关系,无法导致合批。</p>
 <h2 id="一些特殊的打断"><a href="#一些特殊的打断" class="headerlink" title="一些特殊的打断"></a>一些特殊的打断</h2><ul>
 <li>UI的pos.Z不为0,会打断合批</li>
@@ -531,13 +560,15 @@
 
 <p>很奇快了…</p>
 <h1 id="填充率"><a href="#填充率" class="headerlink" title="填充率"></a>填充率</h1><p>  Fill Rate(填充率)是指显卡每帧每秒能够渲染的像素数(通俗点说就是图片越大需要绘制的像素越多). 在每帧绘制中，如果一个像素被反复绘制的次数越多，那么它占用的资源也必然更多  </p>
-<p>简单来说就是overdraw,也就是我们要减少UI占用的像素，防止同一个像素被太多次绘制<br>​    <figure class="image-bubble">
+<p>简单来说就是overdraw,也就是我们要减少UI占用的像素，防止同一个像素被太多次绘制</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/image-20200217193818948.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>中间突出的一部分就是被多次绘制</p>
 <h2 id="一些减少填充率的操作"><a href="#一些减少填充率的操作" class="headerlink" title="一些减少填充率的操作"></a>一些减少填充率的操作</h2><ol>
 <li><p>当需要用一个透明图片充当遮罩的时候，可以把这个设计一个<code>空图片</code></p>
@@ -551,44 +582,38 @@
 </ol>
 <ol start="3">
 <li><p>对于某些不规则图片</p>
-<p>不规则图片也是占据整个矩形<br>​    <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200217203106873.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>打开Sprite Editor<br>​    <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200217203541710.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>不规则图片也是占据整个矩形<br><img src="/2020/02-04-UIOptimization/image-20200217203106873.png" alt></p>
+<p>打开Sprite Editor<br><img src="/2020/02-04-UIOptimization/image-20200217203541710.png" alt></p>
 <p>但是这样增加了顶点，<br><strong>没有绝对的优化，只能根据你的项目需求来进行相关的优化</strong></p>
 </li>
 </ol>
-<h1 id="Font-and-Text"><a href="#Font-and-Text" class="headerlink" title="Font and Text"></a>Font and Text</h1><p>最后说明一下文字<br>​    <figure class="image-bubble">
+<h1 id="Font-and-Text"><a href="#Font-and-Text" class="headerlink" title="Font and Text"></a>Font and Text</h1><p>最后说明一下文字</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
-<p>字体都包含一个材质一个贴图  我们使用的大多都是动态字体( 动态字体，如果所输入的文字在字体中找不到相应的编码，就会自动从系统默认字体中找到该字体),有个很大的问题就是,动态字体会自己调节贴图大小来更换图集,在程序运行过程中,动态赋值text文本字体,贴图没有文字默认是64*64大小,但是当文字越来越多的时候就会把贴图撑大。<br>​    <figure class="image-bubble">
+            </figure>
+
+<p>字体都包含一个材质一个贴图  我们使用的大多都是动态字体( 动态字体，如果所输入的文字在字体中找不到相应的编码，就会自动从系统默认字体中找到该字体),有个很大的问题就是,动态字体会自己调节贴图大小来更换图集,在程序运行过程中,动态赋值text文本字体,贴图没有文字默认是64*64大小,但是当文字越来越多的时候就会把贴图撑大。</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image2.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
-<p> 我在text中输入了很多文字之后<br>​    <figure class="image-bubble">
+            </figure>
+
+<p> 我在text中输入了很多文字之后 </p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image3.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>另外:</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -598,60 +623,74 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>如果文字的<code>Font Style</code> 不行同 在材质贴图中也会多加一份<br>​    <figure class="image-bubble">
+<p>如果文字的<code>Font Style</code> 不行同 在材质贴图中也会多加一份</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image5.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
-<p>也会根据<code>字体大小</code> 多追加一份<br>​    <figure class="image-bubble">
+            </figure>
+
+<p>也会根据<code>字体大小</code> 多追加一份</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image11.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
+
 <p>所以综上:我们可以拟定两个方案：</p>
 <ol>
-<li><p>如果已经知道图集包含的特定字,通过裁剪文字将文字内容固定,裁剪文字将会降低内存大小  裁剪文字有很多种方法,比如 <code>BMFont</code>自己制作 <code>FontSubsetGUI</code>裁剪文字 另外Unity 也有自带的字体裁剪,这里说明一下<br> ​    <figure class="image-bubble">
+<li><p>如果已经知道图集包含的特定字,通过裁剪文字将文字内容固定,裁剪文字将会降低内存大小  裁剪文字有很多种方法,比如 <code>BMFont</code>自己制作 <code>FontSubsetGUI</code>裁剪文字 另外Unity 也有自带的字体裁剪,这里说明一下</p>
+ <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image8.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
-<p>  导入字体库选择Custom Set,然后<br>​    <figure class="image-bubble">
+            </figure>
+
+<p>  导入字体库选择Custom Set,然后</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image7.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 </li>
 </ol>
-<p>​    我只让改字体库包含 “你好”两个字,那么在Text 文本上 将不会显示其他的文字<br>​    <figure class="image-bubble">
+<p>​    我只让改字体库包含 “你好”两个字,那么在Text 文本上 将不会显示其他的文字</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image12.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
-<p>​    也会降低内存<br>​    <figure class="image-bubble">
+            </figure>
+
+<p>​    也会降低内存</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image9.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>​    <figure class="image-bubble">
+            </figure>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2020/02-04-UIOptimization/Image10.png" alt title>
                 </div>
                 <div class="image-caption"></div>
-            </figure></p>
+            </figure>
+
 <p>如果想要的文字一个个输入有些麻烦 这里有个帮助类.可以快速添加需要的文字</p>
-<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
+<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612" target="_blank" rel="noopener">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
 <h2 id="一些tips"><a href="#一些tips" class="headerlink" title="一些tips"></a>一些tips</h2><ul>
 <li>推荐使用TextMeshPro!!!</li>
 <li>使用UGUI Text RichText会让面数倍增   </li>
@@ -659,7 +698,7 @@
 <h1 id="其他的一些Tips"><a href="#其他的一些Tips" class="headerlink" title="其他的一些Tips"></a>其他的一些Tips</h1><ol>
 <li><p>少使用或者避免使用layout group组件</p>
 </li>
-<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect">UIEffect</a>   </p>
+<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect" target="_blank" rel="noopener">UIEffect</a>   </p>
 </li>
 <li><p>Image为null或者alpha为0不能降低开销，Image为null还会会打断合批  </p>
 </li>
@@ -688,7 +727,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-02-19T07:40:42.452Z" itemprop="dateUpdated">2020-02-19 15:40:42</time>
+    最后更新时间：<time datetime="2020-03-12T13:05:54.137Z" itemprop="dateUpdated">2020-03-12 21:05:54</time>
 </span><br>
 
 
@@ -707,7 +746,7 @@
 
         
 <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
@@ -724,17 +763,17 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -744,7 +783,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UIOptimization》 — ZeroUltra&url=http://zeroultra.github.io/2020/02-04-UIOptimization/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UIOptimization》 — Last Reunion&url=http://zeroultra.github.io/2020/02-04-UIOptimization/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -758,7 +797,7 @@
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>
@@ -839,7 +878,7 @@
 </article>
 
 <div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
         谢谢大爷~
@@ -883,7 +922,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -898,24 +937,24 @@
 
     </main>
     <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" target="" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/02-04-UIOptimization/&title=《UIOptimization》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -925,7 +964,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UIOptimization》 — ZeroUltra&url=http://zeroultra.github.io/2020/02-04-UIOptimization/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UIOptimization》 — Last Reunion&url=http://zeroultra.github.io/2020/02-04-UIOptimization/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -939,7 +978,7 @@
 
 
 <div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2020/02-04-UIOptimization/" alt="微信分享二维码">
 </div>
@@ -1016,11 +1055,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
   <script type="text/javascript" src="/js/clicklove.js"></script>
 
 
-
-	<!-- 依赖jquery库，我这里用了min库，减小空间 -->
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<!-- 雪花特效1 -->
-	<script type="text/javascript" src="/js/snow1.js"></script> 
 
 
 

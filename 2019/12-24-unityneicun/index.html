@@ -14,7 +14,7 @@
     
     
     
-    <title>unity中的内存分配以及卸载 | ZeroUltra | 天下风云出我辈，一入江湖岁月催</title>
+    <title>unity中的内存分配以及卸载 | Last Reunion | 天下风云出我辈，一入江湖岁月催</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,7 +26,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="unity中的内存分配以及卸载">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;index.html">
-<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:site_name" content="Last Reunion">
 <meta property="og:description" content="前言​    遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)  Profiler深挖-Memory面板(5)  Profiler深挖-托管堆(9)  Profiler深挖-图解内存管理(10)   堆内存与垃圾回收 托管内存  .NE">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;12-24-unityneicun&#x2F;1.jpg">
@@ -52,7 +52,7 @@
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" >     
@@ -62,7 +62,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Roger</h5>
-          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -119,23 +119,23 @@
     <main id="main">
         <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">unity中的内存分配以及卸载</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
 		
@@ -203,11 +203,11 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)</p>
 <ul>
-<li><p><a href="https://connect.unity.com/p/profilershen-wa-memorymian-ban-5">Profiler深挖-Memory面板(5)</a></p>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-memorymian-ban-5" target="_blank" rel="noopener">Profiler深挖-Memory面板(5)</a></p>
 </li>
-<li><p><a href="https://connect.unity.com/p/profilershen-wa-tuo-guan-dui-9">Profiler深挖-托管堆(9)</a></p>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-tuo-guan-dui-9" target="_blank" rel="noopener">Profiler深挖-托管堆(9)</a></p>
 </li>
-<li><p><a href="https://connect.unity.com/p/profilershen-wa-tu-jie-nei-cun-guan-li-10">Profiler深挖-图解内存管理(10)</a></p>
+<li><p><a href="https://connect.unity.com/p/profilershen-wa-tu-jie-nei-cun-guan-li-10" target="_blank" rel="noopener">Profiler深挖-图解内存管理(10)</a></p>
 </li>
 </ul>
 <h2 id="堆内存与垃圾回收"><a href="#堆内存与垃圾回收" class="headerlink" title="堆内存与垃圾回收"></a>堆内存与垃圾回收</h2><ul>
@@ -277,7 +277,7 @@
 <p>这样析构函数也能正确的释放资源了，但是又出现一个新问题，如果是代码主动调用Dispose那岂不是还要多进行一次GC？所以我们在代码中要区分主动释放资源和析构函数自动释放资源的时机。如下代码所示，这样就完整了。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class A : System.IDisposable</span><br><span class="line">&#123;</span><br><span class="line">    FileStream fileStream;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        fileStream = <span class="keyword">new</span> FileStream(Application.streamingAssetsPath + <span class="string">"/1.txt"</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Dispose(<span class="literal">true</span>);</span><br><span class="line">        GC.SuppressFinalize(<span class="keyword">this</span>);<span class="comment">//告诉.NET我不需要GC了，别再遍历我了</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        Dispose(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"><span class="keyword">bool</span> disposing</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (disposing)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//释放托管堆内存</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//释放非托管堆内存</span></span><br><span class="line">        fileStream.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>强行解释一下这里为什么在方法一个传入true 一个传入false,在我们手动调用Dispose()方法的时候其实就是释放这个类的托管资源和非托管资源,在析构函数中 析构函数表示这个类就准备给GC了 他的托管资源.NET帮我们回收 我们只要负责回收非托管资源就可以了 这里有一篇分析很好的关于IDisposeable接口的<a href="https://www.cnblogs.com/wyt007/p/9304564.html">文章</a></p>
+<p>强行解释一下这里为什么在方法一个传入true 一个传入false,在我们手动调用Dispose()方法的时候其实就是释放这个类的托管资源和非托管资源,在析构函数中 析构函数表示这个类就准备给GC了 他的托管资源.NET帮我们回收 我们只要负责回收非托管资源就可以了 这里有一篇分析很好的关于IDisposeable接口的<a href="https://www.cnblogs.com/wyt007/p/9304564.html" target="_blank" rel="noopener">文章</a></p>
 <p>我们在回头说一下堆栈，.NET规定值类型数据保存在栈上，class类型数据保存在堆上。栈内存由系统自行管理，不需要垃圾回收。其实就是值类型数据系统方便复用，而class类型数据系统也没法搞，你们还是GC吧。成</p>
 <p>员内存分配，由于A是一个class类对象，它本真就会占堆内存，那么A对象里即使是值类型数据，那么它也会跟A类一样占在堆内存中。所以请大家记住，<code>值类型数据不一定不占堆内存，但是class数据一定会占堆内存</code>。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">NewBehaviourScript</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> B &#123;&#125;</span><br><span class="line">    <span class="keyword">class</span>  <span class="title">A</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        B b = <span class="keyword">default</span>(B);</span><br><span class="line">        <span class="comment">//堆</span></span><br><span class="line">        <span class="comment">//A a = new A();</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//栈</span></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">100</span>;</span><br><span class="line">    <span class="comment">//栈</span></span><br><span class="line">    B b = <span class="keyword">default</span>(B);</span><br><span class="line">    <span class="comment">//堆</span></span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">new</span> A();<span class="comment">//分配内存</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -374,7 +374,7 @@
 
         
 <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
@@ -391,17 +391,17 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -411,7 +411,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — ZeroUltra&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — Last Reunion&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -425,7 +425,7 @@
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>
@@ -506,7 +506,7 @@
 </article>
 
 <div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
         谢谢大爷~
@@ -550,7 +550,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -565,24 +565,24 @@
 
     </main>
     <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" target="" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — Last Reunion&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2019/12-24-unityneicun/&title=《unity中的内存分配以及卸载》 — Last Reunion&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -592,7 +592,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — ZeroUltra&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unity中的内存分配以及卸载》 — Last Reunion&url=http://zeroultra.github.io/2019/12-24-unityneicun/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -606,7 +606,7 @@
 
 
 <div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2019/12-24-unityneicun/" alt="微信分享二维码">
 </div>
@@ -683,11 +683,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
   <script type="text/javascript" src="/js/clicklove.js"></script>
 
 
-
-	<!-- 依赖jquery库，我这里用了min库，减小空间 -->
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<!-- 雪花特效1 -->
-	<script type="text/javascript" src="/js/snow1.js"></script> 
 
 
 

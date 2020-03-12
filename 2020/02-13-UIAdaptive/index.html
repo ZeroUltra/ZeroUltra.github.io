@@ -54,7 +54,7 @@
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" target="" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" >     
@@ -114,9 +114,14 @@
             </li>
         
       </ul>
+
     </div>
+<div  class="music"> 
+<audio src="/mp3/1.mp3" preload="auto" autoplay/>
+</div>
   </div>
 </aside>
+
 
     <main id="main">
         <header class="top-header" id="header">
@@ -622,3 +627,26 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
+	<!-- 音乐 -->
+	<script src="/audiojs/audio.min.js"></script>
+	
+<script>
+	audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+
+<script>
+$(function() {
+
+
+    var a = audiojs.createAll({
+        trackEnded: function() {
+
+            audio.load("/mp3/2.mp3");
+            audio.play();
+        }
+    });
+
+});
+</script>

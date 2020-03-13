@@ -152,10 +152,11 @@
       </ul>
 
     </div>
-<div  class="music"> 
-<audio src="/mp3/1.mp3" preload="auto" autoplay/>
-</div>
+	<div  class="music"> 
+		<audio src="/mp3/111.mp3" preload loop/>
+	</div>
   </div>
+
 </aside>
 
 
@@ -1066,23 +1067,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 	<!-- 音乐 -->
 	<script src="/audiojs/audio.min.js"></script>
 	
-<script>
-	audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
-</script>
-
-<script>
-$(function() {
-
-
-    var a = audiojs.createAll({
-        trackEnded: function() {
-
-            audio.load("/mp3/2.mp3");
-            audio.play();
-        }
-    });
-
-});
-</script>
+	<script>
+			audiojs.events.ready(function() {
+			var as = audiojs.createAll();
+			});
+	</script>

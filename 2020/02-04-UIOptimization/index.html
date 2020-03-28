@@ -72,7 +72,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image12.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image10.png">
-<meta property="og:updated_time" content="2020-03-12T13:05:54.137Z">
+<meta property="og:updated_time" content="2020-03-28T06:28:39.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
@@ -219,7 +219,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对Ugui优化的四个方向"><span class="post-toc-number">2.</span> <span class="post-toc-text">针对Ugui优化的四个方向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网格重建"><span class="post-toc-number">3.</span> <span class="post-toc-text">网格重建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是网格重建"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">什么是网格重建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哪些操作会引发网格重建"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">哪些操作会引发网格重建?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于网格重建的一些Tips"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">关于网格重建的一些Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的批处理"><span class="post-toc-number">4.</span> <span class="post-toc-text">UI的批处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UGUI批处理原则"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">UGUI批处理原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一个特殊的例子"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">一个特殊的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mask组件"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Mask组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RectMask2D组件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">RectMask2D组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些特殊的打断"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">一些特殊的打断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#填充率"><span class="post-toc-number">5.</span> <span class="post-toc-text">填充率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些减少填充率的操作"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一些减少填充率的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Font-and-Text"><span class="post-toc-number">6.</span> <span class="post-toc-text">Font and Text</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些tips"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">一些tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他的一些Tips"><span class="post-toc-number">7.</span> <span class="post-toc-text">其他的一些Tips</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#写在最后的话"><span class="post-toc-number">8.</span> <span class="post-toc-text">写在最后的话</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对Ugui优化的四个方向"><span class="post-toc-number">2.</span> <span class="post-toc-text">针对Ugui优化的四个方向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网格重建"><span class="post-toc-number">3.</span> <span class="post-toc-text">网格重建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是网格重建"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">什么是网格重建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哪些操作会引发网格重建"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">哪些操作会引发网格重建?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于网格重建的一些Tips"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">关于网格重建的一些Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的批处理"><span class="post-toc-number">4.</span> <span class="post-toc-text">UI的批处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UGUI批处理原则"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">UGUI批处理原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一个特殊的例子"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">一个特殊的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mask组件"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Mask组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RectMask2D组件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">RectMask2D组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些特殊的打断"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">一些特殊的打断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#填充率"><span class="post-toc-number">5.</span> <span class="post-toc-text">填充率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些减少填充率的操作"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一些减少填充率的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Font-and-Text"><span class="post-toc-number">6.</span> <span class="post-toc-text">Font and Text</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些tips"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">一些tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他的一些Tips"><span class="post-toc-number">7.</span> <span class="post-toc-text">其他的一些Tips</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#写在最后的话"><span class="post-toc-number">8.</span> <span class="post-toc-text">写在最后的话</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考链接:</span></a></li></ol>
         </nav>
     </aside>
 
@@ -280,7 +280,7 @@
 <p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914" target="_blank" rel="noopener">链接</a></p>
 </blockquote>
 <h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
-<p>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty``SetMaterialDirty</code>等等</p>
+<p>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty</code> <code>SetMaterialDirty</code>等等</p>
 <ol>
 <li><p>避免使用UI的Active/DisActive,因为基类Graphic 的在调用OnEable的时候 会执行 SetAllDirty 导致网格重建.</p>
 <ul>
@@ -300,6 +300,8 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+
+
 
 
 <ol start="2">
@@ -725,6 +727,7 @@
 
 <h1 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h1><p>​    Ugui也用了很久，之前不知道UI会有这么多的坑，鉴于坑太多，Unity官方也不填坑，直接搞了一个UIwidgets和UIElements出来，不出意外未来UIelements会替代UGUI</p>
 <p>​    UIElemetns出来官方肯定会宣传，啊多么多么好，多么流畅，不用开发者担心xx问题，🤪</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h1><p>1:UWA:UI模块优化直播视频:<a href="https://v.qq.com/x/page/e0520qxtjox.html" target="_blank" rel="noopener">https://v.qq.com/x/page/e0520qxtjox.html</a></p>
 
         </div>
 
@@ -733,7 +736,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-12T13:05:54.137Z" itemprop="dateUpdated">2020-03-12 21:05:54</time>
+    最后更新时间：<time datetime="2020-03-28T06:28:39.963Z" itemprop="dateUpdated">2020-03-28 14:28:39</time>
 </span><br>
 
 

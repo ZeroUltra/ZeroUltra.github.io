@@ -72,7 +72,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image12.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image10.png">
-<meta property="og:updated_time" content="2020-03-28T06:28:39.963Z">
+<meta property="og:updated_time" content="2020-03-28T07:00:30.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
@@ -293,13 +293,7 @@
 </ul>
 </li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200217200135521.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<img src="/2020/02-04-UIOptimization/image-20200217200135521.png">
 
 
 
@@ -321,13 +315,7 @@
 <li><p>谨慎使用Canvas的Pixel Perfect选项：该选项的开启会导致UI元素在发生位移时，其长宽会被进行微调（为了对齐像素），从而造成layout Rebuild。（比如ScrollRect滚动时，会使得Canvas.SendWillRenderCanvas消耗较高）</p>
 </li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/img.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<img src="/2020/02-04-UIOptimization/img.png">
 
 <p>持续更新….</p>
 <h1 id="UI的批处理"><a href="#UI的批处理" class="headerlink" title="UI的批处理"></a>UI的批处理</h1><p>UI好的批处理可以明显降低DC,有利于界面流畅的切换,我们可以使用工具Frame Debug 来查看,也可以在proliler的UI模块中查看.</p>
@@ -337,27 +325,15 @@
 <p>有了层级号之后，就要合并批次了，此时，Unity会将每一层的所有元素进行一个排序（按照材质、纹理等信息），合并掉可以Batch的元素成为一个批次，目前已知的排序规则是，Text组件会排在Image组件之前渲染，而同一类组件的情况下排序规则未知（好像并没什么规则）。经过以上排序，就可以得到一个有序的批次序列了。这时，Unity会再做一个优化，即如果相邻间的两个批次正好可以Batch的话就会进行Batch .</p>
 <p> 有了层级号之后，就要合并批次了，此时，Unity会将每一层的所有元素进行一个排序（按照材质、纹理等信息），合并掉可以Batch的元素成为一个批次，目前已知的排序规则是，Text组件会排在Image组件之前渲染，而同一类组件的情况下排序规则未知（好像并没什么规则）。经过以上排序，就可以得到一个有序的批次序列了。这时，Unity会再做一个优化，即如果相邻间的两个批次正好可以Batch的话就会进行Batch .</p>
 <p>可以合并这里先看看示例1：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200216203551232.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200216202958235.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/image-20200216203034358.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<img src="/2020/02-04-UIOptimization/image-20200216203551232.png">
+
+<br>
+
+<img src="/2020/02-04-UIOptimization/image-20200216202958235.png">
+
+<br>
+
+<img src="/2020/02-04-UIOptimization/image-20200216203034358.png">
 
 <p>先看button底下没用别的UI 那么他的深度（层级）就是0，然后看button1和button一样，深度=0，然后看text，text下面是button的img图片，由于<code>text贴图和button贴图不同，所以不能合批</code>，深度为1，两个text都是1。算好层级之后，将所以的UI放入渲染队列，两个text合批成一个dc，两个buton img合批成一个dc，一共两个</p>
 <hr>
@@ -736,7 +712,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-28T06:28:39.963Z" itemprop="dateUpdated">2020-03-28 14:28:39</time>
+    最后更新时间：<time datetime="2020-03-28T07:00:30.625Z" itemprop="dateUpdated">2020-03-28 15:00:30</time>
 </span><br>
 
 

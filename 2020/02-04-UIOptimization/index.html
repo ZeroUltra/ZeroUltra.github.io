@@ -13,6 +13,8 @@
     
     
     
+    <link rel="canonical" href="true/2020/02-04-UIOptimization/">
+    
     
     <title>UIOptimization | Last Reunion | 天下风云出我辈，一入江湖岁月催</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -76,7 +78,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -90,17 +92,17 @@
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
-    <a href="javascript:;" target="" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" >     
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Roger</h5>
-          <a href="mailto:929288107@qq.com" target="_blank" rel="noopener" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -115,13 +117,6 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 标签
@@ -129,9 +124,16 @@
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                归档
+                时间轴
               </a>
             </li>
         
@@ -150,45 +152,33 @@
             </li>
         
       </ul>
-
     </div>
-	<div  class="music"> 
-		<audio src="/mp3/111.mp3" preload loop/>
-	</div>
   </div>
-
 </aside>
-
 
     <main id="main">
         <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">UIOptimization</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" target="" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" target="" class="header-icon waves-effect waves-circle waves-light" id="search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
         
-        <a href="javascript:;" target="" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
         </a>
-		
-		
-		
         
-		
-
-       
     </div>
 </header>
 <header class="content-header post-header">
@@ -253,7 +243,7 @@
 <li>重点是 Unity堆出众多的UI视图工具都是针对UGUI的,例如Frame Debugger,Profiler中的UI模块</li>
 </ul>
 <p>虽然不久之后应该会被其他的UI方案替代,但是现阶段最实用,最流行的UI方案还是Ugui.UI使用不当会造成各种问题,现在对Ugui进行下优化总结.</p>
-<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/" target="_blank" rel="noopener">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
+<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
 <h1 id="针对Ugui优化的四个方向"><a href="#针对Ugui优化的四个方向" class="headerlink" title="针对Ugui优化的四个方向"></a>针对Ugui优化的四个方向</h1><ul>
 <li>过多的GPU片段着色器使用率（如屏幕填充率过高）   </li>
 <li>过多的CPU时间开销在重建一个画布上 (画布划分)</li>
@@ -277,9 +267,9 @@
 </li>
 </ul>
 <blockquote>
-<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914" target="_blank" rel="noopener">链接</a></p>
+<p>雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914">链接</a></p>
 </blockquote>
-<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
+<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​    网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
 <p>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty</code> <code>SetMaterialDirty</code>等等</p>
 <ol>
 <li><p>避免使用UI的Active/DisActive,因为基类Graphic 的在调用OnEable的时候 会执行 SetAllDirty 导致网格重建.</p>
@@ -674,7 +664,7 @@
             </figure>
 
 <p>如果想要的文字一个个输入有些麻烦 这里有个帮助类.可以快速添加需要的文字</p>
-<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612" target="_blank" rel="noopener">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
+<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a> 我放到最后</p>
 <h2 id="一些tips"><a href="#一些tips" class="headerlink" title="一些tips"></a>一些tips</h2><ul>
 <li>推荐使用TextMeshPro!!!</li>
 <li>使用UGUI Text RichText会让面数倍增   </li>
@@ -682,7 +672,7 @@
 <h1 id="其他的一些Tips"><a href="#其他的一些Tips" class="headerlink" title="其他的一些Tips"></a>其他的一些Tips</h1><ol>
 <li><p>少使用或者避免使用layout group组件</p>
 </li>
-<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect" target="_blank" rel="noopener">UIEffect</a>   </p>
+<li><p>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect">UIEffect</a>   </p>
 </li>
 <li><p>Image为null或者alpha为0不能降低开销，Image为null还会会打断合批  </p>
 </li>
@@ -703,7 +693,7 @@
 
 <h1 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h1><p>​    Ugui也用了很久，之前不知道UI会有这么多的坑，鉴于坑太多，Unity官方也不填坑，直接搞了一个UIwidgets和UIElements出来，不出意外未来UIelements会替代UGUI</p>
 <p>​    UIElemetns出来官方肯定会宣传，啊多么多么好，多么流畅，不用开发者担心xx问题，🤪</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h1><p>1:UWA:UI模块优化直播视频:<a href="https://v.qq.com/x/page/e0520qxtjox.html" target="_blank" rel="noopener">https://v.qq.com/x/page/e0520qxtjox.html</a></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h1><p>1:UWA:UI模块优化直播视频:<a href="https://v.qq.com/x/page/e0520qxtjox.html">https://v.qq.com/x/page/e0520qxtjox.html</a></p>
 
         </div>
 
@@ -717,7 +707,7 @@
 
 
         
-        转载请注明作者和出处。<a href="/2020/02-04-UIOptimization/" target="_blank" rel="external">http://zeroultra.github.io/2020/02-04-UIOptimization/</a>
+        转载请注明出处':' <a href="/2020/02-04-UIOptimization/" target="_blank" rel="external">http://zeroultra.github.io/2020/02-04-UIOptimization/</a>
         
     </div>
     
@@ -731,7 +721,7 @@
 
         
 <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
 
@@ -753,7 +743,7 @@
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
@@ -782,7 +772,7 @@
 
 
 
-    <a href="javascript:;" target="_blank" rel="noopener" id="shareFab" class="page-share-fab waves-effect waves-circle">
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
         <i class="icon icon-share-alt icon-lg"></i>
     </a>
 </div>
@@ -830,7 +820,7 @@
     <!-- Valine Comments -->
     <div class="comments vcomment" id="comments"></div>
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="/js/Valine.min.js">></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
     <!-- Valine Comments script -->
     <script>
         var GUEST_INFO = ['nick','mail','link'];
@@ -863,7 +853,7 @@
 </article>
 
 <div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <h3 class="reward-title">
         <i class="icon icon-quote-left"></i>
         谢谢大爷~
@@ -907,7 +897,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -922,7 +912,7 @@
 
     </main>
     <div class="mask" id="mask"></div>
-<a href="javascript:;" target="" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
@@ -934,7 +924,7 @@
         </a>
       </li>
       <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-title="微信">
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
@@ -963,7 +953,7 @@
 
 
 <div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2020/02-04-UIOptimization/" alt="微信分享二维码">
 </div>
@@ -1014,7 +1004,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '离开了😩';
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
             clearTimeout(titleTime);
         } else {
             document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
@@ -1028,28 +1018,8 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
-
-
-
-
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
-
 </html>
 
-
-  <script type="text/javascript" src="/js/clicklove.js"></script>
-
-
-
-
-
-
-
-	<!-- 音乐 -->
-	<script src="/audiojs/audio.min.js"></script>
-	
-	<script>
-			audiojs.events.ready(function() {
-			var as = audiojs.createAll();
-			});
-	</script>
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  

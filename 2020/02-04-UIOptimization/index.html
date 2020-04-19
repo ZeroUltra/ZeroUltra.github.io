@@ -74,7 +74,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image12.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image10.png">
-<meta property="og:updated_time" content="2020-04-19T14:28:09.697Z">
+<meta property="og:updated_time" content="2020-04-19T14:40:15.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
@@ -243,7 +243,7 @@
 <li>重点是 Unity堆出众多的UI视图工具都是针对UGUI的,例如Frame Debugger,Profiler中的UI模块</li>
 </ul>
 <p>虽然不久之后应该会被其他的UI方案替代,但是现阶段最实用,最流行的UI方案还是Ugui.UI使用不当会造成各种问题,现在对Ugui进行下优化总结.</p>
-<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
+<p>UGUI官方源码地址: <a href="https://bitbucket.org/Unity-Technologies/ui/src/" target="_blank" rel="noopener">https://bitbucket.org/Unity-Technologies/ui/src/</a></p>
 <h1 id="针对Ugui优化的四个方向"><a href="#针对Ugui优化的四个方向" class="headerlink" title="针对Ugui优化的四个方向"></a>针对Ugui优化的四个方向</h1><ul>
 <li>过多的GPU片段着色器使用率（如屏幕填充率过高）   </li>
 <li>过多的CPU时间开销在重建一个画布上 (画布划分)</li>
@@ -253,7 +253,7 @@
 <h1 id="网格重建"><a href="#网格重建" class="headerlink" title="网格重建"></a>网格重建</h1><p>​        UI中大多数的问题都是网格重建引起的</p>
 <hr>
 <p><strong>2020年4月19更新</strong></p>
-<p>​        放知乎一个看到了一个帖子：<a href="https://zhuanlan.zhihu.com/p/128546981">https://zhuanlan.zhihu.com/p/128546981</a></p>
+<p>​        放知乎一个看到了一个帖子：<a href="https://zhuanlan.zhihu.com/p/128546981" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/128546981</a></p>
 <h2 id="什么是网格重建"><a href="#什么是网格重建" class="headerlink" title="什么是网格重建"></a>什么是网格重建</h2><p>​        UGUI中以Canvas为单位,其下的UI原色会合成一个大Mesh,当我们改变UI元素(改变颜色,图片,大小等等)的时候都会引起网格Rebuild或ReBatch(UI重新批处理),每当有一个UI元素变化就会影响当前Canvas所有的UI元素引发网格重建.当UI过多的时候会造成重建时间过长 造成卡顿.</p>
 <p>简而言之,就是Canvas会合成一个大的mesh,其地下的UI元素更改,会导致整个大mesh引发更改.</p>
 <h2 id="哪些操作会引发网格重建"><a href="#哪些操作会引发网格重建" class="headerlink" title="哪些操作会引发网格重建?"></a>哪些操作会引发网格重建?</h2><ul>
@@ -263,8 +263,8 @@
 <li>Text的文字内容替换</li>
 <li>更改UI顶点颜色(一般的color属性)</li>
 </ul>
-<p>附上一个可以查找引发网格重建元素的Script,可以查看那些执行了Rebuild,无法查看Rebatch(ReBatch在底层c++代码中) (来自雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914">链接</a>)</p>
-<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​        网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
+<p>附上一个可以查找引发网格重建元素的Script,可以查看那些执行了Rebuild,无法查看Rebatch(ReBatch在底层c++代码中) (来自雨松momo <a href="http://www.xuanyusong.com/archives/4573?replytocom=633914" target="_blank" rel="noopener">链接</a>)</p>
+<h2 id="关于网格重建的一些Tips"><a href="#关于网格重建的一些Tips" class="headerlink" title="关于网格重建的一些Tips"></a>关于网格重建的一些Tips</h2><p>​        网格重建可能我们无法避免,但是我们可以通过一些操作来减少网格重建,网格重建包括ReBuild和ReBatch两部分,针对这两部分我们可以进行一些优化,值得一提的是Unity5.2以后批处理已经重写,运用到了多线程,这部分的消耗时间大大减少,具体可以参考这篇文章: <a href="https://blog.csdn.net/cyf649669121/article/details/83142903" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83142903</a> </p>
 <p><strong>在UI源码中重建的标志就是设置了这个UI为<code>dirty</code>,例如<code>SetVerticesDirty</code> <code>SetLayoutDirty</code> <code>SetMaterialDirty</code> <code>SetAllDirty</code>等等</strong></p>
 <ol>
 <li><p>避免使用UI的<code>Active/DisActive</code>,因为基类Graphic 的在调用OnEable的时候 会执行 SetAllDirty 导致网格重建.</p>
@@ -274,7 +274,7 @@
 <li><p>对于整个个plane：可以添加<code>Canvas-Group</code>控制alpha来显隐</p>
 </li>
 <li><p>对于单个UI ：可以通过控制<code>scale=0</code>,或者在<code>Canvas</code>添加<code>Mask2DRect</code>,然后将单个UI移除Canvas之外.这两个操作应该都会Rebatch(因为引发了Positon和scale)，发现一个比较好的就是设置<code>CanvasRenderer</code>的alpha(设置CanvasRenderer的alpha=0的时候同同时还要设置UI的raycast target=fase,不然还会相应按钮点击)</p>
-<p>另外知乎上一篇文章可以利用<code>CanvasRenderer</code>cull属性，即：<code>image.canvasRenderer.cull = true</code>   <a href="https://zhuanlan.zhihu.com/p/30492759">https://zhuanlan.zhihu.com/p/30492759</a></p>
+<p>另外知乎上一篇文章可以利用<code>CanvasRenderer</code>cull属性，即：<code>image.canvasRenderer.cull = true</code>   <a href="https://zhuanlan.zhihu.com/p/30492759" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30492759</a></p>
 <p>再另外可以研究一下CanvasRenderer<code>EnableRectClipping</code>这个方法</p>
 </li>
 </ul>
@@ -666,14 +666,14 @@
             </figure>
 
 <p>如果想要的文字一个个输入有些麻烦 这里有个帮助类.可以快速添加需要的文字</p>
-<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a>        </p>
+<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612" target="_blank" rel="noopener">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a>        </p>
 <p>  <a href="/2020/02-04-UIOptimization/UnicodeTextImporter.cs">脚本</a></p>
 <h2 id="字体的一些tips"><a href="#字体的一些tips" class="headerlink" title="字体的一些tips"></a>字体的一些tips</h2><ul>
 <li>推荐使用TextMeshPro!!!</li>
 <li>使用UGUI Text RichText会让面数倍增   </li>
 </ul>
 <h1 id="UI的点击性能优化"><a href="#UI的点击性能优化" class="headerlink" title="UI的点击性能优化"></a>UI的点击性能优化</h1><p><em>更新于2020年4月19日21：32</em> 照搬于知乎</p>
-<p>链接：<a href="https://zhuanlan.zhihu.com/p/55566751">https://zhuanlan.zhihu.com/p/55566751</a></p>
+<p>链接：<a href="https://zhuanlan.zhihu.com/p/55566751" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55566751</a></p>
 <p>文章内容(csdn文章)说的很多，先慢慢一个个分析吧</p>
 <ol>
 <li>Unity中即使取消了RaycastTarget,还是会会进入raycast列表的计算。我们一般知道的优化方案是如果UI组件不交互就取消了RaycastTarget,但是还是会计算 然后排除，所以这里如果计算量大的话需要注意。</li>
@@ -681,11 +681,11 @@
 </ol>
 <h1 id="其他的一些Tips"><a href="#其他的一些Tips" class="headerlink" title="其他的一些Tips"></a>其他的一些Tips</h1><ol>
 <li>少使用或者避免使用layout group组件</li>
-<li>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect">UIEffect</a>   </li>
+<li>最好不要使用UI自带的特效（outline，shadow…）额外增加dc 顶点 ,Git上面有个特效<a href="https://github.com/mob-sakai/UIEffect" target="_blank" rel="noopener">UIEffect</a>   </li>
 <li>Image为null或者alpha为0不能降低开销，Image为null还会会打断合批  </li>
 <li>Canvas设置摄像机模式的时候一定要指认camara,  Camera.main实际是调用了FindObjectWithTag 很费</li>
 <li>UI 图片旋转之后出现锯齿   解决办法:Canvas 模式设置成ScreenSpace-Camera模式</li>
-<li>关闭不必要的<code>RaycastTarget</code> ，如果UI不需要交互 就关闭,这里附上一个用于检测是否关闭RaycastTarget 脚本，知乎上面的一个优化射线检测方案<a href="https://zhuanlan.zhihu.com/p/55566751">https://zhuanlan.zhihu.com/p/55566751</a></li>
+<li>关闭不必要的<code>RaycastTarget</code> ，如果UI不需要交互 就关闭,这里附上一个用于检测是否关闭RaycastTarget 脚本，知乎上面的一个优化射线检测方案<a href="https://zhuanlan.zhihu.com/p/55566751" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55566751</a></li>
 </ol>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DebugUILine</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> Vector3[] fourCorners = <span class="keyword">new</span> Vector3[<span class="number">4</span>];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnDrawGizmos</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">foreach</span> (MaskableGraphic g <span class="keyword">in</span> GameObject.FindObjectsOfType&lt;MaskableGraphic&gt;())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (g.raycastTarget)</span><br><span class="line">            &#123;</span><br><span class="line">                RectTransform rectTransform = g.transform <span class="keyword">as</span> RectTransform;</span><br><span class="line">                rectTransform.GetWorldCorners(fourCorners);</span><br><span class="line">                Gizmos.color = Color.blue;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">                    Gizmos.DrawLine(fourCorners[i], fourCorners[(i + <span class="number">1</span>) % <span class="number">4</span>]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
@@ -694,9 +694,9 @@
 <h1 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h1><p>​    Ugui也用了很久，之前不知道UI会有这么多的坑，鉴于坑太多，Unity官方也不填坑，直接搞了一个UIwidgets和UIElements出来，不出意外未来UIelements会替代UGUI</p>
 <p>​    UIElemetns出来官方肯定会宣传，啊多么多么好，多么流畅，不用开发者担心xx问题，🤪</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h1><ol>
-<li>UWA:UI模块优化直播视频:<a href="https://v.qq.com/x/page/e0520qxtjox.html">https://v.qq.com/x/page/e0520qxtjox.html</a></li>
-<li>知乎上一个(其实对上面做了简单的总结)：<a href="https://zhuanlan.zhihu.com/p/43111806">https://zhuanlan.zhihu.com/p/43111806</a></li>
-<li>《小米超神》技术总监王啸予：重度MOBA的优化之路 <a href="https://zhuanlan.zhihu.com/p/38004837">https://zhuanlan.zhihu.com/p/38004837</a></li>
+<li>UWA:UI模块优化直播视频:<a href="https://v.qq.com/x/page/e0520qxtjox.html" target="_blank" rel="noopener">https://v.qq.com/x/page/e0520qxtjox.html</a></li>
+<li>知乎上一个(其实对上面做了简单的总结)：<a href="https://zhuanlan.zhihu.com/p/43111806" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/43111806</a></li>
+<li>《小米超神》技术总监王啸予：重度MOBA的优化之路 <a href="https://zhuanlan.zhihu.com/p/38004837" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38004837</a></li>
 </ol>
 
         </div>
@@ -706,7 +706,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-19T14:28:09.697Z" itemprop="dateUpdated">2020-04-19 22:28:09</time>
+    最后更新时间：<time datetime="2020-04-19T14:40:15.224Z" itemprop="dateUpdated">2020-04-19 22:40:15</time>
 </span><br>
 
 

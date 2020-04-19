@@ -51,11 +51,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;11-22-myblog&#x2F;image-20200210204810502.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;11-22-myblog&#x2F;image-20200210205012721.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;11-22-myblog&#x2F;image-20200210210822242.png">
-<meta property="og:updated_time" content="2020-02-10T13:16:24.050Z">
+<meta property="og:updated_time" content="2020-04-19T08:06:59.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2019&#x2F;11-22-myblog&#x2F;2.png">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -122,9 +122,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                测试
+              <a href="/aboutme"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
               </a>
             </li>
         
@@ -231,23 +231,22 @@
 </li>
 <li><p>hexo 常用的几个命令</p>
 <ul>
-<li><p>清除缓存 <code>hexo clean</code></p>
-</li>
-<li><p>生成静态文件：<code>hexo generate</code>，简写<code>hexo g</code></p>
-</li>
-<li><p>启动服务器：<code>hexo server</code>，简写<code>hexo s</code></p>
-</li>
-<li><p>部署到远程站点： <code>hexo deploy</code>，简写<code>hexo d</code></p>
-</li>
-<li><p>写新文章: <code>hexo n &lt;title&gt;</code> 新文章在 source/_posts文件夹下面</p>
-<blockquote>
-<p>更多指令：<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a> </p>
-</blockquote>
-</li>
+<li>清除缓存 <code>hexo clean</code></li>
 </ul>
-<p>现在使用命令 <code>hexo s</code> 然后打开 <code>http://localhost:4000/</code>查看</p>
 </li>
 </ol>
+<ul>
+<li>生成静态文件：<code>hexo generate</code>，简写<code>hexo g</code><ul>
+<li>启动服务器：<code>hexo server</code>，简写<code>hexo s</code></li>
+</ul>
+</li>
+<li>部署到远程站点： <code>hexo deploy</code>，简写<code>hexo d</code><ul>
+<li>写新文章: <code>hexo n &lt;title&gt;</code> 新文章在 source/_posts文件夹下面,更多查看<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a> </li>
+</ul>
+</li>
+<li>添加新页面：<code>hexo new page xxxx</code></li>
+</ul>
+<p>现在使用命令 <code>hexo s</code> 然后打开 <code>http://localhost:4000/</code>查看</p>
 <h1 id="博客的一些设置"><a href="#博客的一些设置" class="headerlink" title="博客的一些设置"></a>博客的一些设置</h1><p>​    Everything`s ok<del>~</del> </p>
 <p>​    配合<a href="https://hexo.io/zh-cn/docs/configuration">hexo</a>设置一些内容</p>
 <h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2><p>​    在你的网站文件夹下面有个<code>themes</code> 文件夹,然后把你下载的主题文件全部拷贝.</p>
@@ -346,32 +345,36 @@
                 <div class="image-caption"></div>
             </figure></p>
 <p>OK！！！ 完成</p>
-<h2 id="修改主题颜色-更新于2020-2-10-20-25"><a href="#修改主题颜色-更新于2020-2-10-20-25" class="headerlink" title="修改主题颜色,更新于2020.2.10 20:25"></a>修改主题颜色,更新于2020.2.10 20:25</h2><p>​    这个主题颜色更改花了我好久好久,改的心力憔醉.主要还是跨行如跨山..</p>
+<h2 id="修改主题颜色-更新于2020-2-10-20-25"><a href="#修改主题颜色-更新于2020-2-10-20-25" class="headerlink" title="修改主题颜色,更新于2020.2.10 20:25"></a>修改主题颜色,更新于2020.2.10 20:25</h2><p>下面写的过于啰嗦。。。简单说</p>
+<ol>
+<li>安装<code>hexo renderer less</code>插件</li>
+<li>设置<code>_config.yml</code>中<code>cdn</code>为false</li>
+<li>然后修改<code>variable.less</code>中得颜色变量，更多可以打开网页进入<code>f12</code>修改相关变量，然后修改相关得<code>*.less</code>文件即可</li>
+</ol>
+<p>这个主题颜色更改花了我好久好久,改的心力憔醉.主要还是跨行如跨山..</p>
 <p>首先看作者github上面的<a href="https://github.com/yscoder/hexo-theme-indigo/issues/387">issue</a>,也就是说更改配置的<code>cdn:false</code>,让偶修改修改<code>variable.less</code>文件的配色就行了</p>
-<p>​    <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/11-22-myblog/image-20200210203125518.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<img src="/2019/11-22-myblog/image-20200210203125518.png">
+
 <p>可是修改了颜色我发现并没有效果,而且布局还乱了,这么就奇怪,我查了很久,认真看了其他的issue和作者的wiki,由于真的是什么都不太懂,作者写的这句话我都不太懂</p>
-<p>​    <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/11-22-myblog/image-20200210203531007.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<img src="/2019/11-22-myblog/image-20200210203531007.png">
+
 <p>后面我打开网站的时候发现他在访问一个unpkg.com的网站,去下载了一下东西,然后我打开网站下面的<code>index.html</code>发现了一些奇特的现象,(网站的样式由style.css决定)</p>
-<p>​    <figure class="image-bubble">
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/11-22-myblog/image-20200210203949383.png" alt="这是cnd设置为true时候" title>
                 </div>
                 <div class="image-caption">这是cnd设置为true时候</div>
-            </figure></p>
-<p><img src="/2019/11-22-myblog/image-20200210204228773.png" alt="cnd设置为false"></p>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/11-22-myblog/image-20200210204228773.png" alt="cnd设置为false" title>
+                </div>
+                <div class="image-caption">cnd设置为false</div>
+            </figure>
+
 <p>到这里就懂了,设置为false的时候就是访问本地,难怪我改了如果为true,那么怎么修改都是没有乱用的.</p>
 <p>到这里又有个问题,为什么到用本地的布局效果都不起做用了.我查了一下blog根目录中的<code>public</code>文件夹,发现其中的css,只有一个<code>style.less</code>(原本只是7kb,我这里已经转换了),再和<code>theme</code>中的主题css文件夹对比,发现就少了很多东西</p>
 <p>​    <figure class="image-bubble">
@@ -448,7 +451,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-02-10T13:16:24.050Z" itemprop="dateUpdated">2020-02-10 21:16:24</time>
+    最后更新时间：<time datetime="2020-04-19T08:06:59.039Z" itemprop="dateUpdated">2020-04-19 16:06:59</time>
 </span><br>
 
 

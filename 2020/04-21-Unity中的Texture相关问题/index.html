@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="true/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+    
+    
+    <title>Unity中的Texture一些说明 | ZeroUltra | 犹胜嫦娥不嫁人,夜夜孤眠广寒殿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Unity">
+    <meta name="description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等… Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
+<meta name="keywords" content="Unity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity中的Texture一些说明">
+<meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等… Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;111.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;222.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;333.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;444.JPG">
+<meta property="og:updated_time" content="2020-04-21T16:14:17.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98&#x2F;111.PNG">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Roger</h5>
+          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间轴
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZeroUltra" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/aboutme"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Unity中的Texture一些说明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Unity中的Texture一些说明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-21T12:59:12.000Z" itemprop="datePublished" class="page-time">
+  2020-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Unity/">Unity</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture中各种关系以及Apply-方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity中Texture中各种关系以及Apply()方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture内存计算方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中Texture内存计算方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Texture2D中的RawData"><span class="post-toc-number">3.</span> <span class="post-toc-text">Texture2D中的RawData</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Unity中的Texture相关问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Unity中的Texture一些说明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-21 20:59:12" datetime="2020-04-21T12:59:12.000Z"  itemprop="datePublished">2020-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Unity/">Unity</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等…</p>
+<h1 id="Unity中Texture中各种关系以及Apply-方法"><a href="#Unity中Texture中各种关系以及Apply-方法" class="headerlink" title="Unity中Texture中各种关系以及Apply()方法"></a>Unity中Texture中各种关系以及Apply()方法</h1><p>先抛出一个我无意间浏览到的一个博主写的关于<code>Texture</code> <code>Texture2D</code>  <code>RendererTexture</code> 之间的关系.</p>
+<p>链接:<a href="http://fargesportfolio.com/unity-texture-texture2d-rendertexture/" target="_blank" rel="noopener">http://fargesportfolio.com/unity-texture-texture2d-rendertexture/</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/111.PNG" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>这里说一下 <code>Texture2D</code>的<code>Apply</code>操作,当我们使用<code>SetPixel</code>或<code>SetPixels</code>一定要调用Apply方法,不然显示的还是原来的图,这里有个链接具体看下:<a href="https://blog.csdn.net/carefreeq/article/details/52635524" target="_blank" rel="noopener">https://blog.csdn.net/carefreeq/article/details/52635524</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/222.PNG" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>所以图片存在内存中,CPU指向这个图片地址,GPU根据CPU拿过来的地址来显示,如果更改了图片数据,没用调用Apply. 那么GPU没用接收到CPU发来的指令就不会更改这个图的显示.下面的代码,当我没调用Apply的操作时,显示的还是原图,当我调用之后显示的就是纯红色了</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BtnClick</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Texture2D tex = <span class="keyword">new</span> Texture2D(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    tex.LoadImage(File.ReadAllBytes(desktopPath + <span class="string">"/111.jpg"</span>));</span><br><span class="line">    Color[] colors = tex.GetPixels();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; colors.Length; i++)</span><br><span class="line">        colors[i] = Color.red;</span><br><span class="line"></span><br><span class="line">    tex.SetPixels(colors);</span><br><span class="line">    <span class="comment">//tex.Apply();  这里更改</span></span><br><span class="line">    rawImg.texture = tex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用Apply是一个很昂贵的操作,所以官方建议我们在使用这个方法之前,尽可能把数据操作完毕!</p>
+<h1 id="Unity中Texture内存计算方式"><a href="#Unity中Texture内存计算方式" class="headerlink" title="Unity中Texture内存计算方式"></a>Unity中Texture内存计算方式</h1><p>任何贴图(Unity可识别的格式)导入到Unity中都有Unity自己的图片计算方法.而且可能一张100K大小的图片导入Unity就是好几M,同样一张图png和jpg两个格式假如一个100k一个50k,但是导入Unity中都是2M.那么Unity的计算格式是怎么样的呢?</p>
+<p>我做了一个1024*1024的图片导入到Unity中,不勾选<code>Generate Min Maps</code>,然后设置格式RGBA32那么此时的格式大小</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/333.PNG" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>这里可以看到图片大小是4M,其计算方法–&gt;这里格式设置的是<code>RGBA32 bit</code>,这个格式意思就是<strong>每一个像素用了32个bit去填充</strong>,而我们都知道一个byte等于8个bit,所以这里每个像素都占用了4个byte,而1m=1024kb,所以:</p>
+<blockquote>
+<p>总的像素大小=1024x1024(宽度x高度)</p>
+<p>那么总大小=总像素x每个像素大小=1024x1024x4=4M</p>
+</blockquote>
+<p>如果我们将图片换成RGB24,那么大小应该是;</p>
+<blockquote>
+<p>​    1024x1024x3=3M</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/444.JPG" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>所以在Unity中图片的内存大小是根据其格式定义的,具体要看每个像素占用的字节大小.</p>
+<h1 id="Texture2D中的RawData"><a href="#Texture2D中的RawData" class="headerlink" title="Texture2D中的RawData"></a>Texture2D中的RawData</h1><p>Unity中有<code>tex.LoadRawTextureData()</code>和<code>tex.GetRawTextureData()</code>两个方法,Get是获取图片的原始数据Load是从原始数据中加载.</p>
+<p>这在我项目中要频繁加载外部纹理(用完就处理掉)需要更快的加载纹理,这个方法加载速度要比IO读取和UnityWebRequest快很多</p>
+<p>要获取图片的RawData,就必须导入让Unity识别一遍,所以在开始就可以对纹理进行处理,先用IO读取获取到Texture2D(这里new Texture2D可以不用设置宽高)</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Texture2D tex = <span class="keyword">new</span> Texture2D(<span class="number">0</span>, <span class="number">0</span>,TextureFormat.RBGA32,<span class="literal">false</span>);</span><br><span class="line">tex.LoadImage(File.ReadAllBytes(<span class="string">"xxxx/1.png"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们已经得到了一个Unity Texture2D,接着我们使用代码获取RawData,然后保存</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] bs = tex.GetRawTextureData();</span><br><span class="line">File.WriteAllBytes(<span class="string">"xxxx/1.png.bytes"</span>, bs);</span><br></pre></td></tr></table></figure>
+
+<p>保存这个二进制文件之后,可以发现文件大小就是此图片在Unity看到的大小(在这用上面的图格式是RGBA32,那么这个二进制文件就是4M)</p>
+<p>这里需要注意一点的是,当我们使用<code>LoadRawTextureData</code>的时候,<strong>必须要指定原始图片的Width,Height和TextureFormat(minchan可以不管)</strong>,如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Texture2D tex2 = <span class="keyword">new</span> Texture2D(<span class="number">1920</span>, <span class="number">1080</span>, TextureFormat.RBGA32, <span class="literal">false</span>);</span><br><span class="line">tex.LoadRawTextureData(File.ReadAllBytes(<span class="string">"xxxx/1.png.bytes"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>所以你在保存RawData的时候,应该<strong>记录一下图片的一些属性</strong>,可以把数据写到文件名,然后用字符串操作得到相应数据,我这里使用了二进制保存.</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">WriteTexture2DToRawData</span>(<span class="params">Texture2D texture, <span class="keyword">string</span> filePath</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] bs = texture.GetRawTextureData();</span><br><span class="line">        <span class="keyword">using</span> (BinaryWriter bw = <span class="keyword">new</span> BinaryWriter(File.OpenWrite(filePath)))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//提前把前三个写入</span></span><br><span class="line">            bw.Write(texture.width);</span><br><span class="line">            bw.Write(texture.height);</span><br><span class="line">            bw.Write((<span class="keyword">int</span>)texture.format);</span><br><span class="line">            <span class="comment">//bw.Write(texture.streamingMipmaps);</span></span><br><span class="line">            <span class="comment">//------</span></span><br><span class="line">            bw.Write(bs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在读取的时候</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Texture2D <span class="title">LoadTexture2DFromRawData</span>(<span class="params"><span class="keyword">string</span> rawdataPath</span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">using</span> (BinaryReader br = <span class="keyword">new</span> BinaryReader(File.OpenRead(rawdataPath)))</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="comment">//先读取前三个宽 高 格式</span></span><br><span class="line">         <span class="keyword">int</span> w = br.ReadInt32();</span><br><span class="line">         <span class="keyword">int</span> h = br.ReadInt32();</span><br><span class="line">         <span class="keyword">int</span> format = br.ReadInt32();</span><br><span class="line"></span><br><span class="line">         <span class="comment">//在读取剩下的texture raw data</span></span><br><span class="line">         <span class="comment">//此时的br.BaseStream.Position=12</span></span><br><span class="line">         <span class="keyword">byte</span>[] bs = br.ReadBytes((<span class="keyword">int</span>)(br.BaseStream.Length - br.BaseStream.Position));</span><br><span class="line">         TextureFormat textureFormat = (TextureFormat)format;</span><br><span class="line">         Texture2D texture = <span class="keyword">new</span> Texture2D(w, h, textureFormat, <span class="literal">false</span>);</span><br><span class="line">         texture.LoadRawTextureData(bs);</span><br><span class="line">         texture.Apply();</span><br><span class="line">         <span class="keyword">return</span> texture;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>OK,大功告成!!!</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-21T16:14:17.820Z" itemprop="dateUpdated">2020-04-22 00:14:17</time>
+</span><br>
+
+
+        
+        转载请注明出处':' <a href="/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" target="_blank" rel="external">http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://zeroultra.github.io">
+            <img src="/img/avatar.jpg" alt="Roger">
+            Roger
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&title=《Unity中的Texture一些说明》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&title=《Unity中的Texture一些说明》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity中的Texture一些说明》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04-19-Unity%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Unity代码优化以及一些问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "s1tU09u71SORzEXhzkOUv8Sj-gzGzoHsz",
+            appKey: "3tEBA5yTAbHngderFMTaV0Gx",
+            avatar: "wavatar",
+            placeholder: "来评论一下吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Roger &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&title=《Unity中的Texture一些说明》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&title=《Unity中的Texture一些说明》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity中的Texture一些说明》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2020/04-21-Unity%E4%B8%AD%E7%9A%84Texture%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
+</html>
+
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  

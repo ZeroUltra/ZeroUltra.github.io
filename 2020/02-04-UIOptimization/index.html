@@ -63,18 +63,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217201333663.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217203106873.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217203541710.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image3.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image5.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image11.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image8.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image7.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image12.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image9.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;Image10.png">
-<meta property="og:updated_time" content="2020-04-19T15:00:16.289Z">
+<meta property="og:updated_time" content="2020-05-08T13:45:09.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;02-04-UIOptimization&#x2F;image-20200217200135521.png">
     
@@ -209,7 +198,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对Ugui优化的四个方向"><span class="post-toc-number">2.</span> <span class="post-toc-text">针对Ugui优化的四个方向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网格重建"><span class="post-toc-number">3.</span> <span class="post-toc-text">网格重建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是网格重建"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">什么是网格重建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哪些操作会引发网格重建"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">哪些操作会引发网格重建?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于网格重建的一些Tips"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">关于网格重建的一些Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的批处理"><span class="post-toc-number">4.</span> <span class="post-toc-text">UI的批处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UGUI批处理原则"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">UGUI批处理原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一个特殊的例子"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">一个特殊的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mask组件"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Mask组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RectMask2D组件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">RectMask2D组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些特殊的打断"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">一些特殊的打断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#填充率"><span class="post-toc-number">5.</span> <span class="post-toc-text">填充率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些减少填充率的操作"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一些减少填充率的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Font-and-Text"><span class="post-toc-number">6.</span> <span class="post-toc-text">Font and Text</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字体的一些tips"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">字体的一些tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的点击性能优化"><span class="post-toc-number">7.</span> <span class="post-toc-text">UI的点击性能优化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他的一些Tips"><span class="post-toc-number">8.</span> <span class="post-toc-text">其他的一些Tips</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#写在最后的话"><span class="post-toc-number">9.</span> <span class="post-toc-text">写在最后的话</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考链接:</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对Ugui优化的四个方向"><span class="post-toc-number">2.</span> <span class="post-toc-text">针对Ugui优化的四个方向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网格重建"><span class="post-toc-number">3.</span> <span class="post-toc-text">网格重建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是网格重建"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">什么是网格重建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哪些操作会引发网格重建"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">哪些操作会引发网格重建?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于网格重建的一些Tips"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">关于网格重建的一些Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的批处理"><span class="post-toc-number">4.</span> <span class="post-toc-text">UI的批处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UGUI批处理原则"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">UGUI批处理原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一个特殊的例子"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">一个特殊的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mask组件"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Mask组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RectMask2D组件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">RectMask2D组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些特殊的打断"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">一些特殊的打断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#填充率"><span class="post-toc-number">5.</span> <span class="post-toc-text">填充率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些减少填充率的操作"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">一些减少填充率的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI的点击性能优化"><span class="post-toc-number">6.</span> <span class="post-toc-text">UI的点击性能优化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他的一些Tips"><span class="post-toc-number">7.</span> <span class="post-toc-text">其他的一些Tips</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#写在最后的话"><span class="post-toc-number">8.</span> <span class="post-toc-text">写在最后的话</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考链接:</span></a></li></ol>
         </nav>
     </aside>
 
@@ -563,115 +552,6 @@
 <p>但是这样增加了顶点，<br><strong>没有绝对的优化，只能根据你的项目需求来进行相关的优化</strong></p>
 </li>
 </ol>
-<h1 id="Font-and-Text"><a href="#Font-and-Text" class="headerlink" title="Font and Text"></a>Font and Text</h1><p>最后说明一下文字</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>字体都包含一个材质一个贴图  我们使用的大多都是动态字体( 动态字体，如果所输入的文字在字体中找不到相应的编码，就会自动从系统默认字体中找到该字体),有个很大的问题就是,动态字体会自己调节贴图大小来更换图集,在程序运行过程中,动态赋值text文本字体,贴图没有文字默认是64*64大小,但是当文字越来越多的时候就会把贴图撑大。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p> 我在text中输入了很多文字之后 </p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image3.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>另外:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image4.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>如果文字的<code>Font Style</code> 不行同 在材质贴图中也会多加一份</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image5.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>也会根据<code>字体大小</code> 多追加一份</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image11.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<p>所以综上:我们可以拟定两个方案：</p>
-<ol>
-<li><p>如果已经知道图集包含的特定字,通过裁剪文字将文字内容固定,裁剪文字将会降低内存大小  裁剪文字有很多种方法,比如 <code>BMFont</code>自己制作 <code>FontSubsetGUI</code>裁剪文字 另外Unity 也有自带的字体裁剪,这里说明一下</p>
- <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image8.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>  导入字体库选择Custom Set,然后</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image7.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-</li>
-</ol>
-<p>​    我只让改字体库包含 “你好”两个字,那么在Text 文本上 将不会显示其他的文字</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image12.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>​    也会降低内存</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image9.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2020/02-04-UIOptimization/Image10.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>如果想要的文字一个个输入有些麻烦 这里有个帮助类.可以快速添加需要的文字</p>
-<p>  <a href="http://1vr.cn/?p=607&amp;cpage=1#comment-89612" target="_blank" rel="noopener">http://1vr.cn/?p=607&amp;cpage=1#comment-89612</a>        </p>
-<p>  <a href="/2020/02-04-UIOptimization/UnicodeTextImporter.cs">脚本</a></p>
-<h2 id="字体的一些tips"><a href="#字体的一些tips" class="headerlink" title="字体的一些tips"></a>字体的一些tips</h2><ul>
-<li>推荐使用TextMeshPro!!!</li>
-<li>使用UGUI Text RichText会让面数倍增   </li>
-</ul>
 <h1 id="UI的点击性能优化"><a href="#UI的点击性能优化" class="headerlink" title="UI的点击性能优化"></a>UI的点击性能优化</h1><p><em>更新于2020年4月19日21：32</em> 照搬于知乎</p>
 <p>链接：<a href="https://zhuanlan.zhihu.com/p/55566751" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/55566751</a></p>
 <p>文章内容(csdn文章)说的很多，先慢慢一个个分析吧</p>
@@ -706,7 +586,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-19T15:00:16.289Z" itemprop="dateUpdated">2020-04-19 23:00:16</time>
+    最后更新时间：<time datetime="2020-05-08T13:45:09.554Z" itemprop="dateUpdated">2020-05-08 21:45:09</time>
 </span><br>
 
 

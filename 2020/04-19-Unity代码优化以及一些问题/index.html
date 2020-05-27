@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="ZeroUltra">
 <meta property="og:description" content="记录一下Unity中常见的代码问题，以及一些优化  Camera.Main问题​    camera.main是个静态属性，用起来好用，但是其中内部使用的是GameObject.FindGameObjectWithTag 所以再Update或者经常使用这个函数的地方需要注意。 ​    这个问题也直接导致了UGUI相关的耗时，在Canvas Renderer modes使用Screen Space">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-21T12:56:07.720Z">
+<meta property="og:updated_time" content="2020-05-27T13:35:00.375Z">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -165,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Camera-Main问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">Camera.Main问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Camera-Main问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">Camera.Main问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity中-的使用问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中 ?? 的使用问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -193,15 +193,26 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p><strong>记录一下Unity中常见的代码问题，以及一些优化</strong></p>
 <hr>
-<h3 id="Camera-Main问题"><a href="#Camera-Main问题" class="headerlink" title="Camera.Main问题"></a>Camera.Main问题</h3><p>​    camera.main是个静态属性，用起来好用，但是其中内部使用的是<code>GameObject.FindGameObjectWithTag</code></p>
+<h2 id="Camera-Main问题"><a href="#Camera-Main问题" class="headerlink" title="Camera.Main问题"></a>Camera.Main问题</h2><p>​    camera.main是个静态属性，用起来好用，但是其中内部使用的是<code>GameObject.FindGameObjectWithTag</code></p>
 <p>所以再Update或者经常使用这个函数的地方需要注意。</p>
 <p>​    这个问题也直接导致了UGUI相关的耗时，在Canvas Renderer modes使用<code>Screen Space-Camera</code>或者<code>World Space</code>的时候如果要获取相机使用内部函数也会导致一些问题</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">UnityEngine.UI</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">AddComponentMenu(<span class="meta-string">"Event/Graphic Raycaster"</span>)</span>]</span><br><span class="line">    [<span class="meta">RequireComponent(typeof(Canvas))</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GraphicRaycaster</span> : <span class="title">BaseRaycaster</span></span><br><span class="line">    &#123;</span><br><span class="line"><span class="comment">//……</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">override</span> Camera eventCamera</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (canvas.renderMode == RenderMode.ScreenSpaceOverlay || (canvas.renderMode == RenderMode.ScreenSpaceCamera &amp;&amp; canvas.worldCamera == <span class="literal">null</span>))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"> </span><br><span class="line">                <span class="keyword">return</span> canvas.worldCamera != <span class="literal">null</span> ? canvas.worldCamera : Camera.main;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>​    </p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a href="https://www.cnblogs.com/murongxiaopifu/p/7823487.html" target="_blank" rel="noopener">https://www.cnblogs.com/murongxiaopifu/p/7823487.html</a> </li>
 <li><a href="https://blog.csdn.net/cyf649669121/article/details/83661023" target="_blank" rel="noopener">https://blog.csdn.net/cyf649669121/article/details/83661023</a></li>
+</ol>
+<h2 id="Unity中-的使用问题"><a href="#Unity中-的使用问题" class="headerlink" title="Unity中 ?? 的使用问题"></a>Unity中 <code>??</code> 的使用问题</h2><p><code>??</code>是c#的一个语法糖,叫<code>空合并运算符</code>,如果左边不为空返回左边,否则返回右边</p>
+<p>例子a=b??c,如果b不为空,则a=b,否则a=c</p>
+<p>在unity中我们可能这样使用</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T t=<span class="keyword">this</span>.gameobject.GetComponent&lt;T&gt;()??<span class="keyword">this</span>.gameobject.AddComponent&lt;T&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>获取某个物体上面的Component,<code>但是我们获取Unity中内置的组件的时候这个方法得到的结果是永远不会为null</code></p>
+<p>比如我们获取一个物体上面的相机,假如这个物体上面没有添加相机组件,我们用上面这行代码,就不会添加相机也不会获得</p>
+<p>但是如果我们自己写一个脚本,用上面的代码 就可以添加并且得到,</p>
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://www.xuanyusong.com/archives/4713" target="_blank" rel="noopener">https://www.xuanyusong.com/archives/4713</a></li>
 </ol>
 
         </div>
@@ -211,7 +222,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-21T12:56:07.720Z" itemprop="dateUpdated">2020-04-21 20:56:07</time>
+    最后更新时间：<time datetime="2020-05-27T13:35:00.375Z" itemprop="dateUpdated">2020-05-27 21:35:00</time>
 </span><br>
 
 

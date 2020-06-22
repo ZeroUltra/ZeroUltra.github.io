@@ -16,7 +16,7 @@
     <link rel="canonical" href="true/2020/04-19-Unity%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
     
     
-    <title>Unity代码优化以及一些问题 | ZeroUltra | 犹胜嫦娥不嫁人,夜夜孤眠广寒殿</title>
+    <title>Unity代码优化以及一些问题 | ZeroUltra | 业精于勤荒于嬉</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="ZeroUltra">
 <meta property="og:description" content="记录一下Unity中常见的代码问题，以及一些优化  Camera.Main问题​    camera.main是个静态属性，用起来好用，但是其中内部使用的是GameObject.FindGameObjectWithTag 所以再Update或者经常使用这个函数的地方需要注意。 ​    这个问题也直接导致了UGUI相关的耗时，在Canvas Renderer modes使用Screen Space">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T13:35:00.375Z">
+<meta property="og:updated_time" content="2020-06-22T15:17:24.961Z">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -165,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Camera-Main问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">Camera.Main问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity中-的使用问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中 ?? 的使用问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Camera-Main问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">Camera.Main问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unity中-的使用问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中 ?? 的使用问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UGUI-点击Bug"><span class="post-toc-number">3.</span> <span class="post-toc-text">UGUI 点击Bug</span></a></li></ol>
         </nav>
     </aside>
 
@@ -214,6 +214,10 @@
 <h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a href="https://www.xuanyusong.com/archives/4713" target="_blank" rel="noopener">https://www.xuanyusong.com/archives/4713</a></li>
 </ol>
+<h2 id="UGUI-点击Bug"><a href="#UGUI-点击Bug" class="headerlink" title="UGUI 点击Bug"></a>UGUI 点击Bug</h2><p>​    当UI中父物体实现了<code>IPointerDownHandler</code>接口,而子物体实行了<code>IPointerClickHandler</code>接口的时候 ,如果点击子物体 不会触发 Click事件.</p>
+<p>​    原因是UI源码中鼠标按下的时候会寻找实现了<code>IPointerDownHandler</code>这个接口的物体,从子物体向上寻找,所以这里就找到了父物体,然后鼠标抬起,找到实现了Click接口的物体,然后通过判断两者是否一直来触发Click事件. 这里寻找到了父物体,而寻找到click物体是子物体,所以判断不一致无法触发</p>
+<p>链接:<a href="https://www.cnblogs.com/msxh/p/10588783.html" target="_blank" rel="noopener">https://www.cnblogs.com/msxh/p/10588783.html</a></p>
+<p><a href="http://www.sikiedu.com/course/468/task/35891/show" target="_blank" rel="noopener">http://www.sikiedu.com/course/468/task/35891/show</a></p>
 
         </div>
 
@@ -222,7 +226,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-27T13:35:00.375Z" itemprop="dateUpdated">2020-05-27 21:35:00</time>
+    最后更新时间：<time datetime="2020-06-22T15:17:24.961Z" itemprop="dateUpdated">2020-06-22 23:17:24</time>
 </span><br>
 
 

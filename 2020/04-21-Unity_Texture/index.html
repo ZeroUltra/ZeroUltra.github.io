@@ -16,25 +16,35 @@
     <link rel="canonical" href="true/2020/04-21-Unity_Texture/">
     
     
-    <title>Unity中的Texture | ZeroUltra | 业精于勤荒于嬉</title>
+    <title>Texture In Unity | ZeroUltra | 业精于勤荒于嬉</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Unity">
-    <meta name="description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等… Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
-<meta name="keywords" content="Unity">
+    <meta name="keywords" content="Unity,优化">
+    <meta name="description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化 Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
+<meta name="keywords" content="Unity,优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity中的Texture">
+<meta property="og:title" content="Texture In Unity">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;index.html">
 <meta property="og:site_name" content="ZeroUltra">
-<meta property="og:description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等… Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
+<meta property="og:description" content="这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化 Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系. 链接:http:&#x2F;&#x2F;fargesportfolio.com&#x2F;unity-texture-texture2d-rendertexture&#x2F;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;111.PNG">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;333.PNG">
 <meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;444.JPG">
-<meta property="og:updated_time" content="2020-05-15T14:27:01.689Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_3.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_8.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_4.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_5.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_6.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_7.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_9.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;2_10.jpg">
+<meta property="og:updated_time" content="2020-11-16T07:25:27.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;04-21-Unity_Texture&#x2F;111.PNG">
     
@@ -122,7 +132,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Unity中的Texture</div>
+        <div class="flex-col header-title ellipsis">Texture In Unity</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -144,7 +154,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Unity中的Texture</h1>
+        <h1 class="title">Texture In Unity</h1>
         <h5 class="subtitle">
             
                 <time datetime="2020-04-21T12:59:12.000Z" itemprop="datePublished" class="page-time">
@@ -169,7 +179,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture中各种关系以及Apply-方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity中Texture中各种关系以及Apply()方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture内存计算方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中Texture内存计算方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Texture2D中的RawData"><span class="post-toc-number">3.</span> <span class="post-toc-text">Texture2D中的RawData</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2020年5月15日22点11分更新补充"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2020年5月15日22点11分更新补充</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture中各种关系以及Apply-方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unity中Texture中各种关系以及Apply()方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unity中Texture内存计算方式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Unity中Texture内存计算方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Texture2D中的RawData"><span class="post-toc-number">3.</span> <span class="post-toc-text">Texture2D中的RawData</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2020年5月15日22点11分更新补充"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2020年5月15日22点11分更新补充</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Texture-优化"><span class="post-toc-number">4.</span> <span class="post-toc-text">Texture 优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ASTC-压缩"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">ASTC 压缩</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#适配机型"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">适配机型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用ASTC压缩比率选择"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">使用ASTC压缩比率选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导入设置"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">导入设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正确设置没有透明通道图片的导入格式"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">正确设置没有透明通道图片的导入格式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Texture中的过滤模式"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">Texture中的过滤模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -178,7 +188,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Unity中的Texture</h1>
+        <h1 class="post-card-title">Texture In Unity</h1>
         <div class="post-meta">
             <time class="post-time" title="2020-04-21 20:59:12" datetime="2020-04-21T12:59:12.000Z"  itemprop="datePublished">2020-04-21</time>
 
@@ -195,7 +205,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式 等等…</p>
+            <p>这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化</p>
 <h1 id="Unity中Texture中各种关系以及Apply-方法"><a href="#Unity中Texture中各种关系以及Apply-方法" class="headerlink" title="Unity中Texture中各种关系以及Apply()方法"></a>Unity中Texture中各种关系以及Apply()方法</h1><p>先抛出一个我无意间浏览到的一个博主写的关于<code>Texture</code> <code>Texture2D</code>  <code>RendererTexture</code> 之间的关系.</p>
 <p>链接:<a href="http://fargesportfolio.com/unity-texture-texture2d-rendertexture/" target="_blank" rel="noopener">http://fargesportfolio.com/unity-texture-texture2d-rendertexture/</a></p>
 <figure class="image-bubble">
@@ -281,6 +291,111 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private void Instance_OnKeyDown1()</span><br><span class="line">  &#123;</span><br><span class="line">      Texture2D tex2 = TextureUtility.LoadTexture2DFromIO(path + &quot;222.png&quot;);</span><br><span class="line">      TextureUtility.WriteTexture2DToRawData(tex2, path + &quot;222.png.bytes&quot;, true);</span><br><span class="line">      rawImage.texture = TextureUtility.LoadTexture2DFromRawData(path + &quot;222.png.bytes.gz&quot;,false);</span><br><span class="line">      Debug.Log(&quot;end&quot;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 <p>我在画图中画了一个1024*1024纯红图片,如果没有压缩那么是4M,压缩后直接成5kb!!! 压缩算法 就不多解读了,具体可以查看源码。</p>
+<h1 id="Texture-优化"><a href="#Texture-优化" class="headerlink" title="Texture 优化"></a>Texture 优化</h1><p>2020年11.16更新</p>
+<p>移动端考虑图片压缩方式使用ASTC方式压缩了,在ios和android可以通用该压缩方式.</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_1.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="ASTC-压缩"><a href="#ASTC-压缩" class="headerlink" title="ASTC 压缩"></a>ASTC 压缩</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>后面是每个像素占据的bit,例如ASTC4*4 每个像素占据8bit=1kb,对于1024x1024大小的图,在unity中压缩后大小就是1m</p>
+<h3 id="适配机型"><a href="#适配机型" class="headerlink" title="适配机型"></a>适配机型</h3><ol>
+<li><p><strong>IOS</strong></p>
+<p>苹果从A8处理器开始支持 ASTC，iPhone6及iPad mini 4以上iOS设备支持，2014年的iPhone 5s及iPad mini 3以前的设备不支持。</p>
+</li>
+<li><p><strong>Android</strong></p>
+<p>所有支持OpenGL ES 3.1和部分支持OpenGL ES 3.0的GPU</p>
+<p><img src="/2020/04-21-Unity_Texture/2_3.jpg" alt></p>
+</li>
+</ol>
+<p>就算部分机型不支持该压缩,也可以有fallback</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_8.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<h3 id="使用ASTC压缩比率选择"><a href="#使用ASTC压缩比率选择" class="headerlink" title="使用ASTC压缩比率选择"></a>使用ASTC压缩比率选择</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_4.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_5.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_6.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_7.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>​    </p>
+<p><strong>总结:</strong>  <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_9.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<ol>
+<li>如果图片没有透明通道,再导入的时候应该设置不导入,不然会影响ASTC压缩</li>
+<li>压缩还是要具体打包看图片质量</li>
+</ol>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><h3 id="正确设置没有透明通道图片的导入格式"><a href="#正确设置没有透明通道图片的导入格式" class="headerlink" title="正确设置没有透明通道图片的导入格式"></a>正确设置没有透明通道图片的导入格式</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04-21-Unity_Texture/2_10.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<h3 id="Texture中的过滤模式"><a href="#Texture中的过滤模式" class="headerlink" title="Texture中的过滤模式"></a>Texture中的过滤模式</h3><p><code>就是像素与像素之间过度</code></p>
+<p>过滤模式会提供多种方案来使得纹理投影到物体表面的过程变得更为顺滑自然。一般来讲，Unity提供了三种模式：</p>
+<p><code>Point（no filter）</code>——Point模式为不过滤的采样方式，使用最近点采样的方法，当UV坐标没有刚好对应Texture上的一个采样点时，它会选择最近的一个采样点作为该坐标的采样值。当纹理没有拉伸变形时，这样速度是最快的，且效果理想。但如果拉伸变形了，会出现马赛克现象。</p>
+<p><code>Bilinear</code>——双线性过滤模式。简单来讲，它会对相邻的像素进行模糊化处理，使得像素之间的变化更为圆润平滑，不会有明显的锯齿感或者马赛克化。但这只涉及单个“平面”的操作，所以一旦涉及mipmap层级间的处理，双线性过滤就会有些“力不从心”，某些表现效果会大打折扣。</p>
+<p><code>Trilinear</code>——三线性过滤模式。和Bilinear模式类似，但是额外优化了mipmap层级间的转换效果，它会在mip层级间进行模糊处理，弥补了Bilinear模式的不足。</p>
+<p>这里我们延伸讲一下关于“mipmap”的概念。简单来讲为了更好地应对纹理贴图在不同距离和大小情况下的表现效果，以提升渲染的速度和降低图像锯齿化的影响，Unity会以纹理原尺寸为基础，预设几个等比例缩放的“复制品”，在实际使用中会根据情况加载对应的mipmap贴图，从而提升渲染性能，放大缩小的过程也因为mipmap层级的选择而更为快捷。</p>
+<p>回到规则本身，Trilinear模式对表现效果的提升，是以GPU的额外开销为代价的。同等条件下，三线性过滤的GPU占用是最高的。所以如果对纹理的细致程度不那么敏感（比如像素类游戏），或者不涉及mipmapping的应用（比如2D游戏），那么就没有必要去选择Trilinear模式。</p>
+<p>所以建议开发团队对本条规则检测下的纹理资源，依据项目实际需求进行相关的过滤模式的修改</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/158740249" target="_blank" rel="noopener">ASTC纹理压缩格式详解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/269535734" target="_blank" rel="noopener">纹理优化：不仅仅是一张图片那么简单</a></li>
+</ol>
 
         </div>
 
@@ -289,7 +404,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-15T14:27:01.689Z" itemprop="dateUpdated">2020-05-15 22:27:01</time>
+    最后更新时间：<time datetime="2020-11-16T07:25:27.275Z" itemprop="dateUpdated">2020-11-16 15:25:27</time>
 </span><br>
 
 
@@ -315,7 +430,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li></ul>
 
 
             
@@ -325,7 +440,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Unity中的Texture》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Texture In Unity》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -335,7 +450,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Unity中的Texture》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Texture In Unity》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -345,7 +460,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity中的Texture》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Texture In Unity》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -506,7 +621,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Unity中的Texture》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Texture In Unity》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -516,7 +631,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Unity中的Texture》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&title=《Texture In Unity》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -526,7 +641,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity中的Texture》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Texture In Unity》 — ZeroUltra&url=http://zeroultra.github.io/2020/04-21-Unity_Texture/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

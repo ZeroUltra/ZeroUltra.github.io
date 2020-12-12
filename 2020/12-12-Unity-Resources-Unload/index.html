@@ -16,7 +16,7 @@
     <link rel="canonical" href="true/2020/12-12-Unity-Resources-Unload/">
     
     
-    <title>Unity_Resources_Unload | ZeroUltra | 业精于勤荒于嬉</title>
+    <title>Unity非托管资源卸载 | ZeroUltra | 业精于勤荒于嬉</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,12 +26,12 @@
     <meta name="description" content="Unity 中的非托管资源卸载非托管资源 简单说就是自己从外部加载的资源,例如图片 音频 文本…. 卸载图片加载图片有Texture.load(bytes),直接从外部加载图片,卸载的时候只需要调用 Destoty(xxx)就可以卸载 卸载AssetBundle资源ab中有一个卸载方法Unload(false&#x2F;true) 当Unload(false)的时候卸载的只是这个包的镜像文件,已经加载的资源">
 <meta name="keywords" content="Unity,优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity_Resources_Unload">
+<meta property="og:title" content="Unity非托管资源卸载">
 <meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2020&#x2F;12-12-Unity-Resources-Unload&#x2F;index.html">
 <meta property="og:site_name" content="ZeroUltra">
 <meta property="og:description" content="Unity 中的非托管资源卸载非托管资源 简单说就是自己从外部加载的资源,例如图片 音频 文本…. 卸载图片加载图片有Texture.load(bytes),直接从外部加载图片,卸载的时候只需要调用 Destoty(xxx)就可以卸载 卸载AssetBundle资源ab中有一个卸载方法Unload(false&#x2F;true) 当Unload(false)的时候卸载的只是这个包的镜像文件,已经加载的资源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-12T15:42:46.977Z">
+<meta property="og:updated_time" content="2020-12-12T15:56:16.902Z">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -118,7 +118,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Unity_Resources_Unload</div>
+        <div class="flex-col header-title ellipsis">Unity非托管资源卸载</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -140,7 +140,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Unity_Resources_Unload</h1>
+        <h1 class="title">Unity非托管资源卸载</h1>
         <h5 class="subtitle">
             
                 <time datetime="2020-12-12T15:30:37.000Z" itemprop="datePublished" class="page-time">
@@ -174,7 +174,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Unity_Resources_Unload</h1>
+        <h1 class="post-card-title">Unity非托管资源卸载</h1>
         <div class="post-meta">
             <time class="post-time" title="2020-12-12 23:30:37" datetime="2020-12-12T15:30:37.000Z"  itemprop="datePublished">2020-12-12</time>
 
@@ -197,7 +197,8 @@
 <p>当<code>Unload(false)</code>的时候卸载的只是这个包的镜像文件,已经加载的资源不会被删除</p>
 <p>当<code>Unload(true)</code>的时候卸载的是整个ab包的资源,加入有一个图片是从ab中加载的,那么调用这个方法 这个图片直接会<code>miss</code></p>
 <h3 id="使用Resources-UnloadUnusedAssets和Resources-UnloadAsset卸载"><a href="#使用Resources-UnloadUnusedAssets和Resources-UnloadAsset卸载" class="headerlink" title="使用Resources.UnloadUnusedAssets和Resources.UnloadAsset卸载"></a>使用Resources.UnloadUnusedAssets和Resources.UnloadAsset卸载</h3><p><code>Resources.UnloadUnusedAssets</code>:比较耗费,1是这个是全局的,2是这个会检查内存中没有引用的资源.<strong>卸载的东西必须是场景中没有关联的资源</strong></p>
-<p><code>Resources.UnloadAsset</code>:(卸载Resources的文件还没试过,也不提倡资源放Resources文件夹中),可以从Ab包中卸载资源<strong>,不用管场景是否有关联</strong></p>
+<p><code>Resources.UnloadAsset</code>:(卸载从Resources文件夹加载的资源还没试过,也不提倡资源放Resources文件夹中),可以从Ab包中卸载资源<strong>,不用管场景是否有关联</strong></p>
+<p>音频和Texture可以卸载(已经确认)</p>
 <p>但是测试中发现Unity SpriteAtlas是没法卸载的</p>
 <h3 id="切换场景卸载"><a href="#切换场景卸载" class="headerlink" title="切换场景卸载"></a>切换场景卸载</h3><p>切换场景的时候,会自动卸载没有用的资源个GC</p>
 
@@ -208,7 +209,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-12T15:42:46.977Z" itemprop="dateUpdated">2020-12-12 23:42:46</time>
+    最后更新时间：<time datetime="2020-12-12T15:56:16.902Z" itemprop="dateUpdated">2020-12-12 23:56:16</time>
 </span><br>
 
 
@@ -244,7 +245,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity_Resources_Unload》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity非托管资源卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -254,7 +255,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity_Resources_Unload》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity非托管资源卸载》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -264,7 +265,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity_Resources_Unload》 — ZeroUltra&url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity非托管资源卸载》 — ZeroUltra&url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -418,7 +419,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity_Resources_Unload》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity非托管资源卸载》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -428,7 +429,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity_Resources_Unload》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&title=《Unity非托管资源卸载》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -438,7 +439,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity_Resources_Unload》 — ZeroUltra&url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&via=http://zeroultra.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unity非托管资源卸载》 — ZeroUltra&url=http://zeroultra.github.io/2020/12-12-Unity-Resources-Unload/&via=http://zeroultra.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

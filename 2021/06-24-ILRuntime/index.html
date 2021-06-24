@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="true/2021/06-24-ILRuntime/">
+    
+    
+    <title>ILRuntime_01 | ZeroUltra | 业精于勤荒于嬉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Unity,ILRuntime">
+    <meta name="description" content="一: Net 概念1 什么是.NET .NET framework .NET core .NET Standard .NET是所有的总称,是微软的开发工具平台,是可以跨语言的 .NET framework是针对windows平台下的应用.现在的版本是.NET Framework 4.8，很有可能这是.NET Framework的最后一个版本了。在未来并没有计划有新的.NET Framework版本">
+<meta name="keywords" content="Unity,ILRuntime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ILRuntime_01">
+<meta property="og:url" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;index.html">
+<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:description" content="一: Net 概念1 什么是.NET .NET framework .NET core .NET Standard .NET是所有的总称,是微软的开发工具平台,是可以跨语言的 .NET framework是针对windows平台下的应用.现在的版本是.NET Framework 4.8，很有可能这是.NET Framework的最后一个版本了。在未来并没有计划有新的.NET Framework版本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;111.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;222.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;333.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;213.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;11.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;33.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;44.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;55.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;ilruntime111.png">
+<meta property="og:updated_time" content="2021-06-24T06:46:05.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;zeroultra.github.io&#x2F;2021&#x2F;06-24-ILRuntime&#x2F;111.jpg">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Roger</h5>
+          <a href="mailto:929288107@qq.com" title="929288107@qq.com" class="mail">929288107@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间轴
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZeroUltra" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/aboutme"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ILRuntime_01</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ILRuntime_01</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-06-24T06:34:48.000Z" itemprop="datePublished" class="page-time">
+  2021-06-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ILRuntime/">ILRuntime</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-Net-概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">一: Net 概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-什么是-NET-NET-framework-NET-core-NET-Standard"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">1 什么是.NET .NET framework .NET core .NET Standard</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Net工作过程原理"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">2.Net工作过程原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-在Unity中"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">3 在Unity中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考连接"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">参考连接</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二-热更"><span class="post-toc-number">2.</span> <span class="post-toc-text">二:热更</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三-ILRuntime"><span class="post-toc-number">3.</span> <span class="post-toc-text">三:ILRuntime</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ILRuntime"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ILRuntime_01</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-06-24 14:34:48" datetime="2021-06-24T06:34:48.000Z"  itemprop="datePublished">2021-06-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ILRuntime/">ILRuntime</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="一-Net-概念"><a href="#一-Net-概念" class="headerlink" title="一: Net 概念"></a>一: Net 概念</h2><h4 id="1-什么是-NET-NET-framework-NET-core-NET-Standard"><a href="#1-什么是-NET-NET-framework-NET-core-NET-Standard" class="headerlink" title="1 什么是.NET .NET framework .NET core .NET Standard"></a>1 什么是.NET .NET framework .NET core .NET Standard</h4><ol>
+<li><code>.NET</code>是所有的总称,是微软的开发工具平台,是<code>可以跨语言的</code></li>
+<li><code>.NET framework</code>是针对<code>windows</code>平台下的应用.现在的版本是.NET Framework 4.8，很有可能这是.NET Framework的最后一个版本了。在未来并没有计划有新的.NET Framework版本</li>
+<li><code>.NET Core</code>是开源跨平台开发,NET Core 3.0支持了WPF和Windows Forms。.NET Core 3.0 还支持UWP，WPF和Windows Forms三者的开发。</li>
+<li><code>.Net Standard</code> 是一个规范，它定义了Net Framewoek和Net Core必须实现的Api,它的出现为各种平台上开发的.Net人员解决了代码共享问题，但是仅用于开发类库，意思就是说如果你的类库是Net Standard规范的，那么此类库既可以是Net Framewoek也可以是Net Core类库.</li>
+<li><code>.NET 5</code>是.NET Framework和.NET Core核心的结合，旨在统一.NET平台，微软将其描述为“.NET的未来”</li>
+</ol>
+<h4 id="2-Net工作过程原理"><a href="#2-Net工作过程原理" class="headerlink" title="2.Net工作过程原理"></a>2.Net工作过程原理</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/111.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/222.jpg" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<p>NET平台的核心技术为:通用语言运行时（CLR:Common Language Runtiome）、基类库(BCL:Base Class Library)、.NET语言及Visual Studio.NET</p>
+<p>NET Framework是架构在Windows平台上的一个虚拟的运行平台，你可以想象将最下层Windows换做其他的操作系统，例如说Linux,一样可以实现使用符合CLS(Common Language Specification,通用语言规范)的.NET语言，(VB.NET、C#、JScript.NET等)，来创建ASP.NET或Windows Form（可能会叫Linux Forms）应用程序的功能，这其实就是Mono计划要实现的功能。C#编写的程序代码也是先通过C#编译器编译为一种特殊的字节代码， (Microsoft Intermediate Language,MSIL，微软)中间语言，运行时再经由特定的编译器（JIT编译器，Just In tIME, JITer）编译为机器代码，以供操作系统执行.</p>
+<p>不仅是C#语言，所有.NET语言(将会包括我们常用的几十种现代的编码语言)都可以编写面向CLR的程序代码，这种代码在.NET中被称为托管代码(Managed Code)，所有的<code>Managed Code</code>都直接运行在CLR上，具有与平台无关的特性。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/333.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<p>CLR包含三个组成部分：</p>
+<p>   CLS:公共语言规范（Common Language Specifcation）:</p>
+<p>​    是一种最低的语言标准，它制定了一种以.NET平台为目标的语言所必须支持的最小特征，以及该语言与其它.NET语言之间实现互操作所需要的完整特性。</p>
+<p>​    凡是遵守这个标准的语言在.NET框架下都可以实现互相调用。简单说：就是把各种语言转换成统一的语法规范。</p>
+<p>   CTS:通用类型系统（Common Type System）</p>
+<p>   解决不同语言数据类型不同的问题，如C#中的整形是int,而VB.net中的整形是Integer，通过CTS我们把它们两个编译成通用的类型Int32。</p>
+<p>   所有的.NET语言共享这一类型系统，在它们之间实现对接，简单说：就是把各种语言中的不同数据类型，转换成统一的通用的数据类型。</p>
+<p>   JIT:即时编译器（Just In Time）</p>
+<p>   将用于转换之后的微软中间语言编译为二进制语言，交给CPU执行</p>
+<p>CLR的编译过程：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/213.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p> .NET所有编写的源代码都不被编译成本地代码，而是由各自语言的编译器，编译成微软的中间代码（Microsoft Intermediate Language,MSIL）.</p>
+<p>中间语言MSIL或IL，再由JIT编译器转换成机器代码（操作系统专用代码）</p>
+<p>注：</p>
+<p> IL我们通常称之为程序集语言，因为.NET程序集需要由.NET运行时加载才能运行，所以IL代码也叫做托管代码（Managed Code），</p>
+<p>它是一种比高级语言低，比机器语言要高的中间语言，基于堆栈，又支持面向对象。</p>
+<p>所有能被编译为IL的语言都可以被.NET Framework托管，其它语言要被.NET Framework托管，则需要第三方编译器支持。</p>
+<h4 id="3-在Unity中"><a href="#3-在Unity中" class="headerlink" title="3 在Unity中"></a>3 在Unity中</h4><ol>
+<li><p><code>Assembly-CSharp.dll和Assembly-CSharp-firstpass.dll</code></p>
+<p>firstpass表示先编译，Editor表示放在Editor文件夹下的脚本。</p>
+<p>根据官方的解释，它们的编译顺序如下：<br>(1)Assembly-CSharp-filepass.csproj：所有在Standard Assets、Pro Standard Assets或者Plugins文件夹中的脚本；<br>(2)Assembly-CSharp-Editor-filepass.csproj：所有在Standard Assets/Editor、Pro Standard Assets/Editor或者Plugins/Editor文件夹中的脚本产生工程文件；<br>(3)Assembly-CSharp.csproj：所有在Assets/Editor外面的，并且不在(1),(2)中的脚本文件(一般这些脚本就是我们自己写的非编辑器扩展脚本)会产生工程文件；<br>(4)Assembly-CSharp-Editor-vs.csproj：所有在Assets/Editor中的脚本产生一个工程文件。</p>
+</li>
+</ol>
+<h4 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h4><p><a href="https://www.cnblogs.com/szlblog/p/11803623.html" target="_blank" rel="noopener">Net Framework,Net Core 和 Net Standard 区别 - 乐途 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/net-standard" target="_blank" rel="noopener">.NET Standard | Microsoft Docs</a></p>
+<p><a href="https://blog.csdn.net/kebi007/article/details/109616747" target="_blank" rel="noopener">NET 5.0 正式版发布了！_dotNet全栈开发-CSDN博客</a></p>
+<p><a href="https://www.cnblogs.com/xmyjcs/p/10381655.html" target="_blank" rel="noopener">C# .NET .NET Framework .NET CORE 等的关系简介 - 陈松（Andy） - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://www.cnblogs.com/1996V/p/9037603.html" target="_blank" rel="noopener">通俗易懂，什么是.NET?什么是.NET Framework？什么是.NET Core? - 小曾看世界 - 博客园 (cnblogs.com)</a></p>
+<h2 id="二-热更"><a href="#二-热更" class="headerlink" title="二:热更"></a>二:热更</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/11.png" alt="11" title>
+                </div>
+                <div class="image-caption">11</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/33.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/44.png" alt="44" title>
+                </div>
+                <div class="image-caption">44</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/55.png" alt="55" title>
+                </div>
+                <div class="image-caption">55</div>
+            </figure>
+
+
+
+<h2 id="三-ILRuntime"><a href="#三-ILRuntime" class="headerlink" title="三:ILRuntime"></a>三:ILRuntime</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/06-24-ILRuntime/ilruntime111.png" alt="222](/222.png)![ilruntime111" title>
+                </div>
+                <div class="image-caption">222](/222.png)![ilruntime111</div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-06-24T06:46:05.373Z" itemprop="dateUpdated">2021-06-24 14:46:05</time>
+</span><br>
+
+
+        
+        转载请注明出处':' <a href="/2021/06-24-ILRuntime/" target="_blank" rel="external">http://zeroultra.github.io/2021/06-24-ILRuntime/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://zeroultra.github.io">
+            <img src="/img/avatar.jpg" alt="Roger">
+            Roger
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ILRuntime/" rel="tag">ILRuntime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2021/06-24-ILRuntime/&title=《ILRuntime_01》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2021/06-24-ILRuntime/&title=《ILRuntime_01》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2021/06-24-ILRuntime/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ILRuntime_01》 — ZeroUltra&url=http://zeroultra.github.io/2021/06-24-ILRuntime/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2021/06-24-ILRuntime/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/12-12-Unity-Resources-Unload/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Unity非托管资源卸载</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "s1tU09u71SORzEXhzkOUv8Sj-gzGzoHsz",
+            appKey: "3tEBA5yTAbHngderFMTaV0Gx",
+            avatar: "wavatar",
+            placeholder: "来评论一下吧~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Roger &copy; 2015 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zeroultra.github.io/2021/06-24-ILRuntime/&title=《ILRuntime_01》 — ZeroUltra&pic=http://zeroultra.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zeroultra.github.io/2021/06-24-ILRuntime/&title=《ILRuntime_01》 — ZeroUltra&source=ZeroUltra的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zeroultra.github.io/2021/06-24-ILRuntime/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ILRuntime_01》 — ZeroUltra&url=http://zeroultra.github.io/2021/06-24-ILRuntime/&via=http://zeroultra.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zeroultra.github.io/2021/06-24-ILRuntime/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zeroultra.github.io/2021/06-24-ILRuntime/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '<a href="<%- url_for(page.path).replace(/index\.html$/, '') %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, '') %></a>';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
+</html>
+
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  

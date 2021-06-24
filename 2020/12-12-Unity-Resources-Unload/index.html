@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="ZeroUltra">
 <meta property="og:description" content="Unity 中的非托管资源卸载非托管资源 简单说就是自己从外部加载的资源,例如图片 音频 文本…. 卸载图片加载图片有Texture.load(bytes),直接从外部加载图片,卸载的时候只需要调用 Destoty(xxx)就可以卸载 卸载AssetBundle资源ab中有一个卸载方法Unload(false&#x2F;true) 当Unload(false)的时候卸载的只是这个包的镜像文件,已经加载的资源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-12T15:56:16.902Z">
+<meta property="og:updated_time" content="2020-12-25T05:37:33.464Z">
 <meta name="twitter:card" content="summary">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -200,7 +200,12 @@
 <p><code>Resources.UnloadAsset</code>:(卸载从Resources文件夹加载的资源还没试过,也不提倡资源放Resources文件夹中),可以从Ab包中卸载资源<strong>,不用管场景是否有关联</strong></p>
 <p>音频和Texture可以卸载(已经确认)</p>
 <p>但是测试中发现Unity SpriteAtlas是没法卸载的</p>
-<h3 id="切换场景卸载"><a href="#切换场景卸载" class="headerlink" title="切换场景卸载"></a>切换场景卸载</h3><p>切换场景的时候,会自动卸载没有用的资源个GC</p>
+<h3 id="切换场景卸载"><a href="#切换场景卸载" class="headerlink" title="切换场景卸载"></a>切换场景卸载</h3><p>切换场景的时候,会自动卸载没有用的资源和GC,也就是执行了</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Resources.UnloadUnusedAssets();</span><br><span class="line">System.GC.Collect();</span><br><span class="line">System.GC.WaitForPendingFinalizers();</span><br></pre></td></tr></table></figure>
+
+<p>但是要注意的是,必须要清空场景中的引用,如下代码</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> RawImage rawImage;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] bs = File.ReadAllBytes(<span class="string">@"M:\Image\壁纸\fuse.png"</span>);</span><br><span class="line">    Texture2D tex = <span class="keyword">new</span> Texture2D(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    tex.LoadImage(bs);</span><br><span class="line">    tex.Apply();</span><br><span class="line">    rawImage.texture = tex;</span><br><span class="line">    GetComponent&lt;Button&gt;().onClick.AddListener(()=&gt;</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="comment">//这里如果设置rawimg=null 那么就不会卸载这个图片资源 </span></span><br><span class="line">       <span class="comment">//必须设置==null 断开这个链接 才能保证资源卸载</span></span><br><span class="line">       <span class="comment">// rawImage = null;</span></span><br><span class="line">        SceneManager.LoadScene(<span class="string">"222"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -209,7 +214,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-12T15:56:16.902Z" itemprop="dateUpdated">2020-12-12 23:56:16</time>
+    最后更新时间：<time datetime="2020-12-25T05:37:33.464Z" itemprop="dateUpdated">2020-12-25 13:37:33</time>
 </span><br>
 
 
@@ -290,7 +295,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/06-24-ILRuntime/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ILRuntime_01</h4>
+      </a>
+    </div>
   
 
   
@@ -401,7 +413,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>Roger &copy; 2015 - 2020</span>
+        <p><span>Roger &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

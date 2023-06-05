@@ -1,0 +1,593 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ZeroUltra - 业精于勤荒于嬉</title><meta name="keywords" content="Unity"><meta name="author" content="Roger"><meta name="copyright" content="Roger"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="ZeroUltra的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZeroUltra">
+<meta property="og:url" content="https://zeroultra.github.io/index.html">
+<meta property="og:site_name" content="ZeroUltra">
+<meta property="og:description" content="ZeroUltra的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zeroultra.github.io/img/headicon.jpg">
+<meta property="article:author" content="Roger">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zeroultra.github.io/img/headicon.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://zeroultra.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZeroUltra',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: undefined,
+  isToc: false,
+  postUpdate: '2023-06-05 23:34:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="ZeroUltra" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/headicon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZeroUltra</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ZeroUltra</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/ZeroUltra" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a><a class="social-icon" href="/929288107@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202303021441977.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见设备分辨率"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率">常见设备分辨率</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-02T06:26:32.000Z" title="发表于 2023-03-02 14:26:32">2023-03-02</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-02T06:26:32.000Z" title="更新于 2023-03-02 14:26:32">2023-03-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF/">硬件信息</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/other/">other</a></span></div><div class="content">常见分辨率IOS
+
+
+分辨率
+比例
+设备
+
+
+
+960 x 640
+3:2
+iPhone 4S
+
+
+1136 x 640
+16:9
+iPhone 5, iPhone 5C, iPhone 5S
+
+
+1334 x 750
+16:9
+iPhone 6, iPhone 6S, iPhone 7, iPhone 8
+
+
+1920 x 1080
+16:9
+iPhone 6 Plus, iPhone 6S Plus, iPhone 7 Plus, iPhone 8 Plus
+
+
+2208 x 1242
+16:9
+iPhone X, iPhone XS, iPhone 11 Pro
+
+
+2436 x 1125
+19.5:9
+iPhone XR, iPhone 11
+
+
+2688 x 1242
+19.5:9
+iPhone XS Max, iPhone 11 Pro Max
+
+
+2532 x 1170
+19.5:9
+iPhone 12, iPhone 12 Pro
+
+
+2778 x 1284
+19.5:9
+iPhone 12 Pro Max
+
+
+2340 x 1080
+19.5:9
+iPhone 12  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212241457661.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-24T06:56:21.000Z" title="发表于 2022-12-24 14:56:21">2022-12-24</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-24T06:56:21.000Z" title="更新于 2022-12-24 14:56:21">2022-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Android/">Android</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/09-24-Objective-C%E5%9F%BA%E7%A1%80/" title="Objective-C基础"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209241434024.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Objective-C基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09-24-Objective-C%E5%9F%BA%E7%A1%80/" title="Objective-C基础">Objective-C基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-24T06:33:36.000Z" title="发表于 2022-09-24 14:33:36">2022-09-24</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-24T06:33:36.000Z" title="更新于 2022-09-24 14:33:36">2022-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Objective-C/">Objective-C</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Objective-C/">Objective-C</a></span></div><div class="content">来源于视频https://www.bilibili.com/video/BV1NJ411T78u
+简要介绍
+OC是扩充C的面向对象编程语言,本质上还是C语言
+所以OC中是可以写C语言的,也是完全可以兼容C语言的(也就是可以在OC中写C语言)
+
+
+
+
+OC文件名后缀是.m,     m代表message 代表OC中的消息机制,OC大多以NS开头,是因为NextStep开发.
+
+#Import指令
+
+是c语言 #include的增强版 无论inport多少次 只会包含一次
+作用是导入库
+
+
+Foundation框架
+基础 基本,提供了一些基础功能 一些数据类型
+
+@autoreleasetpool 自动释放池 相当于c# using
+
+一些占位符(c语言)
+
+
+
+占位符
+说明
+示例
+
+
+
+%d
+int
+
+
+
+%f
+float 浮点类型
+NSLog(@&quot;num=%f&quot;,100f)
+
+
+%lf
+double类型
+
+
+
+%hd
+short int
+
+
+
+%ld
+long
+
+
+
+%lld
+long long
+
+
+
+%u
+unsigned
+
+
+
+%c
+char类型
+
+
+
+%s
+c ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B002/" title="热更新系列(二)——HybridCLR(huatuo)"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209221126637.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="热更新系列(二)——HybridCLR(huatuo)"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B002/" title="热更新系列(二)——HybridCLR(huatuo)">热更新系列(二)——HybridCLR(huatuo)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-22T11:20:47.000Z" title="发表于 2022-09-22 19:20:47">2022-09-22</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-22T11:20:47.000Z" title="更新于 2022-09-22 19:20:47">2022-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%83%AD%E6%9B%B4%E6%96%B0/">热更新</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/">热更新</a></span></div><div class="content">关于HybridCLR关于HybridCLR | Focus Creative Games (focus-creative-games.github.io)
+安装第一种方式通过UnityPackageManager安装git 仓库 focus-creative-games&#x2F;hybridclr_unity: upm for HybridCLR (github.com)
+然后点击HybridCLR-&gt;Installer.. 这是官方工具
+第二种方式</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B001/" title="热更新系列(一)——.Net工作机制"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209221126637.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="热更新系列(一)——.Net工作机制"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B001/" title="热更新系列(一)——.Net工作机制">热更新系列(一)——.Net工作机制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-22T06:34:48.000Z" title="发表于 2022-09-22 14:34:48">2022-09-22</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-22T06:34:48.000Z" title="更新于 2022-09-22 14:34:48">2022-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%83%AD%E6%9B%B4%E6%96%B0/">热更新</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/">热更新</a></span></div><div class="content">Net 概念什么是.NET .NET framework .NET core .NET Standard
+.NET framework是针对windows平台下的应用.现在的版本是.NET Framework 4.8，很有可能这是.NET Framework的最后一个版本了。在未来并没有计划有新的.NET Framework版本
+.NET Core是开源跨平台开发,NET Core 3.0支持了WPF和Windows Forms。.NET Core 3.0 还支持UWP，WPF和Windows Forms三者的开发。
+.Net Standard 是一个规范，它定义了Net Framewoek和Net Core必须实现的Api,它的出现为各种平台上开发的.Net人员解决了代码共享问题，但是仅用于开发类库，意思就是说如果你的类库是Net Standard规范的，那么此类库既可以是Net Framewoek也可以是Net Core类库.
+.NET是.NET Framework和.NET Core核心的结合，旨在统一.NET平台，微软将其描述为“.NET的未来”
+
+Net工作过程原理
+CLI( ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/09-14-Unity2IOS/" title="Unity &amp; IOS"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209261957833.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity &amp; IOS"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09-14-Unity2IOS/" title="Unity &amp; IOS">Unity &amp; IOS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-14T02:36:42.000Z" title="发表于 2022-09-14 10:36:42">2022-09-14</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-14T02:36:42.000Z" title="更新于 2022-09-14 10:36:42">2022-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/IOS/">IOS</a></span></div><div class="content">准备工作设备苹果电脑安装Xcode,苹果手机或者ipad
+Unity安装IOS模块
+其他证书:development证书或者distribute证书和对应描述文件(.mobileprovision)
+打包苹果流程注意:不要有中文路径!!!我使用的是windows电脑发布工程,然后使用Mac电脑发布,为了方便,我在window磁盘添加了一个共享文件夹,使用Mac访问共享文件夹,Xcode直接打开工程,这样就不用传来传去了. 当然也可以直接使用MacUnity发布
+
+Win中Unity中发布到共享文件夹
+Mac中XCode直接打开共享文件夹中工程
+
+Unity中发布工程设置Icon,最好用一个1024*1024的图,直接设置为DefaultIcon就行了
+
+设置Bundle Identifier,一定要和证书保持一致(也就是和你苹果后台app包名一致)
+
+然后直接Build就可以了,打出的是一个Xcode工程,要求发布的文件夹是一个空文件,所以重复打包同一个文件夹,最好删除原来的或者把里面的文件都删了
+
+XCode打包一定要注意磁盘空间够用,不然有很多问题,确保有10G以上
+我使用的win ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08-25-Unity2Android/" title="Unity &amp; Android"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202208251115871.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity &amp; Android"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08-25-Unity2Android/" title="Unity &amp; Android">Unity &amp; Android</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-25T03:11:29.000Z" title="发表于 2022-08-25 11:11:29">2022-08-25</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-25T03:11:29.000Z" title="更新于 2022-08-25 11:11:29">2022-08-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Android/">Android</a></span></div><div class="content">
+Unity调用AndroidUnity中可以直接调用Android代码.例如:
+123456789101112//c#代码 private void toastText(object str) &#123;    AndroidJavaClass UnityPlayer = new AndroidJavaClass(&quot;com.unity3d.player.UnityPlayer&quot;);    AndroidJavaObject currentActivity= UnityPlayer.GetStatic&lt;AndroidJavaObject&gt;(&quot;currentActivity&quot;);    AndroidJavaClass Toast = new AndroidJavaClass(&quot;android.widget.Toast&quot;);    AndroidJavaObject context =currentActivity.Call&lt;AndroidJavaObject&gt;(&quot;getApplication ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08-09-UnityEditor%E5%90%88%E9%9B%86/" title="UnityEditor合集"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212012006263.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UnityEditor合集"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08-09-UnityEditor%E5%90%88%E9%9B%86/" title="UnityEditor合集">UnityEditor合集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-09T09:45:53.000Z" title="发表于 2022-08-09 17:45:53">2022-08-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-09T09:45:53.000Z" title="更新于 2022-08-09 17:45:53">2022-08-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/UnityEditor/">UnityEditor</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/UnityEditor/">UnityEditor</a></span></div><div class="content">MenuItemMenuItem(string itemName, bool isValidateFunction, int priority)               
+
+“itemName：菜单名称路径
+“isValidateFunction：默认为false，如果为true则是一个验证函数,方法返回值必须是bool类型 表示是否可以执行这个命令 
+“priority：菜单项显示排序 如果相差间隔大于&#x3D;11 就会有一个下划线
+“快捷键 %（ctrl）、# (shift)、&amp; (alt) _w(按下w, 单一字母)
+
+参考:Unity Editor 基础篇（十一）：MenuItem属性_庸人自扰Eam的博客-CSDN博客_unity menuitem
+Unity Editor自定义菜单排序(MenuItem Order) - 赵青青 - 博客园 (cnblogs.com)
+Unity SerializedProperty和Target 区别
+
+
+
+优点
+缺点
+
+
+
+SerializedProperty
+1.可以多选 2.自动Undo3.预制体重写4.可以修改私有 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/07-28-AppScheme%E6%8A%80%E6%9C%AF/" title="AppScheme技术"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202207282026386.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AppScheme技术"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07-28-AppScheme%E6%8A%80%E6%9C%AF/" title="AppScheme技术">AppScheme技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-28T11:30:00.000Z" title="发表于 2022-07-28 19:30:00">2022-07-28</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-28T11:30:00.000Z" title="更新于 2022-07-28 19:30:00">2022-07-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Scheme/">Scheme</a></span></div><div class="content">什么是Schemescheme是一种页面内跳转协议，是一种非常好的实现机制，通过定义自己的scheme协议，可以非常方便跳转app中的各个页面
+
+1.通过小程序，利用Scheme协议打开原生app
+2.H5页面点击锚点，根据锚点具体跳转路径APP端跳转具体的页面
+3.APP端收到服务器端下发的PUSH通知栏消息，根据消息的点击跳转路径跳转相关页面
+4.APP根据URL跳转到另外一个APP指定页面
+5.通过短信息中的url打开原生app
+
+Unity使用使用Application.OpenURL();填入对应参数即可
+构建别的app 打开unity 会响应Application.deepLinkActivated  
+Application-deepLinkActivated - Unity 脚本 API
+Android可以看看之前的文章
+Android导出aar插件供Unity使用以及通过android scheme启动unityApp_Zero_LJ的博客-CSDN博客
+利用URLScheme实现Unity跳转到其他app - cancantrbl - 博客园 (cnblogs.co ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/04-12-2022-4-12-Unity-Asset%E7%9A%84%E4%B8%80%E7%94%9F/" title="Unity Asset一生"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171903602.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity Asset一生"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/04-12-2022-4-12-Unity-Asset%E7%9A%84%E4%B8%80%E7%94%9F/" title="Unity Asset一生">Unity Asset一生</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-12T02:07:21.000Z" title="发表于 2022-04-12 10:07:21">2022-04-12</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-12T02:07:21.000Z" title="更新于 2022-04-12 10:07:21">2022-04-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a></span></div><div class="content">选自Unity官方直播 高川
+Unity Asset的一生
+[知乎]([Unity]Asset简介 - 知乎 (zhihu.com))
+
+Scene场景相同的物体,最好是用Prefab,这样场景的描述文件要小得多,prefab指向的都是同一个内存,占用小
+
+Meta
+AssetBundle
+结构 总的来说，一个AB包括2个部分：包头和数据段
+
+
+包头：包含有关AssetBundle 的信息，比如标识符、压缩类型和内容清单（manifest：manifest是一个用对象名字做key的查找表），每个条目都提供一个字节索引，该索引指示在AssetBundle的数据段中可以找到给定对象的位置。在大多数平台，这个查找表是用平衡搜索树实现的。（除了Windows和OSX派生的平台（包括IOS平台）是用红黑树实现）。因此，构建这个清单的时间消耗会随着ab内的资源数量的增加而线性增加。
+数据段：通过序列化AB内的资源的原生数据。- 如果用LZMA压缩，将压缩所有序列化资产的完整字节数组；- 如果是LZ4压缩，每个资源都是分开压缩的；- 如果没有压缩，就都保存原生字节流。
+
+
+Scene，它是一个单独的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/02-25-2022-2-25-UnityCSharpNews/" title="Unity C# News"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171906969.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity C# News"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/02-25-2022-2-25-UnityCSharpNews/" title="Unity C# News">Unity C# News</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-25T05:12:37.000Z" title="发表于 2022-02-25 13:12:37">2022-02-25</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-25T05:12:37.000Z" title="更新于 2022-02-25 13:12:37">2022-02-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C#</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/C/">C#</a></span></div><div class="content">C#.Net Framework .Net Core .Net关系
+
+
+C#版本
+.NET版本
+发布日期
+特性
+
+
+
+C# 1.0
+.NET Framework 1.0
+2002-02-13
+委托、事件
+
+
+C# 1.1
+.NET Framework 1.1
+2003-04-24
+APM（异步编程模型）
+
+
+C# 2.0
+.NET Framework 2.0
+2005-11-07
+泛型、匿名方法、迭代器、可空类型
+
+
+C# 3.0
+.NET Framework 3.0
+2007-11-06
+隐式类型
+
+
+
+.NET Framework 3.5
+2007-11-19
+对象集合初始化、自动实现属性、匿名类型、扩展方法、查询表达式、Lambda表达式、 表达式树、分部类和方法、Linq
+
+
+C# 4.0
+.NET Framework 4.0
+2010-04-12
+动态绑定、命名和可选参数、泛型的协变和逆变、互操作性
+
+
+C# 5.0
+.NET Framework 4.5
+2012-08-15
+异步和等待(async和await)、调用方信息(Caller Information)
+
+
+C#  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01-12-2022-1-12-AudioInUnity/" title="Audio In Unity"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171859353.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Audio In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01-12-2022-1-12-AudioInUnity/" title="Audio In Unity">Audio In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-12T13:23:11.000Z" title="发表于 2022-01-12 21:23:11">2022-01-12</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-12T13:23:11.000Z" title="更新于 2022-01-12 21:23:11">2022-01-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">Audio In UnityUnity中支持的音频格式
+
+
+MPEG layer 3
+.mp3
+
+
+
+Ogg Vorbis
+.ogg
+
+
+Microsoft Wave
+.wav
+
+
+音频交换文件格式
+.aiff &#x2F; .aif
+
+
+Ultimate Soundtracker 模块
+.mod
+
+
+Impulse Tracker 模块
+.it
+
+
+Scream Tracker 模块
+.s3m
+
+
+FastTracker 2 模块
+.xm
+
+
+
+WAV：微软公司开发的一种声音文件格式，简单的编&#x2F;解码、普遍的认同&#x2F;支持以及无损耗存储，目前Windows上最流行的声音文件格式，资源大，不推荐
+MP3：是MPEG标准中的音频部分，大小只有WAV文件的1&#x2F;10，是一种有损压缩数字音频格式，失真小，适合音质要求高的文件，例如BGM
+OGG：是一种新的音频压缩格式，类似MP3的音乐格式，它是完全免费、开放和没有专利限制的。压缩比高，适合人声、音效等
+
+Unity Audio设置
+Unity音频优化实践 - 知乎 (zhihu.com)
+ProjectSetting- ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01-11-2022-1-11-Unity%E4%B8%8A%E6%9E%B6GooglePlay/" title="Unity上架GooglePlay 未完待续..."><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171858420.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity上架GooglePlay 未完待续..."></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01-11-2022-1-11-Unity%E4%B8%8A%E6%9E%B6GooglePlay/" title="Unity上架GooglePlay 未完待续...">Unity上架GooglePlay 未完待续...</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-11T06:12:29.000Z" title="发表于 2022-01-11 14:12:29">2022-01-11</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-11T06:12:29.000Z" title="更新于 2022-01-11 14:12:29">2022-01-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Untiy/">Untiy</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/GooglePlay/">GooglePlay</a></span></div><div class="content">前期设置
+科学上网 谷歌账户 成为Google开发者Google Play 管理中心 | Google Play 管理中心
+
+JDK 安装
+SDK 按照 务必添加
+Android Support Repository
+Google Play Services
+Google Repository
+
+unity接入googleplay
+Android 环境搭建与Android SDK目录介绍 - Charles-MQ - 博客园 (cnblogs.com)
+Android SDK Manager和AVD Manager使用 - 康建伟 - 博客园 (cnblogs.com)
+
+Unity中设置
+只有IL2CPP才有64位
+关于ARMv7 ARM64
+
+​	arm64、armv7、armv7s是指什么？ - 简书 (jianshu.com)
+​	支持 64 位架构  | Google Play  | Android Developers
+
+设置keystone用Unity自带工具就可以,切记打包出来的APK和keystore签名确保一致
+keytool -list  -v -keystore ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10-28-2021-0-28-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171853842.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10-28-2021-0-28-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-28T06:34:48.000Z" title="发表于 2021-10-28 14:34:48">2021-10-28</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-28T06:34:48.000Z" title="更新于 2021-10-28 14:34:48">2021-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">数据结构一、存储地址链式存储：储存单位的地址不一定是连续的顺序存储：储存单位的地址必须是连续的
+二、存储空间利用率与分配链式存储：利用率低，动态分配顺序存储：利用率高，静态分配
+三、修改内容速度链式存储：修改速度快顺序存储：修改速度慢
+三、查询内容速度链式存储：查询速度慢顺序存储：查询速度快
+Stack(堆栈)123456789101112131415161718192021222324252627282930313233343536373839404142434445private  void StackTest()    &#123;        //stack 栈是一种先进后出的数据结构        //比喻成汉诺塔叠块 最先放入的只能最后拿出来        Stack&lt;int&gt; stack = new Stack&lt;int&gt;();        #region 增 O(1) push 入栈         stack.Push(1);        stack.Push(2);        #endregion        #region 删 O ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10-28-2021-0-28-CShape/" title="C#知识总结"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171854025.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#知识总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10-28-2021-0-28-CShape/" title="C#知识总结">C#知识总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-28T06:34:48.000Z" title="发表于 2021-10-28 14:34:48">2021-10-28</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-28T06:34:48.000Z" title="更新于 2021-10-28 14:34:48">2021-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C#</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/C/">C#</a></span></div><div class="content">泛型
+泛型类 
+1234567891011121314//声明泛型类 T 表示一个占位 也可以声明多个public class TTest&lt;T&gt;&#123;    public T value;&#125;private void Start()&#123;    TTest&lt;int&gt; testint = new TTest&lt;int&gt;();    testint.value = 10;    TTest&lt;string&gt; teststr = new TTest&lt;string&gt;();    teststr.value = &quot;aa&quot;;&#125;
+
+
+
+泛型方法
+  123public void TestFun&lt;T&gt;(T t)&#123;&#125;
+
+泛型接口
+
+泛型约束
+where
+有6种
+
+where T :  struct类型参数必须是值类型。可以指定除 Nullable 以外的任何值类型。
+
+12345678910111213public class TTest&lt;T&gt; where ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/09-18-2021-9-18-Unity-Live2D/" title="Unity Live2D"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171857631.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity Live2D"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09-18-2021-9-18-Unity-Live2D/" title="Unity Live2D">Unity Live2D</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-18T04:43:14.000Z" title="发表于 2021-09-18 12:43:14">2021-09-18</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-18T04:43:14.000Z" title="更新于 2021-09-18 12:43:14">2021-09-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Live2D/">Live2D</a></span></div><div class="content">Live2D
+官网地址:Live2D Cubism【官网】
+文件类型说明
+
+1.关于Original WorkflowLive2D导入流程 自动为文件创建Prefab,添加对应脚本,一般设置为第一个选项
+
+2. 文件导入直接将导出的文件拖入拖入unity,就会生成prefab,然后拖到场景中.可能遇到的问题:
+
+拖入场景中不显示,随意改变一下参数即可
+
+
+模型渲染顺序错误,修改渲染方式
+
+
+文件导入后,提示Parameters错误,选择文件夹,重新Reimport
+
+
+
+3. 基础的操作Unity Live2D CubismSdk4进阶文档_kysaloyer的博客-CSDN博客
+ 一些提示点:
+
+Cubism Look Controller,查看代码可以自定义,target.Getposition
+
+
+唇形同步,CubismmouthController BlendMode必须设置为Override
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/06-08-2020-6-08-Coroutine-In-Unity/" title="Coroutine In Unity"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171850545.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Coroutine In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06-08-2020-6-08-Coroutine-In-Unity/" title="Coroutine In Unity">Coroutine In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-08T14:47:44.000Z" title="发表于 2020-06-08 22:47:44">2020-06-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-06-08T14:47:44.000Z" title="更新于 2020-06-08 22:47:44">2020-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a></span></div><div class="content">看了很多关于Unity 协程的文章,自己来总结一下.
+Unity 中的什么周期链接:https://docs.unity3d.com/Manual/ExecutionOrder.html
+
+上图其实可以看到,yield waitforEndOfFrame是在帧结束的时候,WaitForFixedUpdate是在所有物理更新结束之后,其他的都在update之后,LateUpdate之前更新.
+Unity协程的本质Unity中协程并不是线程,只是Unity中的另一条逻辑,规定了相应的时间段然后响应某些事件.协程内部其实是一个迭代器. 如上面的生命周期,每一帧都会检测协程是否满足迭代器中MoveNext的条件,当满足的时候 就回去执行下一个条件,当没后面没有 那么就协程结束.例如下面的代码
+123456789101112private IEnumerator Start()    &#123;        while (true)        &#123;            Debug.Log(&quot;Coroutine...&quot;);              yield ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171913054.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Font In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity">Font In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-08T12:23:03.000Z" title="发表于 2020-05-08 20:23:03">2020-05-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-05-08T12:23:03.000Z" title="更新于 2020-05-08 20:23:03">2020-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">使用unity的时候经常会用到较多的字体,本篇文章讲一下unity如何自定义字体以及在使用字体时的优化
+如何使用Unity自定义字体​	unity其实一直就有一个custom font功能,网上也能找到很多博客
+
+然后设置相关参数
+
+具体可以看看unity的官方文档和另一个文章
+https://docs.unity3d.com/Manual/class-Font.html
+http://www.manew.com/thread-110484-1-1.html
+例如我们在制作数字(0-9)字体的时候就需要 一张数字图片,然后设置Character Rects,文档中说的很清楚,Index就是指的当前字的 ASCII码的索引(十进制),例如0&#x3D;48    1&#x3D;49…..
+如果我们想设置更多的文字,也是可以的,因为Unity支持Unicode,但是我们需要一些步骤,将文字-&gt;16进制-&gt;十进制
+这里有个在线的转换工具:http://www.ab126.com/goju/1711.html
+关于编码可以查看这篇文章:http://www.ruanyifeng.c ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/04-21-2020-4-21-Texture-In-Unity/" title="Texture In Unity"><img class="post_bg" src="/img/default_cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Texture In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04-21-2020-4-21-Texture-In-Unity/" title="Texture In Unity">Texture In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-21T12:59:12.000Z" title="发表于 2020-04-21 20:59:12">2020-04-21</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-21T12:59:12.000Z" title="更新于 2020-04-21 20:59:12">2020-04-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化
+Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系.
+链接:http://fargesportfolio.com/unity-texture-texture2d-rendertexture/
+
+这里说一下 Texture2D的Apply操作,当我们使用SetPixel``SetPixels ReadPixels定要调用Apply方法,不然显示的还是原来的图,这里有个链接具体看下:https://blog.csdn.net/carefreeq/article/details/52635524
+
+赋值完后为什么要Apply
+因为在贴图更改像素时并不是直接对显存进行更改，而是在另外一个内存空间中更改，这时候GPU还会实时读取旧的贴图位置。
+当Apply后，CPU会告诉GPU你要换个地方读贴图了
+
+所以图片存在内存中,CPU指向这个图片地址,GPU根据CPU拿过来的地址来显示,如果更改了图片数据 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/04-19-2020-4-19-Unity%E5%B8%B8%E8%AE%B0/" title="Unity常记(持续更新...)"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212241242361.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity常记(持续更新...)"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04-19-2020-4-19-Unity%E5%B8%B8%E8%AE%B0/" title="Unity常记(持续更新...)">Unity常记(持续更新...)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-19T09:25:07.000Z" title="发表于 2020-04-19 17:25:07">2020-04-19</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-19T09:25:07.000Z" title="更新于 2020-04-19 17:25:07">2020-04-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">记录一下Unity中常见的代码问题，以及一些优化
+
+Unity中Draw Call ,Batches,SetPass Call…参考链接:https://connect.unity.com/p/profilershen-wa-renderingmian-ban-4
+​			     https://blog.csdn.net/wei_yuan_2012/article/details/88677172
+
+draw call:简单说就是CPU调用GPU绘制命令的过程,一个dc就是一个绘制命令,这个值越高说明需要绘制的次数越多
+
+
+Batches:Unity在5.x版本就把dc隐藏起来,用Batches显示绘制次数,因为有可能有动态或者静态批处理过程,batches是比较真实反映绘制情况
+
+
+Set Pass call:通俗解释,就是不同材质间Pass的调用,shader中有个pass模块,不同材质会导致不同的pass,导致该值增加
+
+
+Dynamic Batching ：动态合批其实就是在CPU先将Mesh动态合并好，然后在一次性送进GPU。如果Mesh特别的大，那么动态合批肯定就非常慢 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/headicon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Roger</div><div class="author-info__description">不进则退</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" href="https://github.com/zeroultra"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZeroUltra" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a><a class="social-icon" href="/929288107@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202303021441977.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见设备分辨率"/></a><div class="content"><a class="title" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率">常见设备分辨率</a><time datetime="2023-03-02T06:26:32.000Z" title="发表于 2023-03-02 14:26:32">2023-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212241457661.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础"/></a><div class="content"><a class="title" href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a><time datetime="2022-12-24T06:56:21.000Z" title="发表于 2022-12-24 14:56:21">2022-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09-24-Objective-C%E5%9F%BA%E7%A1%80/" title="Objective-C基础"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209241434024.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Objective-C基础"/></a><div class="content"><a class="title" href="/2022/09-24-Objective-C%E5%9F%BA%E7%A1%80/" title="Objective-C基础">Objective-C基础</a><time datetime="2022-09-24T06:33:36.000Z" title="发表于 2022-09-24 14:33:36">2022-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B002/" title="热更新系列(二)——HybridCLR(huatuo)"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202209221126637.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="热更新系列(二)——HybridCLR(huatuo)"/></a><div class="content"><a class="title" href="/2022/09-22-%E7%83%AD%E6%9B%B4%E6%96%B002/" title="热更新系列(二)——HybridCLR(huatuo)">热更新系列(二)——HybridCLR(huatuo)</a><time datetime="2022-09-22T11:20:47.000Z" title="发表于 2022-09-22 19:20:47">2022-09-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C#</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Objective-C/"><span class="card-category-list-name">Objective-C</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/UnityEditor/"><span class="card-category-list-name">UnityEditor</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hexo/"><span class="card-category-list-name">hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Unity/" style="font-size: 1.45em; color: rgb(163, 44, 100)">Unity</a><a href="/tags/Ugui/" style="font-size: 1.25em; color: rgb(181, 6, 71)">Ugui</a><a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 1.15em; color: rgb(160, 124, 9)">视频</a><a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 1.35em; color: rgb(167, 46, 83)">优化</a><a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 1.15em; color: rgb(7, 122, 19)">内存</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(16, 124, 87)">hexo</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.15em; color: rgb(1, 34, 101)">数据结构</a><a href="/tags/Live2D/" style="font-size: 1.15em; color: rgb(84, 61, 52)">Live2D</a><a href="/tags/C/" style="font-size: 1.25em; color: rgb(121, 4, 38)">C#</a><a href="/tags/UnityEditor/" style="font-size: 1.15em; color: rgb(88, 95, 65)">UnityEditor</a><a href="/tags/Scheme/" style="font-size: 1.15em; color: rgb(123, 45, 77)">Scheme</a><a href="/tags/Android/" style="font-size: 1.25em; color: rgb(122, 32, 187)">Android</a><a href="/tags/IOS/" style="font-size: 1.15em; color: rgb(157, 76, 105)">IOS</a><a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 1.25em; color: rgb(71, 92, 142)">热更新</a><a href="/tags/Objective-C/" style="font-size: 1.15em; color: rgb(169, 107, 61)">Objective-C</a><a href="/tags/Java/" style="font-size: 1.15em; color: rgb(192, 183, 54)">Java</a><a href="/tags/Untiy/" style="font-size: 1.15em; color: rgb(58, 153, 31)">Untiy</a><a href="/tags/GooglePlay/" style="font-size: 1.15em; color: rgb(180, 175, 174)">GooglePlay</a><a href="/tags/other/" style="font-size: 1.15em; color: rgb(97, 108, 11)">other</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div></div></div></main><footer id="footer" style="background-image: url('/img/category_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Roger</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">犯我中华者虽远必诛</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    window.typed = new Typed("#subtitle", {
+      strings: ["业精于勤荒于嬉"],
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: false,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '业精于勤荒于嬉'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body></html>

@@ -1,21 +1,21 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ZeroUltra - 业精于勤荒于嬉</title><meta name="keywords" content="Unity"><meta name="author" content="Roger"><meta name="copyright" content="Roger"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="ZeroUltra的博客">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZeroUltra - 业精于勤荒于嬉</title><meta name="author" content="Roger"><meta name="copyright" content="Roger"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ZeroUltra的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZeroUltra">
 <meta property="og:url" content="https://zeroultra.github.io/page/2/index.html">
 <meta property="og:site_name" content="ZeroUltra">
 <meta property="og:description" content="ZeroUltra的博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zeroultra.github.io/img/headicon.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="Roger">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zeroultra.github.io/img/headicon.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://zeroultra.github.io/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zeroultra.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -26,7 +26,7 @@
     post: false
   },
   runtime: '',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -36,85 +36,96 @@
   copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
-    }
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isAnchor: false
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'ZeroUltra',
   isPost: false,
   isHome: true,
-  isHighlightShrink: undefined,
+  isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-12-08 21:36:10'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-12-08 22:02:04'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -122,9 +133,9 @@
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -134,14 +145,14 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
+      detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="ZeroUltra" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/headicon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZeroUltra</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ZeroUltra</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/ZeroUltra" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a><a class="social-icon" href="/929288107@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171913054.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Font In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity">Font In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-08T12:23:03.000Z" title="发表于 2020-05-08 20:23:03">2020-05-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-05-08T12:23:03.000Z" title="更新于 2020-05-08 20:23:03">2020-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Font/">Font</a></span></div><div class="content">使用unity的时候经常会用到较多的字体,本篇文章讲一下unity如何自定义字体以及在使用字体时的优化
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ZeroUltra"><span class="site-name">ZeroUltra</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ZeroUltra</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity"><img class="post-bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171913054.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Font In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05-08-2020-5-08-Font-In-Unity/" title="Font In Unity">Font In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-08T12:23:03.000Z" title="发表于 2020-05-08 20:23:03">2020-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span></div><div class="content">使用unity的时候经常会用到较多的字体,本篇文章讲一下unity如何自定义字体以及在使用字体时的优化
 如何使用Unity自定义字体​	unity其实一直就有一个custom font功能,网上也能找到很多博客
 
 然后设置相关参数
@@ -152,7 +163,7 @@ http://www.manew.com/thread-110484-1-1.html
 例如我们在制作数字(0-9)字体的时候就需要 一张数字图片,然后设置Character Rects,文档中说的很清楚,Index就是指的当前字的 ASCII码的索引(十进制),例如0&#x3D;48    1&#x3D;49…..
 如果我们想设置更多的文字,也是可以的,因为Unity支持Unicode,但是我们需要一些步骤,将文字-&gt;16进制-&gt;十进制
 这里有个在线的转换工具:http://www.ab126.com/goju/1711.html
-关于编码可以查看这篇文章:http://www.ruanyifeng.c ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/04-21-2020-4-21-Texture-In-Unity/" title="Texture In Unity"><img class="post_bg" src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Texture In Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04-21-2020-4-21-Texture-In-Unity/" title="Texture In Unity">Texture In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-21T12:59:12.000Z" title="发表于 2020-04-21 20:59:12">2020-04-21</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-21T12:59:12.000Z" title="更新于 2020-04-21 20:59:12">2020-04-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/Texture/">Texture</a></span></div><div class="content">这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化
+关于编码可以查看这篇文章:http://www.ruanyifeng.c ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04-21-2020-4-21-Texture-In-Unity/" title="Texture In Unity">Texture In Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-21T12:59:12.000Z" title="发表于 2020-04-21 20:59:12">2020-04-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span></div><div class="content">这篇文章主要讲一下Unity中的贴图数据操作和内存计算方式以及相关优化
 Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏览到的一个博主写的关于Texture Texture2D  RendererTexture 之间的关系.
 链接:http://fargesportfolio.com/unity-texture-texture2d-rendertexture/
 
@@ -162,7 +173,7 @@ Unity中Texture中各种关系以及Apply()方法先抛出一个我无意间浏�
 因为在贴图更改像素时并不是直接对显存进行更改，而是在另外一个内存空间中更改，这时候GPU还会实时读取旧的贴图位置。
 当Apply后，CPU会告诉GPU你要换个地方读贴图了
 
-所以图片存在内存中,CPU指向这个图片地址,GPU根据CPU拿过来的地址来显示,如果更改了图片数据 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/02-13-2020-2-13-UGUI%E8%87%AA%E9%80%82%E5%BA%94/" title="UGUI自适应"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171812021.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UGUI自适应"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02-13-2020-2-13-UGUI%E8%87%AA%E9%80%82%E5%BA%94/" title="UGUI自适应">UGUI自适应</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-13T08:35:47.000Z" title="发表于 2020-02-13 16:35:47">2020-02-13</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-02-13T08:35:47.000Z" title="更新于 2020-02-13 16:35:47">2020-02-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UGUI/">UGUI</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/UGUI/">UGUI</a></span></div><div class="content">​	这篇文章说一下Ugui的适配.
+所以图片存在内存中,CPU指向这个图片地址,GPU根据CPU拿过来的地址来显示,如果更改了图片数据 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/02-13-2020-2-13-UGUI%E8%87%AA%E9%80%82%E5%BA%94/" title="UGUI自适应"><img class="post-bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171812021.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UGUI自适应"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02-13-2020-2-13-UGUI%E8%87%AA%E9%80%82%E5%BA%94/" title="UGUI自适应">UGUI自适应</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-13T08:35:47.000Z" title="发表于 2020-02-13 16:35:47">2020-02-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UGUI/">UGUI</a></span></div><div class="content">​	这篇文章说一下Ugui的适配.
 Canvas Scaler下面的三种适配模式​	
 
 Constant Pixel Size就是固定像素模式 下面有个可以调节的scale factor 调节整个画布缩放
@@ -184,7 +195,7 @@ Eg1:​
 可以看到画布缩放是xyz是1.25
 当选择Shrink模式的时候
 ​	
-可以看到变成了1.33 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/02-04-2020-2-04-UGUI%E4%BC%98%E5%8C%96/" title="UGUI优化"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171812021.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UGUI优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02-04-2020-2-04-UGUI%E4%BC%98%E5%8C%96/" title="UGUI优化">UGUI优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-04T09:30:38.000Z" title="发表于 2020-02-04 17:30:38">2020-02-04</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-02-04T09:30:38.000Z" title="更新于 2020-02-04 17:30:38">2020-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UGUI/">UGUI</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/UGUI/">UGUI</a></span></div><div class="content">前言从Unity4.6版本加入UGUI以来,使用案例越多越多,相比NGUI,UGUI的效率要高的多
+可以看到变成了1.33 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/02-04-2020-2-04-UGUI%E4%BC%98%E5%8C%96/" title="UGUI优化"><img class="post-bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171812021.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UGUI优化"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/02-04-2020-2-04-UGUI%E4%BC%98%E5%8C%96/" title="UGUI优化">UGUI优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-04T09:30:38.000Z" title="发表于 2020-02-04 17:30:38">2020-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UGUI/">UGUI</a></span></div><div class="content">前言从Unity4.6版本加入UGUI以来,使用案例越多越多,相比NGUI,UGUI的效率要高的多
 
 Ugui的网格合并实在C++代码中执行的,Ngui是在C#中执行
 Ugui网格合并是多线程,Ngui是在主线程
@@ -202,7 +213,7 @@ UGUI官方源码地址: https://bitbucket.org/Unity-Technologies/ui/src/
 网格重建​		UI中大多数的问题都是网格重建引起的
 
 2020年4月19更新
-​		 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/01-28-2020-1-28-Video-in-Unity/" title="Video in Unity"><img class="post_bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171811751.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Video in Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/01-28-2020-1-28-Video-in-Unity/" title="Video in Unity">Video in Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-28T04:41:54.000Z" title="发表于 2020-01-28 12:41:54">2020-01-28</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-01-28T04:41:54.000Z" title="更新于 2020-01-28 12:41:54">2020-01-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E8%A7%86%E9%A2%91/">视频</a></span></div><div class="content">视频概念
+​		 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/01-28-2020-1-28-Video-in-Unity/" title="Video in Unity"><img class="post-bg" src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212171811751.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Video in Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/01-28-2020-1-28-Video-in-Unity/" title="Video in Unity">Video in Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-01-28T04:41:54.000Z" title="发表于 2020-01-28 12:41:54">2020-01-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/UnityAssets/">UnityAssets</a></span></div><div class="content">视频概念
 硬解码:通过硬件(GPU)来解码视频,优点是效率高,降低功耗,缺点支持格式少
 
 软解码:利用CPU来解码视频
@@ -227,7 +238,7 @@ CRIWARE中国官网网站
 利用Avpro播放通道分离的.MP4 视频
 利用shader 分离进行透明分离(暂不讨论)
 
-本文最后会介绍一个自己 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/12-24-2019-2-24-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%BB%A5%E5%8F%8A%E5%8D%B8%E8%BD%BD/" title="Unity中的内存分配以及卸载"><img class="post_bg" src="/img/default_cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity中的内存分配以及卸载"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/12-24-2019-2-24-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%BB%A5%E5%8F%8A%E5%8D%B8%E8%BD%BD/" title="Unity中的内存分配以及卸载">Unity中的内存分配以及卸载</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-24T13:00:42.000Z" title="发表于 2019-12-24 21:00:42">2019-12-24</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-12-24T13:00:42.000Z" title="更新于 2019-12-24 21:00:42">2019-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/Memory/">Memory</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Unity/">Unity</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E5%86%85%E5%AD%98/">内存</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">前言​	遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)
+本文最后会介绍一个自己 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/12-24-2019-2-24-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%BB%A5%E5%8F%8A%E5%8D%B8%E8%BD%BD/" title="Unity中的内存分配以及卸载">Unity中的内存分配以及卸载</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-12-24T13:00:42.000Z" title="发表于 2019-12-24 21:00:42">2019-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Unity/">Unity</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Unity/Memory/">Memory</a></span></div><div class="content">前言​	遇到个项目需要从外部加载很多图片,外部图片不是规整的2的幂次方图,加载占用内存额外大,刚好看到雨松在unity content 上面关于unity 内存的文章 ,顺便记一下 (其实就是自己复述一遍,偷笑.gif)
 
 Profiler深挖-Memory面板(5) 
 
@@ -247,7 +258,7 @@ Profiler深挖-图解内存管理(10)
 
 非托管内存
 
- 不是被.NET分配出来的内存，比如Unity里的贴图、网格、模型、材质Shader等等一些文件内存 ,如下代码所示，分别创建一个10X10和1024X1024的贴图资源。（Resources ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2019/11-22-2019-1-24-myblog/" title="GitHub+Hexo 搭建博客--我的第一篇博客"><img class="post_bg" src="/img/default_cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub+Hexo 搭建博客--我的第一篇博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/11-22-2019-1-24-myblog/" title="GitHub+Hexo 搭建博客--我的第一篇博客">GitHub+Hexo 搭建博客--我的第一篇博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-22T14:17:30.000Z" title="发表于 2019-11-22 22:17:30">2019-11-22</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-11-22T14:17:30.000Z" title="更新于 2019-11-22 22:17:30">2019-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hexo/">hexo</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/hexo/">hexo</a></span></div><div class="content">首先恭喜我…终于搭建好博客了​		我来记录一下搭建的过程
+ 不是被.NET分配出来的内存，比如Unity里的贴图、网格、模型、材质Shader等等一些文件内存 ,如下代码所示，分别创建一个10X10和1024X1024的贴图资源。（Resources ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/11-22-2019-1-24-myblog/" title="GitHub+Hexo 搭建博客--我的第一篇博客">GitHub+Hexo 搭建博客--我的第一篇博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-11-22T14:17:30.000Z" title="发表于 2019-11-22 22:17:30">2019-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hexo/">hexo</a></span></div><div class="content">首先恭喜我…终于搭建好博客了​		我来记录一下搭建的过程
 工善其事 利先其器 下载所需工具
 首先下载node.js 安装
 下载 node.js&#39;之后,cmd打开,执行命令  npm install hexo-cli -g  安装hexo,  hexo官网
@@ -264,8 +275,8 @@ hexo init 有可能clone 失败,也可能中途一些其他问题,请多次尝�
 下载完成之后完整目录结构
 
 
-hexo  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/1993/05-16-aboutme/" title="关于我"><img class="post_bg" src="https://a.unity.cn/client_api/v1/buckets/b73bd9a8-375d-4422-bbd0-c224d2e78bb1/entry_by_path/content/?path=作品/github/QQ截图20231208185645.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于我"></a></div><div class="recent-post-info"><a class="article-title" href="/1993/05-16-aboutme/" title="关于我">关于我</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="1993-05-15T18:04:58.000Z" title="发表于 1993-05-16 02:04:58">1993-05-16</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="1993-05-15T18:04:58.000Z" title="更新于 1993-05-16 02:04:58">1993-05-16</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/me/">me</a></span></div><div class="content">
-  953786266a5167ed02d11eb23afaebe511a67d13fd33880aa563257607f0f4a05a45af1b6cc8e8072d0cea0d770810bdfa1fdd8fe83353f0d6afa0d4407683b828043e802cfae84e9d644ae37eb0174240c19bfdfd4084c0fb2c29ddab9e06452be5b875eaedc237982814ea26110e8604c8ea68ae79204674f2db8b497bdc02470e65180a1902aa97627a9d5c128b5953320e21420b965107b1bf434e8efaa26b0f4b3700638ce0c482a85a2dea524c924e53ba859b93c8d1a382733d3437311a72653f56d70f37b8cbfccf0d442f866eafbd5b7aee41b9e2bdf09e7540753dcbdd906b93141274ca19d5c3c89e3df10a4794498db4a4740 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/headicon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Roger</div><div class="author-info__description">不进则退</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><a id="card-info-btn" href="https://github.com/zeroultra"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ZeroUltra" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a><a class="social-icon" href="/929288107@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10-25-Unity%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96/" title="Unity中的优化"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307151851786.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity中的优化"/></a><div class="content"><a class="title" href="/2023/10-25-Unity%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96/" title="Unity中的优化">Unity中的优化</a><time datetime="2023-10-25T06:54:49.000Z" title="发表于 2023-10-25 14:54:49">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07-30-Unity&amp;Zapworks/" title="Unity&amp;Zapworks"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307310045283.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity&amp;Zapworks"/></a><div class="content"><a class="title" href="/2023/07-30-Unity&amp;Zapworks/" title="Unity&amp;Zapworks">Unity&amp;Zapworks</a><time datetime="2023-07-30T15:51:22.000Z" title="发表于 2023-07-30 23:51:22">2023-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07-05-Unity%E5%B0%8F%E8%AE%B0/" title="Unity小记"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307151851786.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity小记"/></a><div class="content"><a class="title" href="/2023/07-05-Unity%E5%B0%8F%E8%AE%B0/" title="Unity小记">Unity小记</a><time datetime="2023-07-05T04:01:21.000Z" title="发表于 2023-07-05 12:01:21">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202303021441977.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见设备分辨率"/></a><div class="content"><a class="title" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率">常见设备分辨率</a><time datetime="2023-03-02T06:26:32.000Z" title="发表于 2023-03-02 14:26:32">2023-03-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+hexo  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/1993/05-16-aboutme/" title="关于我"><img class="post-bg" src="https://a.unity.cn/client_api/v1/buckets/b73bd9a8-375d-4422-bbd0-c224d2e78bb1/entry_by_path/content/?path=作品/github/QQ截图20231208185645.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于我"></a></div><div class="recent-post-info"><a class="article-title" href="/1993/05-16-aboutme/" title="关于我">关于我</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="1993-05-15T18:04:58.000Z" title="发表于 1993-05-16 02:04:58">1993-05-16</time></span></div><div class="content">
+  953786266a5167ed02d11eb23afaebe5953615159ad91eab09692284312d05d17abfc33bac39c2b480a1db3640f14b0972f5f52c5341404795a06c8515abbf4b2a31fe03fd07e4317b8f7c2a3eb6929d3394bcf801489edf93688e0d5d9f2c13a8f1c862b34e0a618ad1229724f39d615e3c9f69a59c035c3467b2ce32d209dc66a7ee2fab0a5e6ca554389f8d9d9da112dd5cfc675244bea56d4bdd521b09c1e0420ef226b77c1e74853a1d6505738c2f0b4bca5a995a242f99176daf08938a8ec94c79eac620012b67c8b4df65234ce7dee1dadd05c36835ce622dd55ce71270916362631688bc141d8034591eb7b263adf0307dd6bb9b7 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Roger</div><div class="author-info__description">ZeroUltra的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><a id="card-info-btn" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10-25-Unity%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96/" title="Unity中的优化"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307151851786.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity中的优化"/></a><div class="content"><a class="title" href="/2023/10-25-Unity%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96/" title="Unity中的优化">Unity中的优化</a><time datetime="2023-10-25T06:54:49.000Z" title="发表于 2023-10-25 14:54:49">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07-30-Unity&amp;Zapworks/" title="Unity&amp;Zapworks"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307310045283.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity&amp;Zapworks"/></a><div class="content"><a class="title" href="/2023/07-30-Unity&amp;Zapworks/" title="Unity&amp;Zapworks">Unity&amp;Zapworks</a><time datetime="2023-07-30T15:51:22.000Z" title="发表于 2023-07-30 23:51:22">2023-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07-05-Unity%E5%B0%8F%E8%AE%B0/" title="Unity小记"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202307151851786.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity小记"/></a><div class="content"><a class="title" href="/2023/07-05-Unity%E5%B0%8F%E8%AE%B0/" title="Unity小记">Unity小记</a><time datetime="2023-07-05T04:01:21.000Z" title="发表于 2023-07-05 12:01:21">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202303021441977.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见设备分辨率"/></a><div class="content"><a class="title" href="/2023/03-02-%E5%B8%B8%E8%A7%81%E8%AE%BE%E5%A4%87%E5%88%86%E8%BE%A8%E7%8E%87/" title="常见设备分辨率">常见设备分辨率</a><time datetime="2023-03-02T06:26:32.000Z" title="发表于 2023-03-02 14:26:32">2023-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础"><img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202212241457661.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础"/></a><div class="content"><a class="title" href="/2022/12-24-Java%E5%9F%BA%E7%A1%80/" title="Java基础">Java基础</a><time datetime="2022-12-24T06:56:21.000Z" title="发表于 2022-12-24 14:56:21">2022-12-24</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -273,38 +284,5 @@ hexo  ...</div></div></div><div class="recent-post-item"><div class="post_cover 
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C#</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Objective-C/"><span class="card-category-list-name">Objective-C</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/Editor/"><span class="card-category-list-name">Editor</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/Engine/"><span class="card-category-list-name">Engine</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/GooglePlay/"><span class="card-category-list-name">GooglePlay</span><span class="card-category-list-count">1</span></a></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Unity/" style="font-size: 1.45em; color: rgb(174, 188, 146)">Unity</a><a href="/tags/UGUI/" style="font-size: 1.3em; color: rgb(126, 16, 93)">UGUI</a><a href="/tags/me/" style="font-size: 1.15em; color: rgb(168, 0, 199)">me</a><a href="/tags/Font/" style="font-size: 1.15em; color: rgb(156, 142, 72)">Font</a><a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 1.15em; color: rgb(179, 62, 32)">视频</a><a href="/tags/hexo/" style="font-size: 1.15em; color: rgb(94, 28, 62)">hexo</a><a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 1.15em; color: rgb(78, 32, 160)">内存</a><a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 1.3em; color: rgb(86, 45, 87)">优化</a><a href="/tags/Texture/" style="font-size: 1.15em; color: rgb(158, 37, 150)">Texture</a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.15em; color: rgb(108, 92, 34)">数据结构</a><a href="/tags/Scheme/" style="font-size: 1.15em; color: rgb(58, 175, 172)">Scheme</a><a href="/tags/Editor/" style="font-size: 1.15em; color: rgb(55, 71, 4)">Editor</a><a href="/tags/C/" style="font-size: 1.3em; color: rgb(120, 91, 147)">C#</a><a href="/tags/Live2D/" style="font-size: 1.15em; color: rgb(31, 20, 165)">Live2D</a><a href="/tags/Android/" style="font-size: 1.3em; color: rgb(144, 11, 47)">Android</a><a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 1.3em; color: rgb(64, 146, 161)">热更新</a><a href="/tags/Objective-C/" style="font-size: 1.15em; color: rgb(65, 55, 133)">Objective-C</a><a href="/tags/IOS/" style="font-size: 1.15em; color: rgb(6, 162, 82)">IOS</a><a href="/tags/Untiy/" style="font-size: 1.15em; color: rgb(110, 103, 35)">Untiy</a><a href="/tags/GooglePlay/" style="font-size: 1.15em; color: rgb(36, 154, 161)">GooglePlay</a><a href="/tags/Java/" style="font-size: 1.15em; color: rgb(166, 22, 98)">Java</a><a href="/tags/Audio/" style="font-size: 1.15em; color: rgb(161, 106, 41)">Audio</a><a href="/tags/Zapworks/" style="font-size: 1.15em; color: rgb(144, 114, 177)">Zapworks</a><a href="/tags/AR/" style="font-size: 1.15em; color: rgb(139, 111, 129)">AR</a><a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.15em; color: rgb(71, 72, 159)">硬件</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></main><footer id="footer" style="background-image: url('/img/category_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Roger</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">犯我中华者虽远必诛</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
-}
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
-  if (true) { 
-    window.typed = new Typed("#subtitle", {
-      strings: ["业精于勤荒于嬉"],
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50
-    })
-  } else {
-    document.getElementById("subtitle").innerHTML = '业精于勤荒于嬉'
-  }
-}
-
-if (true) {
-  if (typeof Typed === 'function') {
-    subtitleType()
-  } else {
-    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
-  }
-} else {
-  subtitleType()
-}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Zapworks/" style="font-size: 1.1em; color: #999">Zapworks</a> <a href="/tags/Scheme/" style="font-size: 1.1em; color: #999">Scheme</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/IOS/" style="font-size: 1.1em; color: #999">IOS</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/UGUI/" style="font-size: 1.3em; color: #99a1ac">UGUI</a> <a href="/tags/%E5%86%85%E5%AD%98/" style="font-size: 1.1em; color: #999">内存</a> <a href="/tags/Android/" style="font-size: 1.3em; color: #99a1ac">Android</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 1.3em; color: #99a1ac">热更新</a> <a href="/tags/Live2D/" style="font-size: 1.1em; color: #999">Live2D</a> <a href="/tags/Objective-C/" style="font-size: 1.1em; color: #999">Objective-C</a> <a href="/tags/C/" style="font-size: 1.3em; color: #99a1ac">C#</a> <a href="/tags/AR/" style="font-size: 1.1em; color: #999">AR</a> <a href="/tags/me/" style="font-size: 1.1em; color: #999">me</a> <a href="/tags/Unity/" style="font-size: 1.5em; color: #99a9bf">Unity</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 1.3em; color: #99a1ac">优化</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 1.1em; color: #999">视频</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/Audio/" style="font-size: 1.1em; color: #999">Audio</a> <a href="/tags/Untiy/" style="font-size: 1.1em; color: #999">Untiy</a> <a href="/tags/Texture/" style="font-size: 1.1em; color: #999">Texture</a> <a href="/tags/GooglePlay/" style="font-size: 1.1em; color: #999">GooglePlay</a> <a href="/tags/Editor/" style="font-size: 1.1em; color: #999">Editor</a> <a href="/tags/Font/" style="font-size: 1.1em; color: #999">Font</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-08T14:02:03.842Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Roger</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/unitychan.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body></html>

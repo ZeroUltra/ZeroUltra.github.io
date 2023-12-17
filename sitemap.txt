@@ -1,3 +1,4 @@
+https://zeroultra.github.io/aboutme/index.html
 https://zeroultra.github.io/2023/10-25-Unity%E4%B8%AD%E7%9A%84%E4%BC%98%E5%8C%96/
 https://zeroultra.github.io/2023/07-30-Unity&Zapworks/
 https://zeroultra.github.io/2023/07-05-Unity%E5%B0%8F%E8%AE%B0/
@@ -28,8 +29,6 @@ https://zeroultra.github.io/2019/12-24-2019-2-24-Unity%E4%B8%AD%E7%9A%84%E5%86%8
 https://zeroultra.github.io/2019/11-22-2019-1-24-myblog/
 https://zeroultra.github.io/categories/index.html
 https://zeroultra.github.io/tags/index.html
-https://zeroultra.github.io/1993/05-16-aboutme/
-https://zeroultra.github.io/aboutme/index.html
 https://zeroultra.github.io/
 https://zeroultra.github.io/tags/me/
 https://zeroultra.github.io/tags/hexo/

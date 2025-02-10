@@ -146,6 +146,34 @@
   </entry>
   
   <entry>
+    <title>Unity中的内置资源以及打AB包注意事项</title>
+    <link href="https://zeroultra.github.io/2024/01-01-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E8%B5%84%E6%BA%90%E4%BB%A5%E5%8F%8A%E6%89%93AB%E5%8C%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>https://zeroultra.github.io/2024/01-01-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E8%B5%84%E6%BA%90%E4%BB%A5%E5%8F%8A%E6%89%93AB%E5%8C%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/</id>
+    <published>2024-01-01T04:01:21.000Z</published>
+    <updated>2024-01-01T04:01:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于Unity中的内置资源"><a href="#关于Unity中的内置资源" class="headerlink" title="关于Unity中的内置资源"></a>关于Unity中的内置资源</h1><p>内置资源主要分为两个来源：<code>Resources/unity_builtin_extra</code> 和<code>Library/unity default resources</code></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020126553.png" alt="image-20240102012629532"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020015476.png" alt="image-20240102001507173"></p><p>可以通过代码得到资源类型</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assets = AssetDatabase.LoadAllAssetsAtPath(<span class="string">&quot;Resources/unity_builtin_extra&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> assets2 = AssetDatabase.LoadAllAssetsAtPath(<span class="string">&quot;Library/unity default resources&quot;</span>);</span><br></pre></td></tr></table></figure><ul><li><p>Resources&#x2F;unity_builtin_extra下资源对应的guid始终为0000000000000000f000000000000000。</p></li><li><p>Library&#x2F;unity default resources下资源对应的guid始终为0000000000000000e000000000000000。</p></li></ul><h2 id="Library-unity-default-resources"><a href="#Library-unity-default-resources" class="headerlink" title="Library&#x2F;unity default resources"></a>Library&#x2F;unity default resources</h2><p>这里面资源是固定的，是一些<code>shader和GUISkin(IMGUI资源),Arial字体和一些Unity内部texture(如logo,development标记..)</code>等等，虽以<code>Library</code>开头但是在library文件夹中找不到它，<code>这个文件一定会全部打进包里，unity版本不同可能里面的也资源不同</code>。</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020009365.png" alt="image-20240102000909809"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020012306.png" alt="资源"></p><h3 id="打包AssetBundle"><a href="#打包AssetBundle" class="headerlink" title="打包AssetBundle"></a>打包AssetBundle</h3><p>如果某些assetbundle包中包含了这些资源将不会的打进ab包中， 即<code>永远不会造成ab资源冗余</code>,很像unity自己打了一个ab包</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020037667.png" alt="7bbaaeda323863e954df35032a0e6d6c"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020038636.png" alt="image-20240102003808039"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020038021.png" alt="image-20240102003850870"></p><p>由上图可见，我在Text组件中用了Arial字体属于<code>unity default resources</code>,不会打进ab包。同样我在gameobject_1中用了一个脚本引用了GUISkin也是没有打进ab包的(只是打了一个mono脚本)</p><h2 id="Resources-unity-builtin-extra"><a href="#Resources-unity-builtin-extra" class="headerlink" title="Resources&#x2F;unity_builtin_extra"></a>Resources&#x2F;unity_builtin_extra</h2><p>里面包括资源：Shader，Material，Texture(都是UGUI的图,看文章开头图,这些图原格式都是psd,具体可以ugui源代码)以及Sprite(UGUI的精灵图),内置资源在发布时是会按需裁剪的,影响他的大小因素(现在所知),来自Project Setting-&gt;Graphics-&gt;Always included shaders的size大小</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020048876.png" alt="image-20240102004814241"></p><p>通过解包来看里面的资源(手机版暂没发现),里面都是shader</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020112830.png" alt="image-20240102011228983"></p><h3 id="打包AssetBundle-1"><a href="#打包AssetBundle-1" class="headerlink" title="打包AssetBundle"></a>打包AssetBundle</h3><p>这里面的资源不会剥离,而是会随着ab包打进,如果有两个uiprefab的ab包，都引用了其中的Sprite资源(例如Background)，那么他会打进两个ab中，<code>会造成冗余,需要注意</code></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386625317">Unity实践—Unity 内置资源独立打包 - 知乎 (zhihu.com)</a></p><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/669070779">Unity冗余资源全面优化 - 知乎 (zhihu.com)</a></p><p><a target="_blank" rel="noopener" href="https://blog.uwa4d.com/archives/1577.html">Unity 5.x AssetBundle零冗余解决方案 - UWA问答 | 博客 | 游戏及VR应用性能优化记录分享 | 侑虎科技 (uwa4d.com)</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;关于Unity中的内置资源&quot;&gt;&lt;a href=&quot;#关于Unity中的内置资源&quot; class=&quot;headerlink&quot; title=&quot;关于Unity中的内置资源&quot;&gt;&lt;/a&gt;关于Unity中的内置资源&lt;/h1&gt;&lt;p&gt;内置资源主要分为两个来源：&lt;code&gt;Resourc</summary>
+      
+    
+    
+    
+    <category term="Unity" scheme="https://zeroultra.github.io/categories/Unity/"/>
+    
+    <category term="Assets" scheme="https://zeroultra.github.io/categories/Unity/Assets/"/>
+    
+    
+    <category term="Unity" scheme="https://zeroultra.github.io/tags/Unity/"/>
+    
+    <category term="Assets" scheme="https://zeroultra.github.io/tags/Assets/"/>
+    
+  </entry>
+  
+  <entry>
     <title>UnityEngine.Object和System.Object</title>
     <link href="https://zeroultra.github.io/2024/01-01-UnityEngine.Object%E5%92%8CSystem.Object%20-%20%E5%89%AF%E6%9C%AC/"/>
     <id>https://zeroultra.github.io/2024/01-01-UnityEngine.Object%E5%92%8CSystem.Object%20-%20%E5%89%AF%E6%9C%AC/</id>
@@ -166,34 +194,6 @@
     
     
     <category term="Unity" scheme="https://zeroultra.github.io/tags/Unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity中的内置资源以及打AB包注意事项</title>
-    <link href="https://zeroultra.github.io/2024/01-01-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E8%B5%84%E6%BA%90%E4%BB%A5%E5%8F%8A%E6%89%93AB%E5%8C%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>https://zeroultra.github.io/2024/01-01-Unity%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E8%B5%84%E6%BA%90%E4%BB%A5%E5%8F%8A%E6%89%93AB%E5%8C%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/</id>
-    <published>2024-01-01T04:01:21.000Z</published>
-    <updated>2024-01-01T04:01:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="关于Unity中的内置资源"><a href="#关于Unity中的内置资源" class="headerlink" title="关于Unity中的内置资源"></a>关于Unity中的内置资源</h1><p>内置资源主要分为两个来源：<code>Resources/unity_builtin_extra</code> 和<code>Library/unity default resources</code></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020126553.png?token=AJD3J3KVTHDABV43IRPKYBDFSL3AI" alt="image-20240102012629532"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020015476.png?token=AJD3J3LW6P6EONPUS2LJ2E3FSLSUY" alt="image-20240102001507173"></p><p>可以通过代码得到资源类型</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assets = AssetDatabase.LoadAllAssetsAtPath(<span class="string">&quot;Resources/unity_builtin_extra&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> assets2 = AssetDatabase.LoadAllAssetsAtPath(<span class="string">&quot;Library/unity default resources&quot;</span>);</span><br></pre></td></tr></table></figure><ul><li><p>Resources&#x2F;unity_builtin_extra下资源对应的guid始终为0000000000000000f000000000000000。</p></li><li><p>Library&#x2F;unity default resources下资源对应的guid始终为0000000000000000e000000000000000。</p></li></ul><h2 id="Library-unity-default-resources"><a href="#Library-unity-default-resources" class="headerlink" title="Library&#x2F;unity default resources"></a>Library&#x2F;unity default resources</h2><p>这里面资源是固定的，是一些<code>shader和GUISkin(IMGUI资源),Arial字体和一些Unity内部texture(如logo,development标记..)</code>等等，虽以<code>Library</code>开头但是在library文件夹中找不到它，<code>这个文件一定会全部打进包里，unity版本不同可能里面的也资源不同</code>。</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020009365.png?token=AJD3J3PT6XKNEJEGMSFIURDFSLR6W" alt="image-20240102000909809"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020012306.png?token=AJD3J3INV2JN2VD6EEAA6H3FSLSJW" alt="资源"></p><h3 id="打包AssetBundle"><a href="#打包AssetBundle" class="headerlink" title="打包AssetBundle"></a>打包AssetBundle</h3><p>如果某些assetbundle包中包含了这些资源将不会的打进ab包中， 即<code>永远不会造成ab资源冗余</code>,很像unity自己打了一个ab包</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020037667.png?token=AJD3J3MCEI4GGVRA5VAOKMDFSLVII" alt="7bbaaeda323863e954df35032a0e6d6c"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020038636.png?token=AJD3J3MW5QGDLJR22OIG3YLFSLVLC" alt="image-20240102003808039"></p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020038021.png?token=AJD3J3N7WAPVEAGUT5SOIXTFSLVNW" alt="image-20240102003850870"></p><p>由上图可见，我在Text组件中用了Arial字体属于<code>unity default resources</code>,不会打进ab包。同样我在gameobject_1中用了一个脚本引用了GUISkin也是没有打进ab包的(只是打了一个mono脚本)</p><h2 id="Resources-unity-builtin-extra"><a href="#Resources-unity-builtin-extra" class="headerlink" title="Resources&#x2F;unity_builtin_extra"></a>Resources&#x2F;unity_builtin_extra</h2><p>里面包括资源：Shader，Material，Texture(都是UGUI的图,看文章开头图,这些图原格式都是psd,具体可以ugui源代码)以及Sprite(UGUI的精灵图),内置资源在发布时是会按需裁剪的,影响他的大小因素(现在所知),来自Project Setting-&gt;Graphics-&gt;Always included shaders的size大小</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020048876.png?token=AJD3J3OEZUB226P4IRA6NZ3FSLWQ2" alt="image-20240102004814241"></p><p>通过解包来看里面的资源(手机版暂没发现),里面都是shader</p><p> <img src="https://raw.githubusercontent.com/ZeroUltra/MediaLibrary/main/Imgs/202401020112830.png?token=AJD3J3LZME7AES4BNSJZE5LFSLZLY" alt="image-20240102011228983"></p><h3 id="打包AssetBundle-1"><a href="#打包AssetBundle-1" class="headerlink" title="打包AssetBundle"></a>打包AssetBundle</h3><p>这里面的资源不会剥离,而是会随着ab包打进,如果有两个uiprefab的ab包，都引用了其中的Sprite资源(例如Background)，那么他会打进两个ab中，<code>会造成冗余,需要注意</code></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386625317">Unity实践—Unity 内置资源独立打包 - 知乎 (zhihu.com)</a></p><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/669070779">Unity冗余资源全面优化 - 知乎 (zhihu.com)</a></p><p><a target="_blank" rel="noopener" href="https://blog.uwa4d.com/archives/1577.html">Unity 5.x AssetBundle零冗余解决方案 - UWA问答 | 博客 | 游戏及VR应用性能优化记录分享 | 侑虎科技 (uwa4d.com)</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;关于Unity中的内置资源&quot;&gt;&lt;a href=&quot;#关于Unity中的内置资源&quot; class=&quot;headerlink&quot; title=&quot;关于Unity中的内置资源&quot;&gt;&lt;/a&gt;关于Unity中的内置资源&lt;/h1&gt;&lt;p&gt;内置资源主要分为两个来源：&lt;code&gt;Resourc</summary>
-      
-    
-    
-    
-    <category term="Unity" scheme="https://zeroultra.github.io/categories/Unity/"/>
-    
-    <category term="Assets" scheme="https://zeroultra.github.io/categories/Unity/Assets/"/>
-    
-    
-    <category term="Unity" scheme="https://zeroultra.github.io/tags/Unity/"/>
-    
-    <category term="Assets" scheme="https://zeroultra.github.io/tags/Assets/"/>
     
   </entry>
   
